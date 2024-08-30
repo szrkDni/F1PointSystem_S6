@@ -5,26 +5,22 @@ using Microsoft.EntityFrameworkCore;
 
 namespace F1Pontszamitos_S6.Controllers
 {
-    [Route("api/drivers")]
+    [Route("api/teams")]
     [ApiController]
-    public class DriversController : ControllerBase
+    public class TeamController : ControllerBase
     {
         private readonly DriversDbContext _dbContext;
 
-        public DriversController(DriversDbContext dbContext)
+        public TeamController(DriversDbContext dbContext)
         {
             _dbContext = dbContext;
         }
 
-
         [HttpGet]
-        public async Task<ActionResult<List<Driver>>> GetAllDrivers()
+        public async Task<ActionResult<List<Team>>> GetAllTeams()
         {
-            var unsorted = await _dbContext.DriversTable.ToListAsync();
 
-
-            return unsorted.OrderByDescending(x => x.GetPoints()).ToList();
+            return await _dbContext.TeamsTable.ToListAsync();
         }
-
     }
 }

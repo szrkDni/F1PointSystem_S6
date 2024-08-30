@@ -1,36 +1,29 @@
-﻿<div class="top-row ps-3 navbar navbar-dark">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="">F1Pontszamitos_S6</a>
-    </div>
-</div>
+﻿<header id="nav-wrapper"> 
+        <nav id="nav">
+            <div class="nav left">
+                <span class="gradient skew"><h1 class="logo un-skew"><a href="/">F1PointSystem</a></h1></span>
+                <button id="menu" class="btn-nav"><span class="fas fa-bars"></span></button>
+            </div>
+            <div class="nav right">
 
-<input type="checkbox" title="Navigation menu" class="navbar-toggler" />
+                <NavLink href="standings" class="nav-link">
+                    <span class="nav-link-span">
+                        <span class="u-nav">
+                            Standings
+                        </span>
+                    </span>
+                </NavLink>
 
-<div class="nav-scrollable" onclick="document.querySelector('.navbar-toggler').click()">
-    <nav class="flex-column">
-        <div class="nav-item px-3">
-            <NavLink class="nav-link" href="" Match="NavLinkMatch.All">
-                <span class="bi bi-house-door-fill-nav-menu" aria-hidden="true"></span> Home
-            </NavLink>
-        </div>
+                <NavLink href="empty" class="nav-link">
+                    <span class="nav-link-span">
+                        <span class="u-nav">
+                            stan
 
-        <div class="nav-item px-3">
-            <NavLink class="nav-link" href="counter">
-                <span class="bi bi-plus-square-fill-nav-menu" aria-hidden="true"></span> Counter
-            </NavLink>
-        </div>
+                        </span>
+                    </span>
+                </NavLink>
 
-        <div class="nav-item px-3">
-            <NavLink class="nav-link" href="weather">
-                <span class="bi bi-list-nested-nav-menu" aria-hidden="true"></span> Weather
-            </NavLink>
-        </div>
-
-        <div class="nav-item px-3">
-            <NavLink class="nav-link" href="standings">
-               Standings
-            </NavLink>
-        </div>
-    </nav>
-</div>
+            </div>
+        </nav>
+</header>
 

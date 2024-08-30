@@ -1,0 +1,168 @@
+﻿@font-face {
+    font-family: F1;
+    src: url('../Fonts/F1.ttf')
+}
+
+
+:root {
+    --nav-height: 4rem;
+    --red: red;
+    --whitesmoke: whitesmoke;
+}
+
+/*-------------Reset-------------*/
+button {
+    background: none;
+    box-shadow: none;
+    border: none;
+    cursor: pointer;
+}
+
+.skew {
+    transform: skew(-20deg);
+}
+
+.un-skew {
+    transform: skew(20deg);
+}
+
+
+/*-------------Nav-------------*/
+#nav-wrapper {
+    overflow: hidden;
+    width: 100%;
+    margin: 0 auto;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    border-radius: 20px;
+}
+
+#nav {
+    background-color: var(--whitesmoke);
+    box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    font-family: "Saira Semi Condensed", sans-serif;
+    height: var(--nav-height);
+    overflow: hidden;
+}
+
+
+.nav {
+    display: flex;
+    line-height: var(--nav-height);
+    flex-grow: 1;
+}
+
+.nav-link,
+.logo {
+    padding: 0 1em;
+}
+
+span.gradient {
+    background-color: var(--red);
+    padding: 0 1em;
+    position: relative;
+    right: 1em;
+    margin-right: auto;
+}
+
+    span.gradient:hover {
+        animation-name: logo-hover;
+        animation-duration: 0.3s;
+        animation-fill-mode: forwards;
+        animation-timing-function: cubic-bezier(0.17, 0.57, 0.31, 0.85);
+    }
+
+h1.logo {
+    font-weight: 300;
+    font-size: 1.75em;
+    line-height: var(--nav-height);
+    color: var(--whitesmoke);
+}
+
+h1.logo a, a:active, a:hover, a:visited {
+    text-decoration: none;
+    color: var(--whitesmoke);
+}
+
+.nav-link {
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.nav-link:visited, .nav-link:active {
+    color: var(--red);
+}
+
+.right {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+@media (min-width: 800px) {
+    #nav-wrapper {
+        overflow: hidden;
+    }
+
+    #nav {
+        overflow: hidden;
+        flex-direction: row;
+    }
+
+    .nav-link {
+        border-top: none;
+    }
+
+    .right {
+        overflow: hidden;
+        flex-direction: row;
+        justify-content: flex-end;
+        position: relative;
+        left: 1.5em;
+        height: auto;
+    }
+
+    .btn-nav {
+        display: none;
+    }
+
+    .nav a:link.active, a:visited.active {
+        background-color: var(--red);
+        color: var(--whitesmoke);
+    }
+
+    .nav-link-span {
+        transform: skew(20deg);
+        display: inline-block;
+    }
+
+    .nav-link {
+        transform: skew(-20deg);
+        color: var(--red);
+        text-decoration: none;
+    }
+
+        .nav-link:last-child {
+            padding-right: 3em;
+        }
+
+    a:hover.nav-link:not(.active) {
+        color: #444;
+        background: #ddd;
+        background: linear-gradient(45deg, #fff, #ddd);
+    }
+}
+
+@keyframes logo-hover {
+    20% {
+        padding-right: 0em;
+    }
+
+    100% {
+        padding-right: 5em;
+    }
+}

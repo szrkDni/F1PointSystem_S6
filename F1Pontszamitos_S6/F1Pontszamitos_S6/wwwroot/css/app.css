@@ -1,9 +1,13 @@
-html, body {
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+@font-face {
+    font-family: F1;
+    src: url('../Fonts/F1.ttf')
 }
 
-a, .btn-link {
-    color: #006bb7;
+
+body {
+    font-family: F1;
+    background-image: url('../Images/back1.jpg');
+    margin-top: 4em;
 }
 
 .btn-primary {

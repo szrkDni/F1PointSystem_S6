@@ -5,7 +5,7 @@ using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
 
-namespace F1Pontszamitos_S6.Shared.Models
+namespace F1Pontszamitos_S6.Shared.Utils
 {
     public class FileReader
     {
@@ -24,14 +24,6 @@ namespace F1Pontszamitos_S6.Shared.Models
             var json = await _httpClient.GetStringAsync(filepath);
 
             var result = JsonSerializer.Deserialize<Dictionary<string, string>>(json);
-
-
-            var tmp = new Dictionary<string, string>();
-
-            tmp["heo"] = "szia";
-            tmp["gege"] = "ww";
-            tmp["dd"] = "lo";
-            tmp["dcwedc"] = "fre";
 
             return result;
 

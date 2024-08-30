@@ -8,7 +8,7 @@
 46 roughly being the length of the longest path.air
 */
 
-.container {
+.loaderContainer {
     min-height: 100vh;
     /* center in the viewport */
     display: grid;
@@ -16,7 +16,7 @@
     align-content: center;
 }
 
-    .container > svg {
+    .loaderContainer > svg {
         width: 20vw;
         height: auto;
         --stroke-dash: 46;

@@ -1,8 +1,8 @@
-﻿@page "/standings"
+﻿@page "/empty"
 @inject HttpClient Http
 @rendermode @( new InteractiveWebAssemblyRenderMode(prerender: false))
 
-<PageTitle>Standings</PageTitle>
+<PageTitle>emty</PageTitle>
 <link href="css/tabella.css" rel="stylesheet" />
 
 
@@ -275,64 +275,7 @@
 }
 else
 {
-    <div class="topcontainer">
-        <div class="logoNyear">
-            <img src="Images/f1logo.png" class="f1logo" />
-            <p class="year">2024</p>
-        </div>
-        <div class="titleNgp">
-            <p class="title">ISMERETTSÉGSHIP<br>CHAMPIONSHIP</p>
-            <p class="currentgp">POINTS AFTER THE<br> @raceList[driverList[0].FinishingPositions.Count - 1].Name</p>
-        </div>
-    </div>
-
-    <div class="driverstabContainer">
-
-        <table class="table-reg table-gaps">
-
-            @for (int i = 0; i < driverList.Count / 2; i++)
-            {
-                <tr class="table-row @driverList[i].Team_id.ToString()" style="background-color: @driverList[i].GetBgColor(teamList)">
-                    <td><img src="../Images/LOGO/@String.Concat(driverList[i].GetTeamName(teamList),".png")" /></td>
-                    <td class="@String.Concat(n, driverList[i].Team_id.ToString())">@driverList[i].Name</td>
-                    <td><img class="driverIMG" src="../Images/FACES/@String.Concat(driverList[i].Name,".png")" /></td>
-                    <td>@driverList[i].GetPoints()</td>
-                </tr>
-            }
-
-        </table>
-
-        <table class="table-reg table-gaps">
-
-            @for (int i = driverList.Count / 2; i < driverList.Count; i++)
-            {
-                <tr class="table-row" style="background-color: @driverList[i].GetBgColor(teamList)">
-                    <td><img class="DteamIMG" src="../Images/LOGO/@String.Concat(driverList[i].GetTeamName(teamList),".png")" /></td>
-                    <td class="@String.Concat(n, driverList[i].Team_id.ToString())">@driverList[i].Name</td>
-                    <td><img class="driverIMG" src="../Images/FACES/@String.Concat(driverList[i].Name,".png")" /></td>
-                    <td>@driverList[i].GetPoints()</td>
-                </tr>
-            }
-
-        </table>
-
-
-    </div>
-
-    <div class="teamstabContainer">
-        <table class="table-team table-gaps">
-
-            @foreach (var s in teamList)
-            {
-                <tr class="table-row" id="scnd" style="background-color: @s.BgColor">
-                    <td><img src="Images/LOGO/@String.Concat(s.Name,".png")" /></td>
-                    <td class="@String.Concat(n, s.Id.ToString())">@s.Name</td>
-                    <td>@s.GetPoints(driverList)</td>
-                </tr>
-            }
-
-        </table>
-    </div>
+   <p>This is an empty page</p>
 }
 
 @code {

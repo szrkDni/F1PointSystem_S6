@@ -1,6 +1,8 @@
 using F1Pontszamitos_S6.Client.Pages;
 using F1Pontszamitos_S6.Components;
 using F1Pontszamitos_S6.DataB;
+using F1Pontszamitos_S6.Shared.Models;
+using F1Pontszamitos_S6.Shared.Utils;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
