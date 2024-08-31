@@ -16,35 +16,35 @@ namespace F1Pontszamitos_S6.DataB
             base.OnModelCreating(modelBuilder);
 
             modelBuilder.Entity<Driver>().HasData(
-                new Driver { Id = 1, Name = "Verstappen", ShortName = "VER", Team_id = 1, FinishingPositions = new List<int> { 3, 4, 1, 20 }, FastestLapList = new List<int> { 1, 0, 1, 0, 0 } },
-                new Driver { Id = 7, Name = "Perez", ShortName = "PER", Team_id = 1, FinishingPositions = new List<int> { 6, 13, 20, 19 }, FastestLapList = new List<int> { 1, 0, 0, 1, 0 } },
+                new Driver { Id = 1, Name = "Verstappen", ShortName = "VER", Team_id = 1, FinishingPositions = new List<int> { 3 }, FastestLapList = new List<int> { 1 } },
+                new Driver { Id = 7, Name = "Perez", ShortName = "PER", Team_id = 1, FinishingPositions = new List<int> { 6 }, FastestLapList = new List<int> { 1 } },
 
-                new Driver { Id = 2, Name = "Norris", ShortName = "NOR", Team_id = 3, FinishingPositions = new List<int> { 4, 2, 3, 4 }, FastestLapList = new List<int> { 1, 0, 0, 1, 0 } },
-                new Driver { Id = 4, Name = "Piastri", ShortName = "PIA", Team_id = 3, FinishingPositions = new List<int> { 5, 7, 20, 3 }, FastestLapList = new List<int> { 1, 0, 0, 0, 1 } },
+                new Driver { Id = 2, Name = "Norris", ShortName = "NOR", Team_id = 3, FinishingPositions = new List<int> { 4 }, FastestLapList = new List<int> { 1 } },
+                new Driver { Id = 4, Name = "Piastri", ShortName = "PIA", Team_id = 3, FinishingPositions = new List<int> { 5 }, FastestLapList = new List<int> { 1 } },
 
-                new Driver { Id = 3, Name = "Leclerc", ShortName = "LEC", Team_id = 2, FinishingPositions = new List<int> { 1, 1, 1, 1 }, FastestLapList = new List<int> { 1, 0, 0, 0, 0 } },
-                new Driver { Id = 5, Name = "Sainz", ShortName = "SAI", Team_id = 2, FinishingPositions = new List<int> { 2, 2, 2, 2 }, FastestLapList = new List<int> { 0, 1, 1, 1, 1 } },
+                new Driver { Id = 3, Name = "Leclerc", ShortName = "LEC", Team_id = 2, FinishingPositions = new List<int> { 1 }, FastestLapList = new List<int> { 1 } },
+                new Driver { Id = 5, Name = "Sainz", ShortName = "SAI", Team_id = 2, FinishingPositions = new List<int> { 2 }, FastestLapList = new List<int> { 0 } },
 
-                new Driver { Id = 6, Name = "Hamilton", ShortName = "HAM", Team_id = 10, FinishingPositions = new List<int> { 7, 7, 6, 8 }, FastestLapList = new List<int> { 0, 1, 1, 1, 0 } },
-                new Driver { Id = 8, Name = "Russel", ShortName = "RUS", Team_id = 10, FinishingPositions = new List<int> { 5, 6, 6, 9 }, FastestLapList = new List<int> { 0, 1, 1, 0, 1 } },
+                new Driver { Id = 6, Name = "Hamilton", ShortName = "HAM", Team_id = 10, FinishingPositions = new List<int> { 7 }, FastestLapList = new List<int> { 0 } },
+                new Driver { Id = 8, Name = "Russel", ShortName = "RUS", Team_id = 10, FinishingPositions = new List<int> { 5 }, FastestLapList = new List<int> { 0 } },
 
-                new Driver { Id = 9, Name = "Alonso", ShortName = "ALO", Team_id = 5, FinishingPositions = new List<int> { 8, 13, 20, 19 }, FastestLapList = new List<int> { 0, 1, 1, 0, 0 } },
-                new Driver { Id = 10, Name = "Stroll", ShortName = "STR", Team_id = 5, FinishingPositions = new List<int> { 9, 13, 20, 19 }, FastestLapList = new List<int> { 0, 1, 0, 1, 1 } },
+                new Driver { Id = 9, Name = "Alonso", ShortName = "ALO", Team_id = 5, FinishingPositions = new List<int> { 8 }, FastestLapList = new List<int> { 0 } },
+                new Driver { Id = 10, Name = "Stroll", ShortName = "STR", Team_id = 5, FinishingPositions = new List<int> { 9 }, FastestLapList = new List<int> { 0 } },
 
-                new Driver { Id = 11, Name = "Hulkenberg", ShortName = "HUL", Team_id = 8, FinishingPositions = new List<int> { 10, 13, 20, 19 }, FastestLapList = new List<int> { 0, 1, 0, 1, 0 } },
-                new Driver { Id = 15, Name = "Magnussen", ShortName = "MAG", Team_id = 8, FinishingPositions = new List<int> { 11, 13, 20, 19 }, FastestLapList = new List<int> { 0, 1, 0, 0, 1 } },
+                new Driver { Id = 11, Name = "Hulkenberg", ShortName = "HUL", Team_id = 8, FinishingPositions = new List<int> { 10 }, FastestLapList = new List<int>  { 0} },
+                new Driver { Id = 15, Name = "Magnussen", ShortName = "MAG", Team_id = 8, FinishingPositions = new List<int> { 11 }, FastestLapList = new List<int> { 0 } },
 
-                new Driver { Id = 12, Name = "Tsunoda", ShortName = "TSU", Team_id = 6, FinishingPositions = new List<int> { 12, 13, 20, 19 }, FastestLapList = new List<int> { 0, 1, 0, 0, 0 } },
-                new Driver { Id = 13, Name = "Ricciardo", ShortName = "RIC", Team_id = 6, FinishingPositions = new List<int> { 13, 13, 20, 19 }, FastestLapList = new List<int> { 0, 0, 1, 1, 1 } },
+                new Driver { Id = 12, Name = "Tsunoda", ShortName = "TSU", Team_id = 6, FinishingPositions = new List<int> { 12 }, FastestLapList = new List<int> { 0 } },
+                new Driver { Id = 13, Name = "Ricciardo", ShortName = "RIC", Team_id = 6, FinishingPositions = new List<int> { 13 }, FastestLapList = new List<int> { 0 } },
 
-                new Driver { Id = 14, Name = "Gasly", ShortName = "GAS", Team_id = 9, FinishingPositions = new List<int> { 14, 13, 20, 19 }, FastestLapList = new List<int> { 0, 0, 1, 0, 1 } },
-                new Driver { Id = 17, Name = "Ocon", ShortName = "OCO", Team_id = 9, FinishingPositions = new List<int> { 15, 13, 20, 19 }, FastestLapList = new List<int> { 0, 0, 1, 0, 0 } },
+                new Driver { Id = 14, Name = "Gasly", ShortName = "GAS", Team_id = 9, FinishingPositions = new List<int> { 14 }, FastestLapList = new List<int> { 0 } },
+                new Driver { Id = 17, Name = "Ocon", ShortName = "OCO", Team_id = 9, FinishingPositions = new List<int> { 15 }, FastestLapList = new List<int> { 0 } },
 
-                new Driver { Id = 16, Name = "Albon", ShortName = "ALB", Team_id = 7, FinishingPositions = new List<int> { 16, 13, 20, 19 }, FastestLapList = new List<int> { 0, 0, 0, 1, 1 } },
-                new Driver { Id = 19, Name = "Sargeant", ShortName = "SAR", Team_id = 7, FinishingPositions = new List<int> { 17, 13, 20, 19 }, FastestLapList = new List<int> { 0, 0, 0, 1, 0 } },
+                new Driver { Id = 16, Name = "Albon", ShortName = "ALB", Team_id = 7, FinishingPositions = new List<int> { 16 }, FastestLapList = new List<int> { 0 } },
+                new Driver { Id = 19, Name = "Sargeant", ShortName = "SAR", Team_id = 7, FinishingPositions = new List<int> { 17 }, FastestLapList = new List<int> { 0 } },
 
-                new Driver { Id = 18, Name = "Zhou", ShortName = "ZHO", Team_id = 4, FinishingPositions = new List<int> { 19, 20, 19, 18 }, FastestLapList = new List<int> { 0, 0, 0, 0, 1 } },
-                new Driver { Id = 20, Name = "Bottas", ShortName = "BOT", Team_id = 4, FinishingPositions = new List<int> { 20, 19, 18, 19 }, FastestLapList = new List<int> { 0, 0, 0, 0, 0 } }
+                new Driver { Id = 18, Name = "Zhou", ShortName = "ZHO", Team_id = 4, FinishingPositions = new List<int> { 19 }, FastestLapList = new List<int> { 0 } },
+                new Driver { Id = 20, Name = "Bottas", ShortName = "BOT", Team_id = 4, FinishingPositions = new List<int> { 20 }, FastestLapList = new List<int> { 0 } }
                 );
 
             modelBuilder.Entity<Team>().HasData(
@@ -68,6 +68,8 @@ namespace F1Pontszamitos_S6.DataB
                 new Race { Id = 5, Name = "Hungarian GP", ShortName = "HUN" }
                 );
         }
+
+
 
         public DbSet<Driver> DriversTable { get; set; }
 

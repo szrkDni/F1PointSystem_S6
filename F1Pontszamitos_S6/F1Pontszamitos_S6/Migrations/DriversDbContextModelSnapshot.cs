@@ -24,16 +24,17 @@ namespace F1Pontszamitos_S6.Migrations
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("FastestLapList")
-                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<string>("FinishingPositions")
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Name")
+                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<string>("ShortName")
+                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<int?>("Team_id")
@@ -47,8 +48,8 @@ namespace F1Pontszamitos_S6.Migrations
                         new
                         {
                             Id = 1,
-                            FastestLapList = "[1,0,1,0,0]",
-                            FinishingPositions = "[3,4,1,20]",
+                            FastestLapList = "[1]",
+                            FinishingPositions = "[3]",
                             Name = "Verstappen",
                             ShortName = "VER",
                             Team_id = 1
@@ -56,8 +57,8 @@ namespace F1Pontszamitos_S6.Migrations
                         new
                         {
                             Id = 7,
-                            FastestLapList = "[1,0,0,1,0]",
-                            FinishingPositions = "[6,13,20,19]",
+                            FastestLapList = "[1]",
+                            FinishingPositions = "[6]",
                             Name = "Perez",
                             ShortName = "PER",
                             Team_id = 1
@@ -65,8 +66,8 @@ namespace F1Pontszamitos_S6.Migrations
                         new
                         {
                             Id = 2,
-                            FastestLapList = "[1,0,0,1,0]",
-                            FinishingPositions = "[4,2,3,4]",
+                            FastestLapList = "[1]",
+                            FinishingPositions = "[4]",
                             Name = "Norris",
                             ShortName = "NOR",
                             Team_id = 3
@@ -74,8 +75,8 @@ namespace F1Pontszamitos_S6.Migrations
                         new
                         {
                             Id = 4,
-                            FastestLapList = "[1,0,0,0,1]",
-                            FinishingPositions = "[5,7,20,3]",
+                            FastestLapList = "[1]",
+                            FinishingPositions = "[5]",
                             Name = "Piastri",
                             ShortName = "PIA",
                             Team_id = 3
@@ -83,8 +84,8 @@ namespace F1Pontszamitos_S6.Migrations
                         new
                         {
                             Id = 3,
-                            FastestLapList = "[1,0,0,0,0]",
-                            FinishingPositions = "[1,1,1,1]",
+                            FastestLapList = "[1]",
+                            FinishingPositions = "[1]",
                             Name = "Leclerc",
                             ShortName = "LEC",
                             Team_id = 2
@@ -92,8 +93,8 @@ namespace F1Pontszamitos_S6.Migrations
                         new
                         {
                             Id = 5,
-                            FastestLapList = "[0,1,1,1,1]",
-                            FinishingPositions = "[2,2,2,2]",
+                            FastestLapList = "[0]",
+                            FinishingPositions = "[2]",
                             Name = "Sainz",
                             ShortName = "SAI",
                             Team_id = 2
@@ -101,8 +102,8 @@ namespace F1Pontszamitos_S6.Migrations
                         new
                         {
                             Id = 6,
-                            FastestLapList = "[0,1,1,1,0]",
-                            FinishingPositions = "[7,7,6,8]",
+                            FastestLapList = "[0]",
+                            FinishingPositions = "[7]",
                             Name = "Hamilton",
                             ShortName = "HAM",
                             Team_id = 10
@@ -110,8 +111,8 @@ namespace F1Pontszamitos_S6.Migrations
                         new
                         {
                             Id = 8,
-                            FastestLapList = "[0,1,1,0,1]",
-                            FinishingPositions = "[5,6,6,9]",
+                            FastestLapList = "[0]",
+                            FinishingPositions = "[5]",
                             Name = "Russel",
                             ShortName = "RUS",
                             Team_id = 10
@@ -119,8 +120,8 @@ namespace F1Pontszamitos_S6.Migrations
                         new
                         {
                             Id = 9,
-                            FastestLapList = "[0,1,1,0,0]",
-                            FinishingPositions = "[8,13,20,19]",
+                            FastestLapList = "[0]",
+                            FinishingPositions = "[8]",
                             Name = "Alonso",
                             ShortName = "ALO",
                             Team_id = 5
@@ -128,8 +129,8 @@ namespace F1Pontszamitos_S6.Migrations
                         new
                         {
                             Id = 10,
-                            FastestLapList = "[0,1,0,1,1]",
-                            FinishingPositions = "[9,13,20,19]",
+                            FastestLapList = "[0]",
+                            FinishingPositions = "[9]",
                             Name = "Stroll",
                             ShortName = "STR",
                             Team_id = 5
@@ -137,8 +138,8 @@ namespace F1Pontszamitos_S6.Migrations
                         new
                         {
                             Id = 11,
-                            FastestLapList = "[0,1,0,1,0]",
-                            FinishingPositions = "[10,13,20,19]",
+                            FastestLapList = "[0]",
+                            FinishingPositions = "[10]",
                             Name = "Hulkenberg",
                             ShortName = "HUL",
                             Team_id = 8
@@ -146,8 +147,8 @@ namespace F1Pontszamitos_S6.Migrations
                         new
                         {
                             Id = 15,
-                            FastestLapList = "[0,1,0,0,1]",
-                            FinishingPositions = "[11,13,20,19]",
+                            FastestLapList = "[0]",
+                            FinishingPositions = "[11]",
                             Name = "Magnussen",
                             ShortName = "MAG",
                             Team_id = 8
@@ -155,8 +156,8 @@ namespace F1Pontszamitos_S6.Migrations
                         new
                         {
                             Id = 12,
-                            FastestLapList = "[0,1,0,0,0]",
-                            FinishingPositions = "[12,13,20,19]",
+                            FastestLapList = "[0]",
+                            FinishingPositions = "[12]",
                             Name = "Tsunoda",
                             ShortName = "TSU",
                             Team_id = 6
@@ -164,8 +165,8 @@ namespace F1Pontszamitos_S6.Migrations
                         new
                         {
                             Id = 13,
-                            FastestLapList = "[0,0,1,1,1]",
-                            FinishingPositions = "[13,13,20,19]",
+                            FastestLapList = "[0]",
+                            FinishingPositions = "[13]",
                             Name = "Ricciardo",
                             ShortName = "RIC",
                             Team_id = 6
@@ -173,8 +174,8 @@ namespace F1Pontszamitos_S6.Migrations
                         new
                         {
                             Id = 14,
-                            FastestLapList = "[0,0,1,0,1]",
-                            FinishingPositions = "[14,13,20,19]",
+                            FastestLapList = "[0]",
+                            FinishingPositions = "[14]",
                             Name = "Gasly",
                             ShortName = "GAS",
                             Team_id = 9
@@ -182,8 +183,8 @@ namespace F1Pontszamitos_S6.Migrations
                         new
                         {
                             Id = 17,
-                            FastestLapList = "[0,0,1,0,0]",
-                            FinishingPositions = "[15,13,20,19]",
+                            FastestLapList = "[0]",
+                            FinishingPositions = "[15]",
                             Name = "Ocon",
                             ShortName = "OCO",
                             Team_id = 9
@@ -191,8 +192,8 @@ namespace F1Pontszamitos_S6.Migrations
                         new
                         {
                             Id = 16,
-                            FastestLapList = "[0,0,0,1,1]",
-                            FinishingPositions = "[16,13,20,19]",
+                            FastestLapList = "[0]",
+                            FinishingPositions = "[16]",
                             Name = "Albon",
                             ShortName = "ALB",
                             Team_id = 7
@@ -200,8 +201,8 @@ namespace F1Pontszamitos_S6.Migrations
                         new
                         {
                             Id = 19,
-                            FastestLapList = "[0,0,0,1,0]",
-                            FinishingPositions = "[17,13,20,19]",
+                            FastestLapList = "[0]",
+                            FinishingPositions = "[17]",
                             Name = "Sargeant",
                             ShortName = "SAR",
                             Team_id = 7
@@ -209,8 +210,8 @@ namespace F1Pontszamitos_S6.Migrations
                         new
                         {
                             Id = 18,
-                            FastestLapList = "[0,0,0,0,1]",
-                            FinishingPositions = "[19,20,19,18]",
+                            FastestLapList = "[0]",
+                            FinishingPositions = "[19]",
                             Name = "Zhou",
                             ShortName = "ZHO",
                             Team_id = 4
@@ -218,8 +219,8 @@ namespace F1Pontszamitos_S6.Migrations
                         new
                         {
                             Id = 20,
-                            FastestLapList = "[0,0,0,0,0]",
-                            FinishingPositions = "[20,19,18,19]",
+                            FastestLapList = "[0]",
+                            FinishingPositions = "[20]",
                             Name = "Bottas",
                             ShortName = "BOT",
                             Team_id = 4
@@ -293,6 +294,7 @@ namespace F1Pontszamitos_S6.Migrations
 
                     b.Property<string>("Name")
                         .IsRequired()
+                        .HasMaxLength(10)
                         .HasColumnType("TEXT");
 
                     b.HasKey("Id");

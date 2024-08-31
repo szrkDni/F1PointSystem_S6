@@ -1,6 +1,8 @@
-﻿using F1Pontszamitos_S6.Shared.Utils;
+﻿using F1Pontszamitos_S6.Shared.Interfaces;
+using F1Pontszamitos_S6.Shared.Utils;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,20 +11,23 @@ namespace F1Pontszamitos_S6.Shared.Models
 {
     public class Team
     {
+        [Required]
+        [Key]
         public int Id { get; set; }
 
+        [Required]
+        [MaxLength(10)]
         public string Name { get; set; }
 
         public List<int> Driver_ids { get; set; }
 
         public string BgColor { get; set; }
 
-        //Meg kell írni
 
         public int GetPoints(List<Driver> driversList)
         {
-           var myDrivers = GetDrivers(driversList);
-           return PointCounter.CountTeamPoint(myDrivers);
+            var myDrivers = GetDrivers(driversList);
+            return PointCounter.CountTeamPoint(myDrivers);
         }
 
         public List<Driver> GetDrivers(List<Driver> drivers)
@@ -42,11 +47,6 @@ namespace F1Pontszamitos_S6.Shared.Models
             }
 
             return wins;
-        }
-
-        public string getNamePNG()
-        {
-            return this.Name + ".png";
         }
 
     }

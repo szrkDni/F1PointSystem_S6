@@ -1,9 +1,4 @@
 ﻿using F1Pontszamitos_S6.Shared.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace F1Pontszamitos_S6.Shared.Utils
 {
@@ -28,7 +23,7 @@ namespace F1Pontszamitos_S6.Shared.Utils
         {
             var points = 0;
 
-            var finisingPositins = driver.FinishingPositions;
+            var finisingPositions = driver.FinishingPositions;
 
             var fastestLaps = driver.FastestLapList;
 
@@ -36,11 +31,11 @@ namespace F1Pontszamitos_S6.Shared.Utils
 
 
 
-            for (int i = 0; i < finisingPositins.Count; i++)
+            for (int i = 0; i < finisingPositions.Count; i++)
             {
-                if (_pointSystemDict.ContainsKey(finisingPositins[i]))
+                if (_pointSystemDict.ContainsKey(finisingPositions[i]))
                 {
-                    points += _pointSystemDict[finisingPositins[i]] + fastestLaps[i];
+                    points += _pointSystemDict[finisingPositions[i]] + fastestLaps[i];
                 }
             }
 

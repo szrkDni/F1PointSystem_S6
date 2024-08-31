@@ -1,39 +1,29 @@
-﻿using F1Pontszamitos_S6.Shared.Utils;
+﻿using F1Pontszamitos_S6.Shared.Interfaces;
+using F1Pontszamitos_S6.Shared.Utils;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace F1Pontszamitos_S6.Shared.Models
 {
-    public class Driver
+    public class Driver : IDriver
     {
-
+        [Required]
+        [Key]
         public int Id { get; set; }
-        public string? Name { get; set; } 
-        public string? ShortName { get; set; }
+        
+        [Required]
+        public string Name { get; set; }
 
+        [Required]
+        public string ShortName { get; set; }
+
+        
         public int? Team_id { get; set; }
 
         public List<int>? FinishingPositions { get; set; }
 
-        public List<int> FastestLapList { get; set; }
+        public List<int>? FastestLapList { get; set; }
 
-
-
-        //public string getNamePNG()
-        //{
-        //    return this.Name + ".png";
-        //}
-
-        //public string getTeamPNG()
-        //{
-        //    return this.Team + ".png";
-        //}
-
-        //public string getTeamPNG2()
-        //{
-        //    return this.Team + "2.png";
-        //}
-
-
-        //Meg kell írni
         public int GetPoints()
         {
             return PointCounter.CountDriverPoint(this);

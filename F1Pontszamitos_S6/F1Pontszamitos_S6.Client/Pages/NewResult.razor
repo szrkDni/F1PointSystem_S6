@@ -1,11 +1,9 @@
-﻿@page "/empty"
+﻿@page "/newresult"
 @inject HttpClient Http
+@inject NavigationManager NavManager
 @rendermode @( new InteractiveWebAssemblyRenderMode(prerender: false))
 
-<PageTitle>emty</PageTitle>
-<link href="css/tabella.css" rel="stylesheet" />
-
-
+<PageTitle>New Race Result</PageTitle>
 
 
 @if (driverList.Count == 0)
@@ -275,27 +273,41 @@
 }
 else
 {
-   <p>This is an empty page</p>
+   <p>Result of the @raceList[driverList[0].FinishingPositions.Count - 1].Name</p>
+
+   <div class="resultWrapper">
+       <EditForm Model="@raceResult" OnSubmit="HandleSubmit">
+            
+
+            @for (int i = 0; i < raceResult.Length; i++)
+            {
+                    <InputText @bind-Value="raceResult[i]" class="form-control mt-4"></InputText>
+            }
+            
+
+            <label class="mt-4">Fastest Lap</label>
+            <InputText @bind-Value="fastestMan" class="form-control"></InputText>
+            <button type="submit" class="btn btn-primary mt-4">Add Result</button>
+       </EditForm>
+   </div>
 }
 
 @code {
     List<Driver> driverList = new List<Driver>();
-    List<Team> teamList = new List<Team>();
     List<Race> raceList = new List<Race>();
-    string n = "_";
+    string[] raceResult = new string[20];
+    string fastestMan = null;
 
     protected override async Task OnInitializedAsync()
     {
         var delayTask = Task.Delay(500);
 
         var HttpRequestTaskDriver = Http.GetFromJsonAsync<List<Driver>>("api/drivers");
-        var HttpRequestTaskTeam = Http.GetFromJsonAsync<List<Team>>("api/teams");
         var HttpRequestTaskRace = Http.GetFromJsonAsync<List<Race>>("api/races");
 
-        await Task.WhenAll(delayTask, HttpRequestTaskDriver, HttpRequestTaskTeam, HttpRequestTaskRace);
+        await Task.WhenAll(delayTask, HttpRequestTaskDriver, HttpRequestTaskRace);
 
         var HttpRequestResultDriver = await HttpRequestTaskDriver;
-        var HttpRequestResultTeam = await HttpRequestTaskTeam;
         var HttpRequestResultRace = await HttpRequestTaskRace;
 
 
@@ -304,15 +316,24 @@ else
             driverList = HttpRequestResultDriver;
         }
 
-        if (HttpRequestResultTeam is not null)
-        {
-            teamList = HttpRequestResultTeam.OrderByDescending(x => x.GetPoints(driverList)).ToList();
-        }
-
         if (HttpRequestResultRace is not null)
         {
             raceList = HttpRequestResultRace;
         }
 
     }
+
+
+
+    async Task HandleSubmit()
+    {
+
+        for (int i = 0; i < raceResult.Length; i++)
+        {
+
+            var result = await Http.PutAsJsonAsync($"api/drivers/{raceResult[i]}/{i+1}/{fastestMan}", new Driver());
+            NavManager.NavigateTo("standings");
+        }
+    }
+
 }
