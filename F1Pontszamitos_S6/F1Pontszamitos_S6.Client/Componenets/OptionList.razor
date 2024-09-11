@@ -1,0 +1,11 @@
+﻿<option value="0" selected>Select One...</option>
+@foreach (var driver in driverList)
+{
+    <option value="@driver">@driver</option>
+}
+
+
+@code{
+    [Parameter]
+    public List<string> driverList {get; set;} = new List<string>();
+}

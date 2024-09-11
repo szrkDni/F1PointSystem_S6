@@ -33,7 +33,6 @@ app.UseHttpsRedirection();
 
 app.MapControllers();
 
-
 app.UseStaticFiles();
 app.UseAntiforgery();
 

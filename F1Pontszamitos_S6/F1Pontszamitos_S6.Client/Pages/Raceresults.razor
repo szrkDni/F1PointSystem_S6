@@ -1,0 +1,82 @@
+﻿@page "/raceresults"
+@inject HttpClient Http
+@using F1Pontszamitos_S6.Client.Componenets
+@rendermode @( new InteractiveWebAssemblyRenderMode(prerender: false))
+<PageTitle>Raceresults</PageTitle>
+<link href="css/raceresult.css" rel="stylesheet" />
+<script src="Scripts/tablesort.js"></script>
+
+
+
+
+@if (driver.Count == 0 || race.Count == 0)
+{
+    <Loader/>
+}
+else
+{
+
+
+    <table id="myTable" class="table table-dark table-striped table-bordered">
+        <thead>
+            <tr>
+                <th onclick="sortTable(0)">Pos</th>
+                <th>Name</th>
+                @for(int i = 0; i < race.Count; i++)
+                {
+                    <th scope="col" onclick="sortTable(@(i+1))" style="cursor: pointer">
+                        @race[i].ShortName
+                    </th>
+                }
+            </tr>
+        </thead>
+        <tbody>
+            @for(int j = 0; j < driver.Count; j++)
+            {   <tr>
+                    <td><span>@(j + 1)</span></td>
+                    <th scope="row">@driver[j].ShortName</th>
+                    @for (int i = 0; i < driver[j].FinishingPositions.Count; i++)
+                    {
+                        @if (driver[j].FastestLapList[i] == 1)
+                        {
+
+                            <td class="center">
+                                <span class="fl-td">@driver[j].FinishingPositions[i]</span>
+                            </td>
+
+                        }
+                        else
+                        {
+                            <td class="center">
+                                <span>@driver[j].FinishingPositions[i]</span>
+                            </td>
+                            
+                        }
+                    }
+                    @for (var i = 0; i < race.Count - driver[j].FinishingPositions.Count; i++)
+                    {
+                        <td>-</td>
+                    }
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+@code {
+    List<Driver> driver = new List<Driver>();
+    List<Race> race = new List<Race>();
+
+    protected override async Task OnInitializedAsync()
+    {
+
+        driver = await Http.GetFromJsonAsync<List<Driver>>("api/drivers");
+        race = await Http.GetFromJsonAsync<List<Race>>("api/races");
+        
+        
+    }
+
+    
+
+}
+

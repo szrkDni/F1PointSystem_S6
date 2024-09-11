@@ -48,8 +48,8 @@ namespace F1Pontszamitos_S6.Migrations
                         new
                         {
                             Id = 1,
-                            FastestLapList = "[1]",
-                            FinishingPositions = "[3]",
+                            FastestLapList = "[]",
+                            FinishingPositions = "[]",
                             Name = "Verstappen",
                             ShortName = "VER",
                             Team_id = 1
@@ -57,8 +57,8 @@ namespace F1Pontszamitos_S6.Migrations
                         new
                         {
                             Id = 7,
-                            FastestLapList = "[1]",
-                            FinishingPositions = "[6]",
+                            FastestLapList = "[]",
+                            FinishingPositions = "[]",
                             Name = "Perez",
                             ShortName = "PER",
                             Team_id = 1
@@ -66,8 +66,8 @@ namespace F1Pontszamitos_S6.Migrations
                         new
                         {
                             Id = 2,
-                            FastestLapList = "[1]",
-                            FinishingPositions = "[4]",
+                            FastestLapList = "[]",
+                            FinishingPositions = "[]",
                             Name = "Norris",
                             ShortName = "NOR",
                             Team_id = 3
@@ -75,8 +75,8 @@ namespace F1Pontszamitos_S6.Migrations
                         new
                         {
                             Id = 4,
-                            FastestLapList = "[1]",
-                            FinishingPositions = "[5]",
+                            FastestLapList = "[]",
+                            FinishingPositions = "[]",
                             Name = "Piastri",
                             ShortName = "PIA",
                             Team_id = 3
@@ -84,8 +84,8 @@ namespace F1Pontszamitos_S6.Migrations
                         new
                         {
                             Id = 3,
-                            FastestLapList = "[1]",
-                            FinishingPositions = "[1]",
+                            FastestLapList = "[]",
+                            FinishingPositions = "[]",
                             Name = "Leclerc",
                             ShortName = "LEC",
                             Team_id = 2
@@ -93,8 +93,8 @@ namespace F1Pontszamitos_S6.Migrations
                         new
                         {
                             Id = 5,
-                            FastestLapList = "[0]",
-                            FinishingPositions = "[2]",
+                            FastestLapList = "[]",
+                            FinishingPositions = "[]",
                             Name = "Sainz",
                             ShortName = "SAI",
                             Team_id = 2
@@ -102,8 +102,8 @@ namespace F1Pontszamitos_S6.Migrations
                         new
                         {
                             Id = 6,
-                            FastestLapList = "[0]",
-                            FinishingPositions = "[7]",
+                            FastestLapList = "[]",
+                            FinishingPositions = "[]",
                             Name = "Hamilton",
                             ShortName = "HAM",
                             Team_id = 10
@@ -111,8 +111,8 @@ namespace F1Pontszamitos_S6.Migrations
                         new
                         {
                             Id = 8,
-                            FastestLapList = "[0]",
-                            FinishingPositions = "[5]",
+                            FastestLapList = "[]",
+                            FinishingPositions = "[]",
                             Name = "Russel",
                             ShortName = "RUS",
                             Team_id = 10
@@ -120,8 +120,8 @@ namespace F1Pontszamitos_S6.Migrations
                         new
                         {
                             Id = 9,
-                            FastestLapList = "[0]",
-                            FinishingPositions = "[8]",
+                            FastestLapList = "[]",
+                            FinishingPositions = "[]",
                             Name = "Alonso",
                             ShortName = "ALO",
                             Team_id = 5
@@ -129,8 +129,8 @@ namespace F1Pontszamitos_S6.Migrations
                         new
                         {
                             Id = 10,
-                            FastestLapList = "[0]",
-                            FinishingPositions = "[9]",
+                            FastestLapList = "[]",
+                            FinishingPositions = "[]",
                             Name = "Stroll",
                             ShortName = "STR",
                             Team_id = 5
@@ -138,8 +138,8 @@ namespace F1Pontszamitos_S6.Migrations
                         new
                         {
                             Id = 11,
-                            FastestLapList = "[0]",
-                            FinishingPositions = "[10]",
+                            FastestLapList = "[]",
+                            FinishingPositions = "[]",
                             Name = "Hulkenberg",
                             ShortName = "HUL",
                             Team_id = 8
@@ -147,8 +147,8 @@ namespace F1Pontszamitos_S6.Migrations
                         new
                         {
                             Id = 15,
-                            FastestLapList = "[0]",
-                            FinishingPositions = "[11]",
+                            FastestLapList = "[]",
+                            FinishingPositions = "[]",
                             Name = "Magnussen",
                             ShortName = "MAG",
                             Team_id = 8
@@ -156,8 +156,8 @@ namespace F1Pontszamitos_S6.Migrations
                         new
                         {
                             Id = 12,
-                            FastestLapList = "[0]",
-                            FinishingPositions = "[12]",
+                            FastestLapList = "[]",
+                            FinishingPositions = "[]",
                             Name = "Tsunoda",
                             ShortName = "TSU",
                             Team_id = 6
@@ -165,8 +165,8 @@ namespace F1Pontszamitos_S6.Migrations
                         new
                         {
                             Id = 13,
-                            FastestLapList = "[0]",
-                            FinishingPositions = "[13]",
+                            FastestLapList = "[]",
+                            FinishingPositions = "[]",
                             Name = "Ricciardo",
                             ShortName = "RIC",
                             Team_id = 6
@@ -174,8 +174,8 @@ namespace F1Pontszamitos_S6.Migrations
                         new
                         {
                             Id = 14,
-                            FastestLapList = "[0]",
-                            FinishingPositions = "[14]",
+                            FastestLapList = "[]",
+                            FinishingPositions = "[]",
                             Name = "Gasly",
                             ShortName = "GAS",
                             Team_id = 9
@@ -183,8 +183,8 @@ namespace F1Pontszamitos_S6.Migrations
                         new
                         {
                             Id = 17,
-                            FastestLapList = "[0]",
-                            FinishingPositions = "[15]",
+                            FastestLapList = "[]",
+                            FinishingPositions = "[]",
                             Name = "Ocon",
                             ShortName = "OCO",
                             Team_id = 9
@@ -192,8 +192,8 @@ namespace F1Pontszamitos_S6.Migrations
                         new
                         {
                             Id = 16,
-                            FastestLapList = "[0]",
-                            FinishingPositions = "[16]",
+                            FastestLapList = "[]",
+                            FinishingPositions = "[]",
                             Name = "Albon",
                             ShortName = "ALB",
                             Team_id = 7
@@ -201,8 +201,8 @@ namespace F1Pontszamitos_S6.Migrations
                         new
                         {
                             Id = 19,
-                            FastestLapList = "[0]",
-                            FinishingPositions = "[17]",
+                            FastestLapList = "[]",
+                            FinishingPositions = "[]",
                             Name = "Sargeant",
                             ShortName = "SAR",
                             Team_id = 7
@@ -210,8 +210,8 @@ namespace F1Pontszamitos_S6.Migrations
                         new
                         {
                             Id = 18,
-                            FastestLapList = "[0]",
-                            FinishingPositions = "[19]",
+                            FastestLapList = "[]",
+                            FinishingPositions = "[]",
                             Name = "Zhou",
                             ShortName = "ZHO",
                             Team_id = 4
@@ -219,8 +219,8 @@ namespace F1Pontszamitos_S6.Migrations
                         new
                         {
                             Id = 20,
-                            FastestLapList = "[0]",
-                            FinishingPositions = "[20]",
+                            FastestLapList = "[]",
+                            FinishingPositions = "[]",
                             Name = "Bottas",
                             ShortName = "BOT",
                             Team_id = 4
@@ -273,6 +273,96 @@ namespace F1Pontszamitos_S6.Migrations
                         new
                         {
                             Id = 5,
+                            Name = "Hungarian GP",
+                            ShortName = "HUN"
+                        },
+                        new
+                        {
+                            Id = 6,
+                            Name = "Hungarian GP",
+                            ShortName = "HUN"
+                        },
+                        new
+                        {
+                            Id = 7,
+                            Name = "Hungarian GP",
+                            ShortName = "HUN"
+                        },
+                        new
+                        {
+                            Id = 8,
+                            Name = "Hungarian GP",
+                            ShortName = "HUN"
+                        },
+                        new
+                        {
+                            Id = 9,
+                            Name = "Hungarian GP",
+                            ShortName = "HUN"
+                        },
+                        new
+                        {
+                            Id = 10,
+                            Name = "Hungarian GP",
+                            ShortName = "HUN"
+                        },
+                        new
+                        {
+                            Id = 11,
+                            Name = "Hungarian GP",
+                            ShortName = "HUN"
+                        },
+                        new
+                        {
+                            Id = 12,
+                            Name = "Hungarian GP",
+                            ShortName = "HUN"
+                        },
+                        new
+                        {
+                            Id = 13,
+                            Name = "Hungarian GP",
+                            ShortName = "HUN"
+                        },
+                        new
+                        {
+                            Id = 14,
+                            Name = "Hungarian GP",
+                            ShortName = "HUN"
+                        },
+                        new
+                        {
+                            Id = 15,
+                            Name = "Hungarian GP",
+                            ShortName = "HUN"
+                        },
+                        new
+                        {
+                            Id = 16,
+                            Name = "Hungarian GP",
+                            ShortName = "HUN"
+                        },
+                        new
+                        {
+                            Id = 17,
+                            Name = "Hungarian GP",
+                            ShortName = "HUN"
+                        },
+                        new
+                        {
+                            Id = 18,
+                            Name = "Hungarian GP",
+                            ShortName = "HUN"
+                        },
+                        new
+                        {
+                            Id = 19,
+                            Name = "Hungarian GP",
+                            ShortName = "HUN"
+                        },
+                        new
+                        {
+                            Id = 20,
                             Name = "Hungarian GP",
                             ShortName = "HUN"
                         });

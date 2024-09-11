@@ -9,7 +9,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "F1Pontszamitos_S6.Client", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "F1Pontszamitos_S6.Shared", "F1Pontszamitos_S6.Shared\F1Pontszamitos_S6.Shared.csproj", "{54FF0CE9-8263-43F8-858E-9B855B8EF59B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "F1Pontszamitos_S6.Test", "F1Pontszamitos_S6.Test\F1Pontszamitos_S6.Test.csproj", "{1071AD76-E6B0-48C9-870B-EA1F7606BB29}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "F1Pontszamitos_S6.Test", "F1Pontszamitos_S6.Test\F1Pontszamitos_S6.Test.csproj", "{1071AD76-E6B0-48C9-870B-EA1F7606BB29}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

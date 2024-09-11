@@ -32,6 +32,8 @@ namespace F1Pontszamitos_S6.Shared.Models
 
         public List<Driver> GetDrivers(List<Driver> drivers)
         {
+            
+
             return drivers.Where(x => x.Team_id == Id).ToList();
         }
 

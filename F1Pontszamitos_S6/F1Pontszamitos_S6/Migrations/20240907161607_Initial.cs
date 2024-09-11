@@ -63,26 +63,26 @@ namespace F1Pontszamitos_S6.Migrations
                 columns: new[] { "Id", "FastestLapList", "FinishingPositions", "Name", "ShortName", "Team_id" },
                 values: new object[,]
                 {
-                    { 1, "[1]", "[3]", "Verstappen", "VER", 1 },
-                    { 2, "[1]", "[4]", "Norris", "NOR", 3 },
-                    { 3, "[1]", "[1]", "Leclerc", "LEC", 2 },
-                    { 4, "[1]", "[5]", "Piastri", "PIA", 3 },
-                    { 5, "[0]", "[2]", "Sainz", "SAI", 2 },
-                    { 6, "[0]", "[7]", "Hamilton", "HAM", 10 },
-                    { 7, "[1]", "[6]", "Perez", "PER", 1 },
-                    { 8, "[0]", "[5]", "Russel", "RUS", 10 },
-                    { 9, "[0]", "[8]", "Alonso", "ALO", 5 },
-                    { 10, "[0]", "[9]", "Stroll", "STR", 5 },
-                    { 11, "[0]", "[10]", "Hulkenberg", "HUL", 8 },
-                    { 12, "[0]", "[12]", "Tsunoda", "TSU", 6 },
-                    { 13, "[0]", "[13]", "Ricciardo", "RIC", 6 },
-                    { 14, "[0]", "[14]", "Gasly", "GAS", 9 },
-                    { 15, "[0]", "[11]", "Magnussen", "MAG", 8 },
-                    { 16, "[0]", "[16]", "Albon", "ALB", 7 },
-                    { 17, "[0]", "[15]", "Ocon", "OCO", 9 },
-                    { 18, "[0]", "[19]", "Zhou", "ZHO", 4 },
-                    { 19, "[0]", "[17]", "Sargeant", "SAR", 7 },
-                    { 20, "[0]", "[20]", "Bottas", "BOT", 4 }
+                    { 1, "[]", "[]", "Verstappen", "VER", 1 },
+                    { 2, "[]", "[]", "Norris", "NOR", 3 },
+                    { 3, "[]", "[]", "Leclerc", "LEC", 2 },
+                    { 4, "[]", "[]", "Piastri", "PIA", 3 },
+                    { 5, "[]", "[]", "Sainz", "SAI", 2 },
+                    { 6, "[]", "[]", "Hamilton", "HAM", 10 },
+                    { 7, "[]", "[]", "Perez", "PER", 1 },
+                    { 8, "[]", "[]", "Russel", "RUS", 10 },
+                    { 9, "[]", "[]", "Alonso", "ALO", 5 },
+                    { 10, "[]", "[]", "Stroll", "STR", 5 },
+                    { 11, "[]", "[]", "Hulkenberg", "HUL", 8 },
+                    { 12, "[]", "[]", "Tsunoda", "TSU", 6 },
+                    { 13, "[]", "[]", "Ricciardo", "RIC", 6 },
+                    { 14, "[]", "[]", "Gasly", "GAS", 9 },
+                    { 15, "[]", "[]", "Magnussen", "MAG", 8 },
+                    { 16, "[]", "[]", "Albon", "ALB", 7 },
+                    { 17, "[]", "[]", "Ocon", "OCO", 9 },
+                    { 18, "[]", "[]", "Zhou", "ZHO", 4 },
+                    { 19, "[]", "[]", "Sargeant", "SAR", 7 },
+                    { 20, "[]", "[]", "Bottas", "BOT", 4 }
                 });
 
             migrationBuilder.InsertData(
@@ -94,7 +94,22 @@ namespace F1Pontszamitos_S6.Migrations
                     { 2, "Las Vegas GP", "VEGAS" },
                     { 3, "Miami GP", "MIAMI" },
                     { 4, "Brazilian GP", "BRAZ" },
-                    { 5, "Hungarian GP", "HUN" }
+                    { 5, "Hungarian GP", "HUN" },
+                    { 6, "Hungarian GP", "HUN" },
+                    { 7, "Hungarian GP", "HUN" },
+                    { 8, "Hungarian GP", "HUN" },
+                    { 9, "Hungarian GP", "HUN" },
+                    { 10, "Hungarian GP", "HUN" },
+                    { 11, "Hungarian GP", "HUN" },
+                    { 12, "Hungarian GP", "HUN" },
+                    { 13, "Hungarian GP", "HUN" },
+                    { 14, "Hungarian GP", "HUN" },
+                    { 15, "Hungarian GP", "HUN" },
+                    { 16, "Hungarian GP", "HUN" },
+                    { 17, "Hungarian GP", "HUN" },
+                    { 18, "Hungarian GP", "HUN" },
+                    { 19, "Hungarian GP", "HUN" },
+                    { 20, "Hungarian GP", "HUN" }
                 });
 
             migrationBuilder.InsertData(

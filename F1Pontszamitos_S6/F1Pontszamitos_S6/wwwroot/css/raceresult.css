@@ -1,0 +1,13 @@
+﻿table {
+    font-size: small;
+}
+
+.fl-td {
+    background-color: #b000ea;
+    padding: 0.2rem;
+    border-radius: 2px;
+}
+
+td, th{
+    text-align: center;
+}

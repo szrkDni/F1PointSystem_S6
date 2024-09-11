@@ -1,0 +1,135 @@
+﻿:root {
+    --margin-side: 5vw;
+    --squareColor: rgb(255, 255, 255);
+    --backgroundColor: transparent;
+    --squareSize: 2em;
+    --mar-top-1: 1vw;
+}
+
+.resultOfThe{
+    text-align:center;
+}
+
+.outer-box {
+    display: flex;
+    justify-content: center;
+    align-items: end;
+    background-color: darkolivegreen;
+    margin: 0;
+    border-radius: 50px;
+    width: 80%;
+    margin: 0 auto;
+}
+
+.curb {
+    width: 5vw;
+    height: 210vw;
+    position: relative;
+    background-color: #fff;
+    background-image: linear-gradient( 0deg, #DF4243 25%, transparent 25%, transparent 75%, #DF4243 75%, #DF4243 ), linear-gradient( 0deg, #DF4243 25%, transparent 25%, transparent 75%, #DF4243 75%, #DF4243 );
+    background-size: 100px 150px;
+}
+
+.leftCurb {
+    border-radius: 100% 0% 10% 10% / 50% 0% 0% 0%;
+}
+
+.rightCurb {
+    border-radius: 0% 100% 10% 10% / 0% 50% 0% 0%;
+}
+
+.container {
+    width: 70vw;
+    height: 100%;
+    background: rgb(46,47,50);
+    background: linear-gradient(90deg, rgba(46,47,50,1) 0%, rgba(102,104,111,1) 50%, rgba(46,47,50,1) 100%);
+    border-left: white 0.5vw solid;
+    border-right: white 0.5vw solid;
+    border-bottom: rgb(46,47,50) 5vw solid;
+}
+
+.finishline {
+    width: 100%;
+    height: 6.7vw;
+    margin-top: var(--mar-top-1);
+    background-color: var(--backgroundColor);
+    background-image: linear-gradient(45deg, var(--squareColor) 25%, transparent 25%), linear-gradient(135deg, var(--squareColor) 25%, transparent 25%), linear-gradient(45deg, transparent 75%, var(--squareColor) 75%), linear-gradient(135deg, transparent 75%, var(--squareColor) 75%);
+    background-position: 0 0, var(--squareSize) 0, var(--squareSize) calc(-1 * var(--squareSize)), 0 calc(-1 * var(--squareSize));
+    background-size: calc(2 * var(--squareSize)) calc(2 * var(--squareSize));
+}
+
+.line {
+    width: 100%;
+    height: 0.7em;
+    background-color: var(--squareColor);
+    margin-top: var(--mar-top-1);
+}
+
+
+.cell {
+    width: 15vw;
+    height: 17vw;
+    background-color: transparent;
+    margin-left: var(--margin-side);
+    margin-right: var(--margin-side);
+    margin-top: 5vw;
+    position: relative;
+}
+
+.frame {
+    width: 100%;
+    height: 30%;
+    background-color: whitesmoke;
+    margin: 0 auto;
+}
+
+.fill {
+    width: 90%;
+    height: 70%;
+    background-color: dimgray;
+    margin: 0 auto;
+    position: relative;
+    top: -4.3vw;
+    z-index: 0;/**//*
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: bottom;*/
+/**/
+    background-size: cover;
+    background-position: center;
+}
+
+.leftGrid {
+    float: inline-start;
+    padding-left: 5vw;
+}
+
+.rightGrid {
+    float: inline-end;
+    top: 5vw;
+    padding-right: 5vw;
+}
+
+.position {
+    color: whitesmoke;
+    top: 20%;
+    font-size: 2vw;
+    text-align: center;
+}
+
+.cell:first-child {
+    color: goldenrod;
+}
+
+.input {
+    z-index: 10;
+    position: relative;
+    top: -26%;
+    font-size: 0.8rem;
+    text-align: center;
+}
+
+.options {
+    font-size: 0.8rem;
+    text-align: center;
+}

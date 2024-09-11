@@ -1,0 +1,96 @@
+﻿:root{
+    --animation-length: 0.8s;
+}
+
+
+.cardContainer {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.card {
+    background: rgb(223,231,255);
+    background: linear-gradient(0deg, rgba(173,216,230,1) 0%, rgba(173, 216, 230, 0.226) 25%);
+    width: 20rem;
+    height: 30rem;
+    border-radius: 20px;
+    -webkit-box-shadow: 9px 9px 23px -7px rgba(0,0,0,0.75);
+    -moz-box-shadow: 9px 9px 23px -7px rgba(0,0,0,0.75);
+    box-shadow: 9px 9px 23px -7px rgba(0,0,0,0.75);
+    border: rgb(61, 58, 58) solid 0.2rem;
+    cursor: pointer;
+    transition: ease var(--animation-length);
+}
+
+.card:hover {
+    width: 21rem;
+    height: 31.5rem;
+    transition: ease var(--animation-length);
+}
+
+.card:hover span {
+    font-size: larger;
+    transition: ease var(--animation-length);
+}
+
+.imageContainer {
+    width: inherit;
+    height: 60%;
+    display: flex;
+    padding-left: 0.2rem;
+    margin-top: 3rem;
+}
+
+.driverimg {
+    position: relative;
+    width: auto;
+    height: 70%;
+}
+
+.Dmiddle {
+    left: -39%;
+    z-index: 10;
+}
+
+.Dleft, .Dright {
+    height: 60%;
+    top: 10%;
+    border-radius: 20%;
+}
+
+.Dright {
+    left: -75%;
+}
+
+#flipped {
+    transform: scaleX(-1);
+}
+
+.teamimg {
+    position: relative;
+    height: 65%;
+    left: 20%;
+    top: 5%;
+}
+
+.titleContainer {
+    width: 100%;
+    text-align: center;
+}
+
+.title {
+    font-size: large;
+    color: black;
+    transition: ease var(--animation-length);
+}
+
+.newResImg{
+    width: 50%;
+    height: auto;
+}
+
+
