@@ -1,4 +1,4 @@
-﻿:root{
+﻿:root {
     --animation-length: 0.8s;
 }
 
@@ -23,6 +23,9 @@
     box-shadow: 9px 9px 23px -7px rgba(0,0,0,0.75);
     border: rgb(61, 58, 58) solid 0.2rem;
     cursor: pointer;
+    display: flex;
+    
+    animation: slideIn 0.5s ease-out forwards;
     transition: ease var(--animation-length);
 }
 
@@ -41,7 +44,7 @@
     width: inherit;
     height: 60%;
     display: flex;
-    padding-left: 0.2rem;
+    margin: 0 auto;
     margin-top: 3rem;
 }
 
@@ -52,11 +55,13 @@
 }
 
 .Dmiddle {
+    padding-left: 0.2rem;
     left: -39%;
     z-index: 10;
 }
 
 .Dleft, .Dright {
+    padding-left: 0.2rem;
     height: 60%;
     top: 10%;
     border-radius: 20%;
@@ -71,10 +76,8 @@
 }
 
 .teamimg {
-    position: relative;
     height: 65%;
-    left: 20%;
-    top: 5%;
+    margin: 0 auto;
 }
 
 .titleContainer {
@@ -88,9 +91,29 @@
     transition: ease var(--animation-length);
 }
 
-.newResImg{
-    width: 50%;
-    height: auto;
+a{
+    text-decoration: none;
 }
+
+.newResImg {
+    margin: 0 auto;
+    margin-top: 2vw;
+    width: auto;
+    height: 50%;
+}
+
+
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(100px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0); 
+    }
+}
+
 
 

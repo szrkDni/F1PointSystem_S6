@@ -97,26 +97,38 @@ else
     <div class="teamstabContainer">
         <table class="table-team table-gaps">
 
-            @foreach (var s in teamList)
+            @for(int i = 0; i < teamList.Count; i++)
             {
-                <tr class="table-row" id="scnd" style="background-color: @s.BgColor">
-                    <td><img class="teamlogo" src="Images/LOGO/@String.Concat(s.Name,".png")" /></td>
-                    <td class="@String.Concat(n, s.Id.ToString()) name">@s.Name</td>
-                    <td class="point">@s.GetPoints(driverList)</td>
-                    <td class="changed"><img class="img changedIMG" src="../Images/Arrows/ArrowUp.png" /></td>
+                <tr class="table-row" id="scnd" style="background-color: @teamList[i].BgColor">
+                    <td><img class="teamlogo" src="Images/LOGO/@String.Concat(teamList[i].Name,".png")" /></td>
+                    <td class="@String.Concat(n, teamList[i].Id.ToString()) name">@teamList[i].Name</td>
+                    <td class="point">@teamList[i].GetPoints(driverList)</td>
+                   @*  <td class="changed"><img class="img changedIMG" src="../Images/Arrows/ArrowUp.png" /></td> *@
+
+                    @if (previousTeam.FindIndex(x => x.Id == teamList[i].Id) == i)
+                    {
+                        <td class="changed"><img class="img changedIMG" src="../Images/Arrows/Idle.png" /></td>
+                    }
+                    else if (previousTeam.FindIndex(x => x.Id == teamList[i].Id) > i)
+                    {
+                        <td class="changed"><img class="img changedIMG" src="../Images/Arrows/ArrowUp.png" /></td>
+                    }
+                    else
+                    {
+                        <td class="changed"><img class="img changedIMG" src="../Images/Arrows/ArrowDown.png" /></td>
+                    }
                 </tr>
             }
 
         </table>
     </div>
-
-
 }
 
 @code {
     List<Driver> driverList = new List<Driver>();
     List<Driver> previous = new List<Driver>();
     List<Team> teamList = new List<Team>();
+    List<Team> previousTeam = new List<Team>();
     string n = "_";
     string? currentRace = null;
 
@@ -140,9 +152,15 @@ else
             driverList = HttpRequestResultDriver;
         }
 
+        if (HttpRequestResultDriverPrev is not null)
+        {
+            previous = HttpRequestResultDriverPrev;
+        }
+
         if (HttpRequestResultTeam is not null)
         {
-            teamList = HttpRequestResultTeam.OrderByDescending(x => x.GetPoints(driverList)).ToList();
+            teamList = HttpRequestResultTeam.OrderByDescending(x => x.GetPoints(driverList)).ThenBy(x => x.GetWinsCount(driverList)).ToList();
+            previousTeam = HttpRequestResultTeam.OrderByDescending(x => x.GetPoints(previous)).ThenBy(x => x.GetWinsCount(previous)).ToList();
         }
 
         if(HttpRequestCurrentRace is not null)
@@ -150,10 +168,7 @@ else
             currentRace = await HttpRequestCurrentRace;
         }
 
-        if (HttpRequestResultDriverPrev is not null)
-        {
-            previous = HttpRequestResultDriverPrev;
-        }
+        
 
     }
 }

@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace F1Pontszamitos_S6.Migrations
 {
     [DbContext(typeof(DriversDbContext))]
-    [Migration("20240907161607_Initial")]
+    [Migration("20240911182851_Initial")]
     partial class Initial
     {
         /// <inheritdoc />
@@ -43,6 +43,9 @@ namespace F1Pontszamitos_S6.Migrations
                     b.Property<int?>("Team_id")
                         .HasColumnType("INTEGER");
 
+                    b.Property<bool>("isActive")
+                        .HasColumnType("INTEGER");
+
                     b.HasKey("Id");
 
                     b.ToTable("DriversTable");
@@ -55,7 +58,8 @@ namespace F1Pontszamitos_S6.Migrations
                             FinishingPositions = "[]",
                             Name = "Verstappen",
                             ShortName = "VER",
-                            Team_id = 1
+                            Team_id = 1,
+                            isActive = true
                         },
                         new
                         {
@@ -64,7 +68,8 @@ namespace F1Pontszamitos_S6.Migrations
                             FinishingPositions = "[]",
                             Name = "Perez",
                             ShortName = "PER",
-                            Team_id = 1
+                            Team_id = 1,
+                            isActive = true
                         },
                         new
                         {
@@ -73,7 +78,8 @@ namespace F1Pontszamitos_S6.Migrations
                             FinishingPositions = "[]",
                             Name = "Norris",
                             ShortName = "NOR",
-                            Team_id = 3
+                            Team_id = 3,
+                            isActive = true
                         },
                         new
                         {
@@ -82,7 +88,8 @@ namespace F1Pontszamitos_S6.Migrations
                             FinishingPositions = "[]",
                             Name = "Piastri",
                             ShortName = "PIA",
-                            Team_id = 3
+                            Team_id = 3,
+                            isActive = true
                         },
                         new
                         {
@@ -91,7 +98,8 @@ namespace F1Pontszamitos_S6.Migrations
                             FinishingPositions = "[]",
                             Name = "Leclerc",
                             ShortName = "LEC",
-                            Team_id = 2
+                            Team_id = 2,
+                            isActive = true
                         },
                         new
                         {
@@ -100,7 +108,8 @@ namespace F1Pontszamitos_S6.Migrations
                             FinishingPositions = "[]",
                             Name = "Sainz",
                             ShortName = "SAI",
-                            Team_id = 2
+                            Team_id = 2,
+                            isActive = true
                         },
                         new
                         {
@@ -109,7 +118,8 @@ namespace F1Pontszamitos_S6.Migrations
                             FinishingPositions = "[]",
                             Name = "Hamilton",
                             ShortName = "HAM",
-                            Team_id = 10
+                            Team_id = 10,
+                            isActive = true
                         },
                         new
                         {
@@ -118,7 +128,8 @@ namespace F1Pontszamitos_S6.Migrations
                             FinishingPositions = "[]",
                             Name = "Russel",
                             ShortName = "RUS",
-                            Team_id = 10
+                            Team_id = 10,
+                            isActive = true
                         },
                         new
                         {
@@ -127,7 +138,8 @@ namespace F1Pontszamitos_S6.Migrations
                             FinishingPositions = "[]",
                             Name = "Alonso",
                             ShortName = "ALO",
-                            Team_id = 5
+                            Team_id = 5,
+                            isActive = true
                         },
                         new
                         {
@@ -136,7 +148,8 @@ namespace F1Pontszamitos_S6.Migrations
                             FinishingPositions = "[]",
                             Name = "Stroll",
                             ShortName = "STR",
-                            Team_id = 5
+                            Team_id = 5,
+                            isActive = true
                         },
                         new
                         {
@@ -145,7 +158,8 @@ namespace F1Pontszamitos_S6.Migrations
                             FinishingPositions = "[]",
                             Name = "Hulkenberg",
                             ShortName = "HUL",
-                            Team_id = 8
+                            Team_id = 8,
+                            isActive = true
                         },
                         new
                         {
@@ -154,7 +168,8 @@ namespace F1Pontszamitos_S6.Migrations
                             FinishingPositions = "[]",
                             Name = "Magnussen",
                             ShortName = "MAG",
-                            Team_id = 8
+                            Team_id = 8,
+                            isActive = true
                         },
                         new
                         {
@@ -163,7 +178,8 @@ namespace F1Pontszamitos_S6.Migrations
                             FinishingPositions = "[]",
                             Name = "Tsunoda",
                             ShortName = "TSU",
-                            Team_id = 6
+                            Team_id = 6,
+                            isActive = true
                         },
                         new
                         {
@@ -172,7 +188,8 @@ namespace F1Pontszamitos_S6.Migrations
                             FinishingPositions = "[]",
                             Name = "Ricciardo",
                             ShortName = "RIC",
-                            Team_id = 6
+                            Team_id = 6,
+                            isActive = true
                         },
                         new
                         {
@@ -181,7 +198,8 @@ namespace F1Pontszamitos_S6.Migrations
                             FinishingPositions = "[]",
                             Name = "Gasly",
                             ShortName = "GAS",
-                            Team_id = 9
+                            Team_id = 9,
+                            isActive = true
                         },
                         new
                         {
@@ -190,7 +208,8 @@ namespace F1Pontszamitos_S6.Migrations
                             FinishingPositions = "[]",
                             Name = "Ocon",
                             ShortName = "OCO",
-                            Team_id = 9
+                            Team_id = 9,
+                            isActive = true
                         },
                         new
                         {
@@ -199,7 +218,8 @@ namespace F1Pontszamitos_S6.Migrations
                             FinishingPositions = "[]",
                             Name = "Albon",
                             ShortName = "ALB",
-                            Team_id = 7
+                            Team_id = 7,
+                            isActive = true
                         },
                         new
                         {
@@ -208,7 +228,8 @@ namespace F1Pontszamitos_S6.Migrations
                             FinishingPositions = "[]",
                             Name = "Sargeant",
                             ShortName = "SAR",
-                            Team_id = 7
+                            Team_id = 7,
+                            isActive = true
                         },
                         new
                         {
@@ -217,7 +238,8 @@ namespace F1Pontszamitos_S6.Migrations
                             FinishingPositions = "[]",
                             Name = "Zhou",
                             ShortName = "ZHO",
-                            Team_id = 4
+                            Team_id = 4,
+                            isActive = true
                         },
                         new
                         {
@@ -226,7 +248,38 @@ namespace F1Pontszamitos_S6.Migrations
                             FinishingPositions = "[]",
                             Name = "Bottas",
                             ShortName = "BOT",
-                            Team_id = 4
+                            Team_id = 4,
+                            isActive = true
+                        },
+                        new
+                        {
+                            Id = 21,
+                            FastestLapList = "[]",
+                            FinishingPositions = "[]",
+                            Name = "Bag",
+                            ShortName = "fee",
+                            Team_id = 4,
+                            isActive = true
+                        },
+                        new
+                        {
+                            Id = 22,
+                            FastestLapList = "[]",
+                            FinishingPositions = "[]",
+                            Name = "Bernert",
+                            ShortName = "sse",
+                            Team_id = 4,
+                            isActive = false
+                        },
+                        new
+                        {
+                            Id = 23,
+                            FastestLapList = "[]",
+                            FinishingPositions = "[]",
+                            Name = "Boldizsár",
+                            ShortName = "sds",
+                            Team_id = 4,
+                            isActive = true
                         });
                 });
 

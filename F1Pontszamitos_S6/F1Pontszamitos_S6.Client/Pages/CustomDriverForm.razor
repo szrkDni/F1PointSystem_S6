@@ -1,0 +1,17 @@
+﻿@page "/driverform"
+@inject HttpClient Http
+@rendermode @( new InteractiveWebAssemblyRenderMode(prerender: false))
+@inject NavigationManager NavManager
+
+<EditForm Model="@driverToAdd" OnSubmit="HandleSubmit">
+
+</EditForm>
+
+@code{
+    Driver driverToAdd = new();
+
+    private void HandleSubmit()
+    {
+
+    }
+}

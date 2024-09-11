@@ -52,15 +52,15 @@ else
     string? nextRace = null;
     List<string> driverNames = new();
 
-    private async Task CheckPassword()
-    {
-        JS.InvokeVoidAsync("passwordProtection");
-    }
+    // private async Task CheckPassword()
+    // {
+    //     JS.InvokeVoidAsync("passwordProtection");
+    // }
 
 
     protected override async Task OnInitializedAsync()
     {
-        await CheckPassword();
+        //await CheckPassword();
 
         var delayTask = Task.Delay(500);
 

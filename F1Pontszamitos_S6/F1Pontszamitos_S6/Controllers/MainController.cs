@@ -23,14 +23,13 @@ namespace F1Pontszamitos_S6.Controllers
         {
 
 
-            var query = await _dbContext.DriversTable.Join(_dbContext.TeamsTable,
+            var query = await _dbContext.DriversTable.Where(x => x.Id > 50).Join(_dbContext.TeamsTable,
                 driver => driver.Team_id,
                 team => team.Id,
                 (driver, team) =>
-                     new DriverTableModel(driver.Name, team.Name, team.BgColor, driver.GetPoints()))
+                     new DriverTableModel(driver.Id, driver.Name, team.Id, team.Name))
                 .ToListAsync();
 
-            var sortedQuery = query.OrderByDescending(x => x.Points).ToList();
 
 
             return query;
@@ -68,7 +67,7 @@ namespace F1Pontszamitos_S6.Controllers
             }
 
             //If somehow we managed to document another race after the last
-            return Ok("How did we get here");
+            return Ok("Start of the season");
 
         }
     }

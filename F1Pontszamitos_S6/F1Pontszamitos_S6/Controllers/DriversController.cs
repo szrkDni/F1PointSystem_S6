@@ -21,8 +21,8 @@ namespace F1Pontszamitos_S6.Controllers
         [HttpGet]
         public async Task<ActionResult<List<Driver>>> GetAllDriversAsync()
         {
-            var unsorted = await _dbContext.DriversTable.ToListAsync();
-
+            var alldrivers = _dbContext.DriversTable;
+            var unsorted = alldrivers.Where(x => x.isActive).ToList();
 
             if (!unsorted[0].FinishingPositions.Any()) {
                 return unsorted.ToList();
@@ -36,12 +36,18 @@ namespace F1Pontszamitos_S6.Controllers
         [HttpGet("previous")]
         public async Task<ActionResult<List<Driver>>> GetPreviousOrder()
         {
-            var previous = await _dbContext.DriversTable.ToListAsync();
+            var alldrivers = _dbContext.DriversTable;
+            var previous = alldrivers.Where(x => x.isActive).ToList();
 
-            for (int i = 0; i < previous.Count; i++)
+
+            if (previous[0].FinishingPositions.Any())
             {
-                previous[i].FinishingPositions.RemoveAt(previous[i].FinishingPositions.Count - 1);
+                for (int i = 0; i < previous.Count; i++)
+                {
+                    previous[i].FinishingPositions.RemoveAt(previous[i].FinishingPositions.Count - 1);
+                }
             }
+            
 
             return DriverSort(previous);
         }
@@ -50,7 +56,7 @@ namespace F1Pontszamitos_S6.Controllers
         [HttpGet("names")]
         public async Task<ActionResult<List<string>>> GetAllDriversNames()
         {
-            var driverNames = _dbContext.DriversTable.Select(x => x.Name).ToList();
+            var driverNames = _dbContext.DriversTable.Where(x => x.isActive).Select(x => x.Name).ToList();
 
             return driverNames;
         }
@@ -102,7 +108,7 @@ namespace F1Pontszamitos_S6.Controllers
         {
             return driver.OrderByDescending(d => d.GetPoints())
                         //For wont work :)))
-                        .ThenBy(d => d.FinishingPositions.Min())
+                        .ThenBy(d => d.FinishingPositions.Any() ? d.FinishingPositions.Min() : int.MaxValue)
                         .ThenBy(d => d.FinishingPositions.Count > 1 ? d.FinishingPositions.OrderBy(p => p).ElementAt(1) : int.MaxValue)
                         .ThenBy(d => d.FinishingPositions.Count > 2 ? d.FinishingPositions.OrderBy(p => p).ElementAt(2) : int.MaxValue)
                         .ThenBy(d => d.FinishingPositions.Count > 3 ? d.FinishingPositions.OrderBy(p => p).ElementAt(3) : int.MaxValue)

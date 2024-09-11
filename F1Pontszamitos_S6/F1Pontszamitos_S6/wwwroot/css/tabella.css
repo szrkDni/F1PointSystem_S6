@@ -9,6 +9,9 @@ p {
 }
 
 
+    
+
+
 
 .topcontiner {
 }
@@ -73,6 +76,8 @@ p {
 
 .table-row {
     color: whitesmoke;
+    opacity: 0; 
+    animation: fadeIn 0.5s ease-out forwards;
 }
 
 ._8 {
@@ -156,3 +161,16 @@ p {
     font-size: 2vw;
     color: darkslategray;
 }
+
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+        
+    }
+}
+

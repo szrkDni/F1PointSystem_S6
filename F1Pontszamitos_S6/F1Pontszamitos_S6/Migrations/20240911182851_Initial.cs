@@ -22,7 +22,8 @@ namespace F1Pontszamitos_S6.Migrations
                     ShortName = table.Column<string>(type: "TEXT", nullable: false),
                     Team_id = table.Column<int>(type: "INTEGER", nullable: true),
                     FinishingPositions = table.Column<string>(type: "TEXT", nullable: true),
-                    FastestLapList = table.Column<string>(type: "TEXT", nullable: true)
+                    FastestLapList = table.Column<string>(type: "TEXT", nullable: true),
+                    isActive = table.Column<bool>(type: "INTEGER", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -60,29 +61,32 @@ namespace F1Pontszamitos_S6.Migrations
 
             migrationBuilder.InsertData(
                 table: "DriversTable",
-                columns: new[] { "Id", "FastestLapList", "FinishingPositions", "Name", "ShortName", "Team_id" },
+                columns: new[] { "Id", "FastestLapList", "FinishingPositions", "Name", "ShortName", "Team_id", "isActive" },
                 values: new object[,]
                 {
-                    { 1, "[]", "[]", "Verstappen", "VER", 1 },
-                    { 2, "[]", "[]", "Norris", "NOR", 3 },
-                    { 3, "[]", "[]", "Leclerc", "LEC", 2 },
-                    { 4, "[]", "[]", "Piastri", "PIA", 3 },
-                    { 5, "[]", "[]", "Sainz", "SAI", 2 },
-                    { 6, "[]", "[]", "Hamilton", "HAM", 10 },
-                    { 7, "[]", "[]", "Perez", "PER", 1 },
-                    { 8, "[]", "[]", "Russel", "RUS", 10 },
-                    { 9, "[]", "[]", "Alonso", "ALO", 5 },
-                    { 10, "[]", "[]", "Stroll", "STR", 5 },
-                    { 11, "[]", "[]", "Hulkenberg", "HUL", 8 },
-                    { 12, "[]", "[]", "Tsunoda", "TSU", 6 },
-                    { 13, "[]", "[]", "Ricciardo", "RIC", 6 },
-                    { 14, "[]", "[]", "Gasly", "GAS", 9 },
-                    { 15, "[]", "[]", "Magnussen", "MAG", 8 },
-                    { 16, "[]", "[]", "Albon", "ALB", 7 },
-                    { 17, "[]", "[]", "Ocon", "OCO", 9 },
-                    { 18, "[]", "[]", "Zhou", "ZHO", 4 },
-                    { 19, "[]", "[]", "Sargeant", "SAR", 7 },
-                    { 20, "[]", "[]", "Bottas", "BOT", 4 }
+                    { 1, "[]", "[]", "Verstappen", "VER", 1, true },
+                    { 2, "[]", "[]", "Norris", "NOR", 3, true },
+                    { 3, "[]", "[]", "Leclerc", "LEC", 2, true },
+                    { 4, "[]", "[]", "Piastri", "PIA", 3, true },
+                    { 5, "[]", "[]", "Sainz", "SAI", 2, true },
+                    { 6, "[]", "[]", "Hamilton", "HAM", 10, true },
+                    { 7, "[]", "[]", "Perez", "PER", 1, true },
+                    { 8, "[]", "[]", "Russel", "RUS", 10, true },
+                    { 9, "[]", "[]", "Alonso", "ALO", 5, true },
+                    { 10, "[]", "[]", "Stroll", "STR", 5, true },
+                    { 11, "[]", "[]", "Hulkenberg", "HUL", 8, true },
+                    { 12, "[]", "[]", "Tsunoda", "TSU", 6, true },
+                    { 13, "[]", "[]", "Ricciardo", "RIC", 6, true },
+                    { 14, "[]", "[]", "Gasly", "GAS", 9, true },
+                    { 15, "[]", "[]", "Magnussen", "MAG", 8, true },
+                    { 16, "[]", "[]", "Albon", "ALB", 7, true },
+                    { 17, "[]", "[]", "Ocon", "OCO", 9, true },
+                    { 18, "[]", "[]", "Zhou", "ZHO", 4, true },
+                    { 19, "[]", "[]", "Sargeant", "SAR", 7, true },
+                    { 20, "[]", "[]", "Bottas", "BOT", 4, true },
+                    { 21, "[]", "[]", "Bag", "fee", 4, true },
+                    { 22, "[]", "[]", "Bernert", "sse", 4, false },
+                    { 23, "[]", "[]", "Boldizsár", "sds", 4, true }
                 });
 
             migrationBuilder.InsertData(

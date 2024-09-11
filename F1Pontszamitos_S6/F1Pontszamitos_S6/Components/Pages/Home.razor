@@ -6,39 +6,47 @@
 <link href="css/home.css" rel="stylesheet" />
 
 <div class="cardContainer">
-    <div class="card" onclick="@RedirectToDriverC">
-        <div class="imageContainer">
-            <img class="driverimg Dleft" id="flipped" src="../Images/FACES/lannor01.png" alt="D1">
-            <img class="driverimg Dmiddle" src="../Images/FACES/maxver01.png" alt="D2">
-            <img class="driverimg Dright" src="../Images/FACES/chalec01.png" alt="D3">
+    <NavLink href="standings">
+        <div class="card" onclick="">
+            <div class="imageContainer">
+                <img class="driverimg Dleft" id="flipped" src="../Images/FACES/lannor01.png" alt="D1">
+                <img class="driverimg Dmiddle" src="../Images/FACES/maxver01.png" alt="D2">
+                <img class="driverimg Dright" src="../Images/FACES/chalec01.png" alt="D3">
+            </div>
+            <div class="titleContainer">
+                <span class="title">Driver's Championship</span>
+            </div>
         </div>
-        <div class="titleContainer">
-            <span class="title">Driver's Championship</span>
-        </div>
-    </div>
-    <div class="card" onclick="">
-        <div class="imageContainer">
-            <img class=" teamimg " src="../Images/LOGO/Ferrari2.png" alt="D3">
+    </NavLink>
+    <NavLink href="standings">
+        <div class="card">
+            <div class="imageContainer">
+                <img class=" teamimg " src="../Images/LOGO/Ferrari2.png" alt="D3">
 
+            </div>
+            <div class="titleContainer">
+                <span class="title">Constructor's Championship</span>
+            </div>
         </div>
-        <div class="titleContainer">
-            <span class="title">Constructor's Championship</span>
+    </NavLink>
+    <NavLink href="newresult">
+        <div class="card" >
+            <div class="imageContainer">
+                <img class="newResImg" src="../Images/chequeredFlag.png" alt="D3">
+            </div>
+            <div class="titleContainer">
+                <span class="title">Add new result</span>
+            </div>
         </div>
-    </div>
-    <div class="card" onclick="">
-        <div class="imageContainer">
-            <img class="newResImg" src="../Images/chequeredFlag.png" alt="D3">
-        </div>
-        <div class="titleContainer">
-            <span class="title">Add new result</span>
-        </div>
-    </div>
+    </NavLink>
 
 </div>
+
+
 
 @code{
     private void RedirectToDriverC()
     {
-        NavManager.NavigateTo("standings");
+        NavManager.NavigateTo("/standings");
     }
 }

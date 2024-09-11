@@ -2,6 +2,7 @@
 using F1Pontszamitos_S6.Shared.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System.Security.Cryptography.X509Certificates;
 
 namespace F1Pontszamitos_S6.Controllers
 {
@@ -22,5 +23,8 @@ namespace F1Pontszamitos_S6.Controllers
 
             return await _dbContext.TeamsTable.ToListAsync();
         }
+
+        
+    
     }
 }

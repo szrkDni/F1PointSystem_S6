@@ -1,0 +1,45 @@
+﻿@page "/createNew"
+@using F1Pontszamitos_S6.Client.Componenets
+@using F1Pontszamitos_S6.Shared.QueryModels
+@inject HttpClient Http
+@rendermode @( new InteractiveWebAssemblyRenderMode(prerender: false))
+@inject NavigationManager NavManager
+
+<PageTitle>Create New Season</PageTitle>
+
+<span>Added Custom Drivers</span>
+<table>
+   @foreach (var driver in customDrivers)
+   {
+        <tr>
+            <td>@driver.DriverId</td>
+            <td>@driver.Name</td>
+            <td>@driver.TeamId</td>
+            <td>@driver.Team_name</td>
+        </tr>
+   }
+</table>
+
+@if(!drivers[0].FinishingPositions.Any())
+{
+
+    <NavLink class="button btn-primary" href="driverform">Add Custom Driver</NavLink>
+}
+
+@*
+    Add custom drivers
+
+
+*@
+
+
+@code{
+    List<Driver> drivers = new();
+    List<DriverTableModel> customDrivers = new();
+
+    protected override async Task OnInitializedAsync()
+    {
+        customDrivers = await Http.GetFromJsonAsync<List<DriverTableModel>>("api/main");
+    }
+
+}
