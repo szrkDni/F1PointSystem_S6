@@ -247,36 +247,6 @@ namespace F1Pontszamitos_S6.Migrations
                             ShortName = "BOT",
                             Team_id = 4,
                             isActive = true
-                        },
-                        new
-                        {
-                            Id = 21,
-                            FastestLapList = "[]",
-                            FinishingPositions = "[]",
-                            Name = "Bag",
-                            ShortName = "fee",
-                            Team_id = 4,
-                            isActive = true
-                        },
-                        new
-                        {
-                            Id = 22,
-                            FastestLapList = "[]",
-                            FinishingPositions = "[]",
-                            Name = "Bernert",
-                            ShortName = "sse",
-                            Team_id = 4,
-                            isActive = false
-                        },
-                        new
-                        {
-                            Id = 23,
-                            FastestLapList = "[]",
-                            FinishingPositions = "[]",
-                            Name = "Boldizsár",
-                            ShortName = "sds",
-                            Team_id = 4,
-                            isActive = true
                         });
                 });
 

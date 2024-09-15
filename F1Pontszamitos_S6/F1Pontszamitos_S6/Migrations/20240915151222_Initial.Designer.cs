@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace F1Pontszamitos_S6.Migrations
 {
     [DbContext(typeof(DriversDbContext))]
-    [Migration("20240911182851_Initial")]
+    [Migration("20240915151222_Initial")]
     partial class Initial
     {
         /// <inheritdoc />
@@ -248,36 +248,6 @@ namespace F1Pontszamitos_S6.Migrations
                             FinishingPositions = "[]",
                             Name = "Bottas",
                             ShortName = "BOT",
-                            Team_id = 4,
-                            isActive = true
-                        },
-                        new
-                        {
-                            Id = 21,
-                            FastestLapList = "[]",
-                            FinishingPositions = "[]",
-                            Name = "Bag",
-                            ShortName = "fee",
-                            Team_id = 4,
-                            isActive = true
-                        },
-                        new
-                        {
-                            Id = 22,
-                            FastestLapList = "[]",
-                            FinishingPositions = "[]",
-                            Name = "Bernert",
-                            ShortName = "sse",
-                            Team_id = 4,
-                            isActive = false
-                        },
-                        new
-                        {
-                            Id = 23,
-                            FastestLapList = "[]",
-                            FinishingPositions = "[]",
-                            Name = "Boldizsár",
-                            ShortName = "sds",
                             Team_id = 4,
                             isActive = true
                         });

@@ -1,17 +1,64 @@
 ﻿@page "/driverform"
+@using F1Pontszamitos_S6.Client.Componenets
+@using F1Pontszamitos_S6.Shared.QueryModels
 @inject HttpClient Http
 @rendermode @( new InteractiveWebAssemblyRenderMode(prerender: false))
 @inject NavigationManager NavManager
 
-<EditForm Model="@driverToAdd" OnSubmit="HandleSubmit">
 
+
+<EditForm Model="@driverToAdd" OnSubmit="HandleSubmit">
+    <div class="form-row" style="display: flex; gap: 2vw;">
+        <div class="col col-md-2">
+            
+            <label>Name</label>
+            <InputText @bind-Value="driverToAdd.Name" class="form-control"  placeholder="Enter Name"></InputText>
+
+        </div>
+        <div class="col col-md-2">
+            
+            <label>Short Name</label>
+            <InputText @bind-Value="driverToAdd.ShortName" class="form-control" placeholder="(e.g. VER, TSU)"></InputText>
+
+        </div>
+    </div>
+
+    
+
+    @* Az optionlistet át kell írni, hogy id-k legyenek a valuek *@
+    <div class="form-row" style="display: flex; gap: 2vw;">
+        <div class="col col-md-2">
+            <label class="mt-4">Choose team</label>
+            <InputSelect @bind-Value="driverToAdd.Team_id" class="form-control"><OptionList driverList="teamNames"></OptionList></InputSelect>
+        </div>
+        <div class="col col-md-2">
+            <label class="mt-4">Who to repleace</label>
+            <InputSelect @bind-Value="driverToReplace" class="form-control"><OptionList driverList="driverNames"></OptionList></InputSelect>
+        </div>
+    </div>
+
+    <button type="submit" class="btn btn-danger mt-4">Add driver</button>
 </EditForm>
 
 @code{
     Driver driverToAdd = new();
+    string driverToReplace = "";
+    List<string> driverNames = new();
+    List<string> teamNames = new();
+
+    protected override async Task OnInitializedAsync()
+    {
+        teamNames = await Http.GetFromJsonAsync<List<string>>("api/teams/names");
+        driverNames = await Http.GetFromJsonAsync<List<string>>("api/drivers/names");
+
+    }
+
 
     private void HandleSubmit()
     {
-
+        /*mindenképp a short namet ToUpperrel kell rögzíteni*/
+        var driverAddResponse = Http.PutAsJsonAsync("api/drivers/addCustom", driverToAdd);
+        var driverInvalidaeResponse = Http.PutAsJsonAsync("api/drivers/modifyIsActive", driverToReplace);
+        NavManager.NavigateTo("createnew");
     }
 }

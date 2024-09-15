@@ -66,7 +66,6 @@ namespace F1Pontszamitos_S6.Controllers
                 
             }
 
-            //If somehow we managed to document another race after the last
             return Ok("Start of the season");
 
         }

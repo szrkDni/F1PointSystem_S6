@@ -83,10 +83,7 @@ namespace F1Pontszamitos_S6.Migrations
                     { 17, "[]", "[]", "Ocon", "OCO", 9, true },
                     { 18, "[]", "[]", "Zhou", "ZHO", 4, true },
                     { 19, "[]", "[]", "Sargeant", "SAR", 7, true },
-                    { 20, "[]", "[]", "Bottas", "BOT", 4, true },
-                    { 21, "[]", "[]", "Bag", "fee", 4, true },
-                    { 22, "[]", "[]", "Bernert", "sse", 4, false },
-                    { 23, "[]", "[]", "Boldizsár", "sds", 4, true }
+                    { 20, "[]", "[]", "Bottas", "BOT", 4, true }
                 });
 
             migrationBuilder.InsertData(

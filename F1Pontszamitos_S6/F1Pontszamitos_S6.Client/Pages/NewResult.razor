@@ -30,14 +30,14 @@ else
 
                     <div class="line bottom"></div>
 
-                    <Grid driverNames="driverNames" raceResult="raceResult"/>
+                    <Grid driverNamesAndIds="driverNames" raceResult="raceResult" />
                     
                 </div>
                 <div class="curb rightCurb"></div>
             </div>
 
             <label class="mt-4">Fastest Lap</label>
-            <InputText @bind-Value="fastestMan" class="form-control"></InputText>
+            <InputSelect @bind-Value="fastestManId" class="form-control"><OptionList driverDict="driverNames"></OptionList></InputSelect>
 
             <button type="submit" class="btn btn-primary mt-4">Add Result</button>
         </EditForm>
@@ -47,10 +47,10 @@ else
 
 
 @code {
-    string[] raceResult = new string[20];
-    string? fastestMan = null;
+    int[] raceResult = new int[20];
+    int fastestManId;
     string? nextRace = null;
-    List<string> driverNames = new();
+    Dictionary<int,string> driverNames = new();
 
     // private async Task CheckPassword()
     // {
@@ -66,7 +66,7 @@ else
 
         var HttpRequestTaskCurrentRace =  Http.GetStringAsync("api/main/nextRace");
 
-        var HttpRequestTaskDNames = Http.GetFromJsonAsync<List<string>>("api/drivers/names");
+        var HttpRequestTaskDNames = Http.GetFromJsonAsync<Dictionary<int, string>>("api/drivers/namesnids");
 
 
         await Task.WhenAll(delayTask, HttpRequestTaskCurrentRace, HttpRequestTaskDNames);
@@ -83,13 +83,14 @@ else
 
     }
 
-    async Task HandleSubmit()
+    protected async Task HandleSubmit()
     {
 
         for (int i = 0; i < raceResult.Length; i++)
         {
 
-            var result = await Http.PutAsJsonAsync($"api/drivers/{raceResult[i]}/{i+1}/{fastestMan}", new Driver());
+            var result = await Http.PutAsJsonAsync($"api/drivers/{raceResult[i]}/{i + 1}/{fastestManId}", new Driver());
+            
         }
 
         NavManager.NavigateTo("standings");

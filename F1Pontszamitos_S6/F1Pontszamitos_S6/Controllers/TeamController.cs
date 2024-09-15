@@ -24,7 +24,11 @@ namespace F1Pontszamitos_S6.Controllers
             return await _dbContext.TeamsTable.ToListAsync();
         }
 
-        
+        [HttpGet("names")]
+        public async Task<ActionResult<List<string>>> GetAllTeamNames()
+        {
+            return await _dbContext.TeamsTable.Select(x => x.Name).ToListAsync();
+        }
     
     }
 }

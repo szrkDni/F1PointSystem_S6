@@ -44,12 +44,7 @@ namespace F1Pontszamitos_S6.DataB
                 new Driver { Id = 19, Name = "Sargeant", ShortName = "SAR", Team_id = 7, FinishingPositions = new List<int>(), FastestLapList = new List<int>() , isActive = true },
 
                 new Driver { Id = 18, Name = "Zhou", ShortName = "ZHO", Team_id = 4, FinishingPositions = new List<int>(), FastestLapList = new List<int>() , isActive = true },
-                new Driver { Id = 20, Name = "Bottas", ShortName = "BOT", Team_id = 4, FinishingPositions = new List<int>(), FastestLapList = new List<int>() , isActive = true },
-
-
-                new Driver { Id = 21, Name = "Bag", ShortName = "fee", Team_id = 4, FinishingPositions = new List<int>(), FastestLapList = new List<int>() , isActive = true },
-                new Driver { Id = 22, Name = "Bernert", ShortName = "sse", Team_id = 4, FinishingPositions = new List<int>(), FastestLapList = new List<int>() , isActive = false },
-                new Driver { Id = 23, Name = "Boldizsár", ShortName = "sds", Team_id = 4, FinishingPositions = new List<int>(), FastestLapList = new List<int>() , isActive = true }
+                new Driver { Id = 20, Name = "Bottas", ShortName = "BOT", Team_id = 4, FinishingPositions = new List<int>(), FastestLapList = new List<int>() , isActive = true }
                 );
 
             modelBuilder.Entity<Team>().HasData(

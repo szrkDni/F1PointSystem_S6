@@ -1,45 +1,54 @@
-﻿@page "/createNew"
+﻿@page "/createnew"
 @using F1Pontszamitos_S6.Client.Componenets
 @using F1Pontszamitos_S6.Shared.QueryModels
 @inject HttpClient Http
 @rendermode @( new InteractiveWebAssemblyRenderMode(prerender: false))
-@inject NavigationManager NavManager
 
 <PageTitle>Create New Season</PageTitle>
+<div style="text-align: center">
+    <span>Added Custom Drivers</span>
+    <table>
+       @foreach (var driver in customDrivers)
+       {
+            <tr>
+                <td>@driver.DriverId</td>
+                <td>@driver.Name</td>
+                <td>@driver.TeamId</td>
+                <td>@driver.Team_name</td>
+            </tr>
+       }
+    </table>
 
-<span>Added Custom Drivers</span>
-<table>
-   @foreach (var driver in customDrivers)
-   {
-        <tr>
-            <td>@driver.DriverId</td>
-            <td>@driver.Name</td>
-            <td>@driver.TeamId</td>
-            <td>@driver.Team_name</td>
-        </tr>
-   }
-</table>
+    @if (!(firstDriver.FinishingPositions.Any()))
+    {
 
-@if(!drivers[0].FinishingPositions.Any())
-{
+        <NavLink class="btn btn-primary mt-4" href="driverform">Add Custom Driver</NavLink>
+        <p class="mt-4"><span style="color: red">Disclaimer:</span> After the first race of the season, you will be unable to add any more custom driver</p>
+    }
+    else
+    {
 
-    <NavLink class="button btn-primary" href="driverform">Add Custom Driver</NavLink>
-}
-
-@*
-    Add custom drivers
+        <p class="mt-4">Unfortunately the season has already started,<br> which means you are unable to add more custom drivers</p>
 
 
-*@
+
+    }
+</div>
 
 
 @code{
-    List<Driver> drivers = new();
+    Driver firstDriver = new();
     List<DriverTableModel> customDrivers = new();
+    List<string> driverNames = new();
 
+    
     protected override async Task OnInitializedAsync()
     {
         customDrivers = await Http.GetFromJsonAsync<List<DriverTableModel>>("api/main");
+        firstDriver = await Http.GetFromJsonAsync<Driver>("api/drivers/leader");
+        driverNames = await Http.GetFromJsonAsync<List<string>>("api/drivers/names");
+
+
     }
 
 }

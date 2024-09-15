@@ -1,8 +1,10 @@
 ﻿using F1Pontszamitos_S6.DataB;
 using F1Pontszamitos_S6.Shared.Interfaces;
 using F1Pontszamitos_S6.Shared.Models;
+using F1Pontszamitos_S6.Shared.QueryModels;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System.Reflection.Metadata.Ecma335;
 
 namespace F1Pontszamitos_S6.Controllers
 {
@@ -22,7 +24,12 @@ namespace F1Pontszamitos_S6.Controllers
         public async Task<ActionResult<List<Driver>>> GetAllDriversAsync()
         {
             var alldrivers = _dbContext.DriversTable;
-            var unsorted = alldrivers.Where(x => x.isActive).ToList();
+            var unsorted = await alldrivers.Where(x => x.isActive).ToListAsync();
+
+            if (unsorted is null) {
+                return Ok(new List<Driver>());
+            }
+
 
             if (!unsorted[0].FinishingPositions.Any()) {
                 return unsorted.ToList();
@@ -37,17 +44,24 @@ namespace F1Pontszamitos_S6.Controllers
         public async Task<ActionResult<List<Driver>>> GetPreviousOrder()
         {
             var alldrivers = _dbContext.DriversTable;
-            var previous = alldrivers.Where(x => x.isActive).ToList();
+            var previous = await alldrivers.Where(x => x.isActive).ToListAsync();
 
+            if (previous is null)
+            {
+                return Ok(new List<Driver>());
+            }
 
             if (previous[0].FinishingPositions.Any())
             {
                 for (int i = 0; i < previous.Count; i++)
                 {
-                    previous[i].FinishingPositions.RemoveAt(previous[i].FinishingPositions.Count - 1);
+                    
+                        previous[i].FinishingPositions.RemoveAt(previous[i].FinishingPositions.Count - 1);
+                        
+                    
                 }
             }
-            
+
 
             return DriverSort(previous);
         }
@@ -56,23 +70,39 @@ namespace F1Pontszamitos_S6.Controllers
         [HttpGet("names")]
         public async Task<ActionResult<List<string>>> GetAllDriversNames()
         {
-            var driverNames = _dbContext.DriversTable.Where(x => x.isActive).Select(x => x.Name).ToList();
+            var driverNames = await _dbContext.DriversTable.Where(x => x.isActive).Select(x => x.Name).ToListAsync();
 
             return driverNames;
         }
 
+        [HttpGet("leader")]
+        public async Task<ActionResult<Driver>> GetLeader()
+        {
+            return await _dbContext.DriversTable.FirstAsync();
+        }
+
+        [HttpGet("namesnids")]
+        public async Task<ActionResult<Dictionary<int,string>>> GetNamesAndIds()
+        {
+            
+            var query = await _dbContext.DriversTable.Where(x => x.isActive).ToDictionaryAsync(x => x.Id, x => x.Name);
+
+            return Ok(query);
+        }
 
         //Add new race result
+        //The input parameters are based of the options of a dropdown list
 
-        [HttpPut("{driverName}/{position}/{fastestMan}")]
-        public async Task<ActionResult<Driver>> UpdateDriverAsync(string driverName, int position, string fastestMan)
+        [HttpPut("{driverId:int}/{position:int}/{fastestManId:int}")]
+        public async Task<ActionResult<Driver>> UpdateDriverAsync(int driverId, int position, int fastestManId)
         {
-            var driver = await _dbContext.DriversTable.Where(x => x.Name.Equals(driverName)).FirstOrDefaultAsync();
+            //Shouldn't check if driver is active or not, because from the dropdown list, you only can select the active drivers
+            var driver = await _dbContext.DriversTable.FindAsync(driverId);
 
-            //Not really possible since we got a list of them
-            if (driver == null)
+            //Not really possible because we select this driver from a dropdown list
+            if (driver is null)
             {
-                return NotFound();
+                return NotFound("No driver with this name in the database");
             }
             else
             {
@@ -86,7 +116,7 @@ namespace F1Pontszamitos_S6.Controllers
 
                 var newFastestLapList = driver.FastestLapList;
 
-                if (driver.Name.Equals(fastestMan))
+                if (driver.Id == fastestManId)
                 {
                     newFastestLapList.Add(1);
                 }
@@ -104,6 +134,40 @@ namespace F1Pontszamitos_S6.Controllers
             }
         }
 
+
+        /*Még tesztelni mindenképp*/
+        [HttpPut("addCustom")]
+        public async Task<ActionResult<Driver>> AddNewCustomDriver(Driver driver)
+        {
+            var numberOfDrivers = _dbContext.DriversTable.Count();
+
+            var nextId = numberOfDrivers + 50;
+
+            //We only get the Name, ShourtName attributes, others are at default
+            driver.Id = nextId;
+            driver.isActive = true;
+            driver.FastestLapList = new();
+            driver.FinishingPositions = new();
+            
+            _dbContext.DriversTable.Add(driver);
+            await _dbContext.SaveChangesAsync();
+
+            return Ok("Custom driver added successfully");
+        }
+
+        [HttpPut("modifyIsActive")]
+        public async Task<ActionResult<Driver>> ModifyIsActiveAttibute(string name)
+        {
+            var driver = _dbContext.DriversTable.First(x => x.Name == name);
+
+            driver.isActive = false;
+
+            await _dbContext.SaveChangesAsync();
+
+            return Ok("Driver inactivated successfully");
+        }
+
+        /***************************************************************************/
         private List<Driver> DriverSort(List<Driver> driver)
         {
             return driver.OrderByDescending(d => d.GetPoints())
