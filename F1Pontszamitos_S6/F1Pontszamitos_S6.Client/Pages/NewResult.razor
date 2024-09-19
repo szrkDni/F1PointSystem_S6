@@ -36,10 +36,10 @@ else
                 <div class="curb rightCurb"></div>
             </div>
 
-            <label class="mt-4">Fastest Lap</label>
-            <InputSelect @bind-Value="fastestManId" class="form-control"><OptionList driverDict="driverNames"></OptionList></InputSelect>
+            <label class="mt-4 fltext">Fastest Lap</label>
+            <InputSelect @bind-Value="fastestManId" class="form-control input input-width"><OptionList driverDict="driverNames"></OptionList></InputSelect>
 
-            <button type="submit" class="btn btn-primary mt-4">Add Result</button>
+            <button type="submit" class="btn btn-primary mt-4 mb-4 btn-cus">Add Result</button>
         </EditForm>
     </div>
 }
@@ -52,15 +52,15 @@ else
     string? nextRace = null;
     Dictionary<int,string> driverNames = new();
 
-    // private async Task CheckPassword()
-    // {
-    //     JS.InvokeVoidAsync("passwordProtection");
-    // }
+    private async Task CheckPassword()
+    {
+        JS.InvokeVoidAsync("passwordProtection");
+    }
 
 
     protected override async Task OnInitializedAsync()
     {
-        //await CheckPassword();
+        await CheckPassword();
 
         var delayTask = Task.Delay(500);
 

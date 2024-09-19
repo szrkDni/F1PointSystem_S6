@@ -125,11 +125,24 @@
     z-index: 10;
     position: relative;
     top: -26%;
-    font-size: 0.8rem;
+    font-size: 0.67vw;
     text-align: center;
 }
 
+.input-width {
+    width: 20vw;
+    margin-left: 9.5vw;
+}
+
+.fltext {
+    margin-left: 9.5vw;
+}
+
 .options {
-    font-size: 0.8rem;
+    font-size: 0.67vw;
     text-align: center;
+}
+
+.btn-cus{
+    margin-left: 9.5vw;
 }
