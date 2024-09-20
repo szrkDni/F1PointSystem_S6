@@ -1,0 +1,16 @@
+﻿
+
+.joinTitle {
+    font-size: 3vw;
+    text-align: center;
+    background: -webkit-linear-gradient(right, #56d8e4, #9f01ea, #56d8e4, #9f01ea);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url(../Images/back2.jpg)
+}
