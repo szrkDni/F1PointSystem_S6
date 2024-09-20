@@ -19,11 +19,13 @@
        }
     </table>
 
+    <NavLink class="btn btn-primary mt-4" href="driverform">Add Custom Driver</NavLink>
+    <p class="mt-4"><span style="color: red">Disclaimer:</span><br> After the first race of the season, you will be unable to add any more custom driver</p>
+@* 
     @if (!(firstDriver.FinishingPositions.Any()))
     {
 
-        <NavLink class="btn btn-primary mt-4" href="driverform">Add Custom Driver</NavLink>
-        <p class="mt-4"><span style="color: red">Disclaimer:</span> After the first race of the season, you will be unable to add any more custom driver</p>
+        
     }
     else
     {
@@ -32,7 +34,7 @@
 
 
 
-    }
+    } *@
 </div>
 
 

@@ -5,17 +5,22 @@
 @rendermode @( new InteractiveWebAssemblyRenderMode(prerender: false))
 @inject NavigationManager NavManager
 
+<PageTitle>DriverForm</PageTitle>
+<link rel="stylesheet" href="css/driverform.css">
 
 
-<EditForm Model="@driverToAdd" OnSubmit="HandleSubmit">
+<EditForm Model="@driverToAdd" OnSubmit="HandleSubmit"  class="card">
+
+    <span class="joinTitle">Join the Greats</span>
+
     <div class="form-row" style="display: flex; gap: 2vw;">
-        <div class="col col-md-2">
+        <div >
             
             <label>Name</label>
             <InputText @bind-Value="driverToAdd.Name" class="form-control"  placeholder="Enter Name"></InputText>
 
         </div>
-        <div class="col col-md-2">
+        <div >
             
             <label>Short Name</label>
             <InputText @bind-Value="driverToAdd.ShortName" class="form-control" placeholder="(e.g. VER, TSU)"></InputText>
@@ -24,14 +29,12 @@
     </div>
 
     
-
-    @* Az optionlistet át kell írni, hogy id-k legyenek a valuek *@
     <div class="form-row" style="display: flex; gap: 2vw;">
-        <div class="col col-md-2">
+        <div 
             <label class="mt-4">Choose team</label>
             <InputSelect @bind-Value="driverToAdd.Team_id" class="form-control"><OptionList driverList="teamNames"></OptionList></InputSelect>
         </div>
-        <div class="col col-md-2">
+        <div >
             <label class="mt-4">Who to repleace</label>
             <InputSelect @bind-Value="driverToReplace" class="form-control"><OptionList driverList="driverNames"></OptionList></InputSelect>
         </div>
