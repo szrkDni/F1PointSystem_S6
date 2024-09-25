@@ -32,11 +32,11 @@
     <div class="form-row" style="display: flex; gap: 2vw;">
         <div 
             <label class="mt-4">Choose team</label>
-            <InputSelect @bind-Value="driverToAdd.Team_id" class="form-control"><OptionList driverList="teamNames"></OptionList></InputSelect>
+            <InputSelect @bind-Value="driverToAdd.Team_id" class="form-control"><OptionList driverDict="teamNames" raceResult=null></OptionList></InputSelect>
         </div>
         <div >
             <label class="mt-4">Who to repleace</label>
-            <InputSelect @bind-Value="driverToReplace" class="form-control"><OptionList driverList="driverNames"></OptionList></InputSelect>
+            <InputSelect @bind-Value="driverToReplace" class="form-control"><OptionList driverDict="driverNames" raceResult=null></OptionList></InputSelect>
         </div>
     </div>
 

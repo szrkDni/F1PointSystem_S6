@@ -1,11 +1,14 @@
 ﻿<option value="0" selected>Select One...</option>
 @foreach (var driver in driverDict)
 {
-    <option value="@driver.Key">@driver.Value</option>
+    <option value="@driver.Key" style="@(raceResult.Contains(driver.Key) ? "display: none;" : "")">@driver.Value</option>
 }
 
 
 @code{
     [Parameter]
     public Dictionary<int, string> driverDict {get; set;}
+
+    [Parameter]
+    public int[] raceResult { get; set; }
 }
