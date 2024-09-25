@@ -32,11 +32,11 @@
     <div class="form-row" style="display: flex; gap: 2vw;">
         <div 
             <label class="mt-4">Choose team</label>
-            <InputSelect @bind-Value="driverToAdd.Team_id" class="form-control"><OptionList driverDict="teamNames" raceResult=null></OptionList></InputSelect>
+            <InputSelect @bind-Value="driverToAdd.Team_id" class="form-control"><OptionList driverDict="teamNames"></OptionList></InputSelect>
         </div>
         <div >
             <label class="mt-4">Who to repleace</label>
-            <InputSelect @bind-Value="driverToReplace" class="form-control"><OptionList driverDict="driverNames" raceResult=null></OptionList></InputSelect>
+            <InputSelect @bind-Value="driverToReplaceId" class="form-control"><OptionList driverDict="driverNames"></OptionList></InputSelect>
         </div>
     </div>
 
@@ -46,13 +46,13 @@
 @code{
     Driver driverToAdd = new();
     int driverToReplaceId;
-    List<string> driverNames = new();
-    List<string> teamNames = new();
+    Dictionary<int, string> driverNames = new();
+    Dictionary<int, string> teamNames = new();
 
     protected override async Task OnInitializedAsync()
     {
-        teamNames = await Http.GetFromJsonAsync<List<string>>("api/teams/names");
-        driverNames = await Http.GetFromJsonAsync<List<string>>("api/drivers/names");
+        teamNames = await Http.GetFromJsonAsync<Dictionary<int, string>>("api/teams/idsandnnames");
+        driverNames = await Http.GetFromJsonAsync<Dictionary<int, string>>("api/drivers/namesnids");
 
     }
 
@@ -61,7 +61,7 @@
     {
         /*mindenképp a short namet ToUpperrel kell rögzíteni*/
         var driverAddResponse = Http.PutAsJsonAsync("api/drivers/addCustom", driverToAdd);
-        var driverInvalidaeResponse = Http.PutAsJsonAsync("api/drivers/modifyIsActive", driverToReplace);
+        var driverInvalidaeResponse = Http.PutAsJsonAsync("api/drivers/modifyIsActive", driverToReplaceId);
         NavManager.NavigateTo("createnew");
     }
 }
