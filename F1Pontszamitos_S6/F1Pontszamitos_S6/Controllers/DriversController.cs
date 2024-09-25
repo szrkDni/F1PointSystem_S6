@@ -141,6 +141,9 @@ namespace F1Pontszamitos_S6.Controllers
         {
             var numberOfDrivers = _dbContext.DriversTable.Count();
 
+            var itsTeam = _dbContext.TeamsTable.Find(driver.Team_id);
+            itsTeam.Driver_ids.Add(driver.Id);
+
             var nextId = numberOfDrivers + 50;
 
             //We only get the Name, ShourtName attributes, others are at default
@@ -156,9 +159,9 @@ namespace F1Pontszamitos_S6.Controllers
         }
 
         [HttpPut("modifyIsActive")]
-        public async Task<ActionResult<Driver>> ModifyIsActiveAttibute(string name)
+        public async Task<ActionResult<Driver>> ModifyIsActiveAttibute(int id)
         {
-            var driver = _dbContext.DriversTable.First(x => x.Name == name);
+            var driver = _dbContext.DriversTable.Find(id);
 
             driver.isActive = false;
 
