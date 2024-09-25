@@ -9,7 +9,7 @@
   <ItemGroup>
     <ProjectReference Include="..\..\F1Pontszamitos_S6.Shared\F1Pontszamitos_S6.Shared.csproj" />
     <ProjectReference Include="..\F1Pontszamitos_S6.Client\F1Pontszamitos_S6.Client.csproj" />
-    <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.Server" Version="8.0.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.Server" Version="8.0.8" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.8" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="8.0.8" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="8.0.8">

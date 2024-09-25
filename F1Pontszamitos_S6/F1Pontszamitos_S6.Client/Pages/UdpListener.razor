@@ -1,0 +1,30 @@
+﻿@page "/try"
+
+    @using System.Net.Sockets;
+    @using System.Net;
+    @using System.Text;
+    @using System.Runtime.InteropServices;
+    @using System.Collections;
+    @using F1Pontszamitos_S6.Shared.Utils;
+    @inject HttpClient Http;
+@rendermode @( new InteractiveWebAssemblyRenderMode(prerender: false))
+
+<PageTitle>UDP Listen</PageTitle>
+
+@foreach(var item in raceOrder){
+    <p>@String.Format($"{item.Name} - {item.FinishedPosition}")</p>
+}
+
+@code {
+    public List<Individual> raceOrder = new();
+
+    protected override async Task OnInitializedAsync()
+    {
+
+        raceOrder = await Http.GetFromJsonAsync<List<Individual>>("api/udp/start");
+
+
+
+    }
+
+}

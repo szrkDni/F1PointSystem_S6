@@ -30,7 +30,6 @@ namespace F1Pontszamitos_S6.Controllers
                 return Ok(new List<Driver>());
             }
 
-
             if (!unsorted[0].FinishingPositions.Any()) {
                 return unsorted.ToList();
             }
