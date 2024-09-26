@@ -26,7 +26,21 @@ public struct ParticipantData
     UInt16 m_techLevel;         // F1 World tech level    
     byte m_platform;          // 1 = Steam, 3 = PlayStation, 4 = Xbox, 6 = Origin, 255 = unknown
 
-
+    public void ConsoleWrite() //Teszteléshez
+    {
+        Console.WriteLine("AI Controlled: {0}", m_aiControlled);
+        Console.WriteLine("Driver ID: {0}", m_driverId);
+        Console.WriteLine("Network ID: {0}", m_networkId);
+        Console.WriteLine("Team ID: {0}", m_teamId);
+        Console.WriteLine("My Team: {0}", m_myTeam);
+        Console.WriteLine("Race Number: {0}", m_raceNumber);
+        Console.WriteLine("Nationality: {0}", m_nationality);
+        Console.WriteLine("Name: {0}", new string(m_name));
+        Console.WriteLine("Your Telemetry: {0}", m_yourTelemetry);
+        Console.WriteLine("Show Online Names: {0}", m_showOnlineNames);
+        Console.WriteLine("Tech Level: {0}", m_techLevel);
+        Console.WriteLine("Platform: {0}", m_platform);
+    }
     public override string ToString()
     {
         return string.Format("---------------------------------------------\n" +
@@ -58,12 +72,7 @@ public struct ParticipantData
 
     public string GetName()
     {
-        string name;
-        foreach (char c in m_name)
-        {
-            name += c;
-        }
-        return name;
+        return new string(m_name);
     }
     //public void WriteName()
     //{

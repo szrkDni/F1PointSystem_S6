@@ -26,7 +26,21 @@ public struct FinalClassificationData
     [MarshalAs(UnmanagedType.ByValArray, SizeConst = 8)]
     public byte[] m_tyreStintsEndLaps; // The lap number stints end on
 
-    
+    public void ConsoleKiir() //Teszteléshez
+    {
+        Console.WriteLine("Driver Stats:");
+        Console.WriteLine($"Position: {m_position}");
+        Console.WriteLine($"Number of Laps: {m_numLaps}");
+        Console.WriteLine($"Grid Position: {m_gridPosition}");
+        Console.WriteLine($"Points: {m_points}");
+        Console.WriteLine($"Number of Pit Stops: {m_numPitStops}");
+        Console.WriteLine($"Result Status: {m_resultStatus}");
+        Console.WriteLine($"Best Lap Time (ms): {m_bestLapTimeInMS}");
+        Console.WriteLine($"Total Race Time (s): {m_totalRaceTime}");
+        Console.WriteLine($"Total Penalties Time (s): {m_penaltiesTime}");
+        Console.WriteLine($"Number of Penalties: {m_numPenalties}");
+        Console.WriteLine($"Number of Tyre Stints: {m_numTyreStints}");
+    }
 };
 
 [StructLayout(LayoutKind.Sequential, Pack = 1)]

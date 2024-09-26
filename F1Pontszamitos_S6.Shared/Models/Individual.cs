@@ -16,6 +16,6 @@ namespace F1Pontszamitos_S6.Shared.Models
         {
             Name = name;
             FinishedPosition = finishedPosition;
-        
+        }
     }
 }

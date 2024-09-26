@@ -20,11 +20,7 @@
 
     protected override async Task OnInitializedAsync()
     {
-
         raceOrder = await Http.GetFromJsonAsync<List<Individual>>("api/udp/start");
-
-
-
     }
 
 }
