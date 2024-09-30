@@ -25,6 +25,9 @@ namespace F1Pontszamitos_S6.Shared.Utils
 
         public async Task<List<Individual>> StartListeningAsync(CancellationToken stoppingToken) //Threadsek miatt async function kell
         {
+
+            int exceptionCounter = 0;
+
             PacketHeader header = new();
 
             PacketMotionData motionData = new PacketMotionData();
@@ -55,7 +58,6 @@ namespace F1Pontszamitos_S6.Shared.Utils
                     if (receivedBytes != null)
                     {
                         header = ByteArrayToStructure<PacketHeader>(receivedBytes);
-                        //Console.WriteLine($"Active Packet ID: {header.m_packetId}");
                     }
 
                     switch (header.m_packetId)
@@ -76,39 +78,45 @@ namespace F1Pontszamitos_S6.Shared.Utils
                             packetFinalClassificationData = ByteArrayToStructure<PacketFinalClassificationData>(receivedBytes);
                             finalData = packetFinalClassificationData.m_classificationData;
 
-                            if (!filled && !String.IsNullOrEmpty(participants[0].GetName())) //Így csak egyszer tölti bele, ha nem lenne többszöri lefutas miatt teletölti a listát
+                            if (!String.IsNullOrEmpty(participants[0].GetName())) //Így csak egyszer tölti bele, ha nem lenne többszöri lefutas miatt teletölti a listát
                             {   //Kellene egy hiba küszöbölés is mert ha akkor inditod el amikor mar a verseny veget latod ugyanugy feltolti
                                 // csak nevek nelkül es az nem túl előnyös
                                 for (int i = 1 - 1; i < finalData.Length; i++)
                                 {
                                     individualsToReturn.Add(new Individual(participants[i].GetName(), finalData[i].m_position));
                                 }
-                                filled = true;
+                                //filled = true;
+
+                                StopListening();
+                                return individualsToReturn;
                             }
                             break;
                     }
 
-                    if (individualsToReturn.Count > 0 && !String.IsNullOrEmpty(individualsToReturn[0].Name))//null vizsgalat helyett mert azokkal valamiert belepett
-                    {
-                        Console.WriteLine("UDP Listener is Closed.");
-                        _isListening = false;
-                        return individualsToReturn;
-                    }
 
                 }
                 catch (Exception ex)
                 {
                     Console.WriteLine($"Error receiving UDP packet: {ex.Message}");
+                    exceptionCounter++;
+
+                    if (exceptionCounter >= 5)
+                    {
+                        StopListening();
+                    }
                 }
             }
-            Console.WriteLine("UDP Listener is Closed.");
+            Console.WriteLine("Something gose terribly wrong. (UDP)");
+            StopListening();
             return null;
         }
 
         public void StopListening()
         {
+
             _isListening = false;
             _udpClient.Close(); // Zárjuk le a kapcsolatot, ha végeztünk
+            Console.WriteLine("UDP Listener is Closed.");
         }
 
         protected static T ByteArrayToStructure<T>(byte[] bytes)

@@ -23,7 +23,7 @@ namespace F1Pontszamitos_S6.Controllers
             List<Individual> individuals = await _udpListener.StartListeningAsync(_cancellationTokenSource.Token);
 
 
-            _ = StopUdpListener();
+            //_ = StopUdpListener();
 
             return Ok(individuals);
         }
