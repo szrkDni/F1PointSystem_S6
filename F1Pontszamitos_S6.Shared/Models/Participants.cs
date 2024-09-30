@@ -19,7 +19,7 @@ public struct ParticipantData
     byte m_nationality;         // Nationality of the driver
 
     [MarshalAs(UnmanagedType.ByValArray, SizeConst = 48)]
-    char[] m_name;          // Name of participant in UTF-8 format – null terminated
+    byte[] m_name;          // Name of participant in UTF-8 format – null terminated
                               // Will be truncated with … (U+2026) if too long
     byte m_yourTelemetry;     // The player's UDP setting, 0 = restricted, 1 = public
     byte m_showOnlineNames;   // The player's show online names setting, 0 = off, 1 = on
@@ -35,7 +35,7 @@ public struct ParticipantData
         Console.WriteLine("My Team: {0}", m_myTeam);
         Console.WriteLine("Race Number: {0}", m_raceNumber);
         Console.WriteLine("Nationality: {0}", m_nationality);
-        Console.WriteLine("Name: {0}", new string(m_name));
+        //Console.WriteLine("Name: {0}", new string(m_name));
         Console.WriteLine("Your Telemetry: {0}", m_yourTelemetry);
         Console.WriteLine("Show Online Names: {0}", m_showOnlineNames);
         Console.WriteLine("Tech Level: {0}", m_techLevel);
@@ -43,7 +43,7 @@ public struct ParticipantData
     }
     public override string ToString()
     {
-        return string.Format("---------------------------------------------\n" +
+        /*return string.Format("---------------------------------------------\n" +
                                  "AI Controlled: {0}\n" +
                                  "Driver ID: {1}\n" +
                                  "Network ID: {2}\n" +
@@ -67,12 +67,16 @@ public struct ParticipantData
                                  m_yourTelemetry,
                                  m_showOnlineNames,
                                  m_techLevel,
-                                 m_platform);
+                                 m_platform);*/
+
+        return null;
     }
 
     public string GetName()
     {
-        return new string(m_name);
+        string correctName = Encoding.UTF8.GetString(m_name);
+
+        return correctName;
     }
     //public void WriteName()
     //{

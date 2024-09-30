@@ -11,16 +11,28 @@
 
 <PageTitle>UDP Listen</PageTitle>
 
-@foreach(var item in raceOrder){
-    <p>@String.Format($"{item.Name} - {item.FinishedPosition}")</p>
+
+@if (raceOrder is not null && raceOrder.Count != 0)
+{
+    @foreach (var item in raceOrder)
+    {
+        <p>@String.Format($"{item.Name} - {item.FinishedPosition}")</p>
+    }
 }
 
+
 @code {
-    public List<Individual> raceOrder = new();
+
+    public List<Individual> raceOrder { get; set; } = new();
 
     protected override async Task OnInitializedAsync()
     {
+        Console.WriteLine("OnparametersSet");
         raceOrder = await Http.GetFromJsonAsync<List<Individual>>("api/udp/start");
+
+
+        int k = 0;
     }
+
 
 }

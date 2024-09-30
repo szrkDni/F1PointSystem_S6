@@ -75,11 +75,11 @@ namespace F1Pontszamitos_S6.Shared.Utils
                         case 8:
                             packetFinalClassificationData = ByteArrayToStructure<PacketFinalClassificationData>(receivedBytes);
                             finalData = packetFinalClassificationData.m_classificationData;
-                            
-                            if (!filled) //Így csak egyszer tölti bele, ha nem lenne többszöri lefutas miatt teletölti a listát
+
+                            if (!filled && !String.IsNullOrEmpty(participants[0].GetName())) //Így csak egyszer tölti bele, ha nem lenne többszöri lefutas miatt teletölti a listát
                             {   //Kellene egy hiba küszöbölés is mert ha akkor inditod el amikor mar a verseny veget latod ugyanugy feltolti
                                 // csak nevek nelkül es az nem túl előnyös
-                                for (int i = 1 - 1; i < finalData.Length; i++)  
+                                for (int i = 1 - 1; i < finalData.Length; i++)
                                 {
                                     individualsToReturn.Add(new Individual(participants[i].GetName(), finalData[i].m_position));
                                 }
@@ -88,7 +88,7 @@ namespace F1Pontszamitos_S6.Shared.Utils
                             break;
                     }
 
-                    if (individualsToReturn.Count > 0)//null vizsgalat helyett mert azokkal valamiert belepett
+                    if (individualsToReturn.Count > 0 && !String.IsNullOrEmpty(individualsToReturn[0].Name))//null vizsgalat helyett mert azokkal valamiert belepett
                     {
                         Console.WriteLine("UDP Listener is Closed.");
                         _isListening = false;
@@ -125,7 +125,7 @@ namespace F1Pontszamitos_S6.Shared.Utils
             }
             finally
             {
-                Marshal.FreeHGlobal(ptr);
+
             }
         }
     }

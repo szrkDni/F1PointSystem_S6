@@ -15,15 +15,17 @@ namespace F1Pontszamitos_S6.Controllers
         [HttpGet("start")]
         public async Task<ActionResult<List<Individual>>> StartUdpListener()
         {
+
             _cancellationTokenSource = new CancellationTokenSource();
             _udpListener = new UdpListener(20777); // UDP port
 
             //Await function lett a StartListening function a threadsek miatt
             List<Individual> individuals = await _udpListener.StartListeningAsync(_cancellationTokenSource.Token);
 
+
             _ = StopUdpListener();
 
-            return individuals;
+            return Ok(individuals);
         }
 
         [HttpGet("stop")]
