@@ -50,67 +50,7 @@ namespace F1Pontszamitos_S6.Migrations
                     b.HasData(
                         new
                         {
-                            Id = 1,
-                            FastestLapList = "[]",
-                            FinishingPositions = "[]",
-                            Name = "Verstappen",
-                            ShortName = "VER",
-                            Team_id = 1,
-                            isActive = true
-                        },
-                        new
-                        {
                             Id = 7,
-                            FastestLapList = "[]",
-                            FinishingPositions = "[]",
-                            Name = "Perez",
-                            ShortName = "PER",
-                            Team_id = 1,
-                            isActive = true
-                        },
-                        new
-                        {
-                            Id = 2,
-                            FastestLapList = "[]",
-                            FinishingPositions = "[]",
-                            Name = "Norris",
-                            ShortName = "NOR",
-                            Team_id = 3,
-                            isActive = true
-                        },
-                        new
-                        {
-                            Id = 4,
-                            FastestLapList = "[]",
-                            FinishingPositions = "[]",
-                            Name = "Piastri",
-                            ShortName = "PIA",
-                            Team_id = 3,
-                            isActive = true
-                        },
-                        new
-                        {
-                            Id = 3,
-                            FastestLapList = "[]",
-                            FinishingPositions = "[]",
-                            Name = "Leclerc",
-                            ShortName = "LEC",
-                            Team_id = 2,
-                            isActive = true
-                        },
-                        new
-                        {
-                            Id = 5,
-                            FastestLapList = "[]",
-                            FinishingPositions = "[]",
-                            Name = "Sainz",
-                            ShortName = "SAI",
-                            Team_id = 2,
-                            isActive = true
-                        },
-                        new
-                        {
-                            Id = 6,
                             FastestLapList = "[]",
                             FinishingPositions = "[]",
                             Name = "Hamilton",
@@ -120,7 +60,7 @@ namespace F1Pontszamitos_S6.Migrations
                         },
                         new
                         {
-                            Id = 8,
+                            Id = 50,
                             FastestLapList = "[]",
                             FinishingPositions = "[]",
                             Name = "Russel",
@@ -130,62 +70,32 @@ namespace F1Pontszamitos_S6.Migrations
                         },
                         new
                         {
+                            Id = 58,
+                            FastestLapList = "[]",
+                            FinishingPositions = "[]",
+                            Name = "Leclerc",
+                            ShortName = "LEC",
+                            Team_id = 1,
+                            isActive = true
+                        },
+                        new
+                        {
+                            Id = 1,
+                            FastestLapList = "[]",
+                            FinishingPositions = "[]",
+                            Name = "Sainz",
+                            ShortName = "SAI",
+                            Team_id = 1,
+                            isActive = true
+                        },
+                        new
+                        {
                             Id = 9,
                             FastestLapList = "[]",
                             FinishingPositions = "[]",
-                            Name = "Alonso",
-                            ShortName = "ALO",
-                            Team_id = 5,
-                            isActive = true
-                        },
-                        new
-                        {
-                            Id = 10,
-                            FastestLapList = "[]",
-                            FinishingPositions = "[]",
-                            Name = "Stroll",
-                            ShortName = "STR",
-                            Team_id = 5,
-                            isActive = true
-                        },
-                        new
-                        {
-                            Id = 11,
-                            FastestLapList = "[]",
-                            FinishingPositions = "[]",
-                            Name = "Hulkenberg",
-                            ShortName = "HUL",
-                            Team_id = 8,
-                            isActive = true
-                        },
-                        new
-                        {
-                            Id = 15,
-                            FastestLapList = "[]",
-                            FinishingPositions = "[]",
-                            Name = "Magnussen",
-                            ShortName = "MAG",
-                            Team_id = 8,
-                            isActive = true
-                        },
-                        new
-                        {
-                            Id = 12,
-                            FastestLapList = "[]",
-                            FinishingPositions = "[]",
-                            Name = "Tsunoda",
-                            ShortName = "TSU",
-                            Team_id = 6,
-                            isActive = true
-                        },
-                        new
-                        {
-                            Id = 13,
-                            FastestLapList = "[]",
-                            FinishingPositions = "[]",
-                            Name = "Ricciardo",
-                            ShortName = "RIC",
-                            Team_id = 6,
+                            Name = "Verstappen",
+                            ShortName = "VER",
+                            Team_id = 2,
                             isActive = true
                         },
                         new
@@ -193,9 +103,59 @@ namespace F1Pontszamitos_S6.Migrations
                             Id = 14,
                             FastestLapList = "[]",
                             FinishingPositions = "[]",
+                            Name = "Perez",
+                            ShortName = "PER",
+                            Team_id = 2,
+                            isActive = true
+                        },
+                        new
+                        {
+                            Id = 62,
+                            FastestLapList = "[]",
+                            FinishingPositions = "[]",
+                            Name = "Albon",
+                            ShortName = "ALB",
+                            Team_id = 3,
+                            isActive = true
+                        },
+                        new
+                        {
+                            Id = 132,
+                            FastestLapList = "[]",
+                            FinishingPositions = "[]",
+                            Name = "Sargeant",
+                            ShortName = "SAR",
+                            Team_id = 3,
+                            isActive = true
+                        },
+                        new
+                        {
+                            Id = 3,
+                            FastestLapList = "[]",
+                            FinishingPositions = "[]",
+                            Name = "Alonso",
+                            ShortName = "ALO",
+                            Team_id = 4,
+                            isActive = true
+                        },
+                        new
+                        {
+                            Id = 19,
+                            FastestLapList = "[]",
+                            FinishingPositions = "[]",
+                            Name = "Stroll",
+                            ShortName = "STR",
+                            Team_id = 4,
+                            isActive = true
+                        },
+                        new
+                        {
+                            Id = 59,
+                            FastestLapList = "[]",
+                            FinishingPositions = "[]",
                             Name = "Gasly",
                             ShortName = "GAS",
-                            Team_id = 9,
+                            Team_id = 5,
                             isActive = true
                         },
                         new
@@ -205,47 +165,87 @@ namespace F1Pontszamitos_S6.Migrations
                             FinishingPositions = "[]",
                             Name = "Ocon",
                             ShortName = "OCO",
+                            Team_id = 5,
+                            isActive = true
+                        },
+                        new
+                        {
+                            Id = 94,
+                            FastestLapList = "[]",
+                            FinishingPositions = "[]",
+                            Name = "Tsunoda",
+                            ShortName = "TSU",
+                            Team_id = 6,
+                            isActive = true
+                        },
+                        new
+                        {
+                            Id = 2,
+                            FastestLapList = "[]",
+                            FinishingPositions = "[]",
+                            Name = "Ricciardo",
+                            ShortName = "RIC",
+                            Team_id = 6,
+                            isActive = true
+                        },
+                        new
+                        {
+                            Id = 10,
+                            FastestLapList = "[]",
+                            FinishingPositions = "[]",
+                            Name = "Hulkenberg",
+                            ShortName = "HUL",
+                            Team_id = 7,
+                            isActive = true
+                        },
+                        new
+                        {
+                            Id = 11,
+                            FastestLapList = "[]",
+                            FinishingPositions = "[]",
+                            Name = "Magnussen",
+                            ShortName = "MAG",
+                            Team_id = 7,
+                            isActive = true
+                        },
+                        new
+                        {
+                            Id = 54,
+                            FastestLapList = "[]",
+                            FinishingPositions = "[]",
+                            Name = "Norris",
+                            ShortName = "NOR",
+                            Team_id = 8,
+                            isActive = true
+                        },
+                        new
+                        {
+                            Id = 112,
+                            FastestLapList = "[]",
+                            FinishingPositions = "[]",
+                            Name = "Piastri",
+                            ShortName = "PIA",
+                            Team_id = 8,
+                            isActive = true
+                        },
+                        new
+                        {
+                            Id = 80,
+                            FastestLapList = "[]",
+                            FinishingPositions = "[]",
+                            Name = "Zhou",
+                            ShortName = "ZHO",
                             Team_id = 9,
                             isActive = true
                         },
                         new
                         {
-                            Id = 16,
-                            FastestLapList = "[]",
-                            FinishingPositions = "[]",
-                            Name = "Albon",
-                            ShortName = "ALB",
-                            Team_id = 7,
-                            isActive = true
-                        },
-                        new
-                        {
-                            Id = 19,
-                            FastestLapList = "[]",
-                            FinishingPositions = "[]",
-                            Name = "Sargeant",
-                            ShortName = "SAR",
-                            Team_id = 7,
-                            isActive = true
-                        },
-                        new
-                        {
-                            Id = 18,
-                            FastestLapList = "[]",
-                            FinishingPositions = "[]",
-                            Name = "Zhou",
-                            ShortName = "ZHO",
-                            Team_id = 4,
-                            isActive = true
-                        },
-                        new
-                        {
-                            Id = 20,
+                            Id = 15,
                             FastestLapList = "[]",
                             FinishingPositions = "[]",
                             Name = "Bottas",
                             ShortName = "BOT",
-                            Team_id = 4,
+                            Team_id = 9,
                             isActive = true
                         });
                 });
@@ -417,73 +417,73 @@ namespace F1Pontszamitos_S6.Migrations
                     b.HasData(
                         new
                         {
-                            Id = 1,
-                            BgColor = "#021652",
-                            Driver_ids = "[1,7]",
-                            Name = "Red Bull"
+                            Id = 10,
+                            BgColor = "#0da49f",
+                            Driver_ids = "[7,50]",
+                            Name = "Mercedes"
                         },
                         new
                         {
-                            Id = 2,
+                            Id = 1,
                             BgColor = "#fe0d0d",
-                            Driver_ids = "[3,5]",
+                            Driver_ids = "[58,1]",
                             Name = "Ferrari"
                         },
                         new
                         {
+                            Id = 2,
+                            BgColor = "#021652",
+                            Driver_ids = "[9,14]",
+                            Name = "Red Bull"
+                        },
+                        new
+                        {
                             Id = 3,
-                            BgColor = "#ff6c0b",
-                            Driver_ids = "[2,4]",
-                            Name = "McLaren"
-                        },
-                        new
-                        {
-                            Id = 4,
-                            BgColor = "#9f0d11",
-                            Driver_ids = "[18,20]",
-                            Name = "Alfa"
-                        },
-                        new
-                        {
-                            Id = 5,
-                            BgColor = "#00533a",
-                            Driver_ids = "[9,10]",
-                            Name = "Aston"
-                        },
-                        new
-                        {
-                            Id = 6,
-                            BgColor = "#0d3349",
-                            Driver_ids = "[12,13]",
-                            Name = "Tauri"
-                        },
-                        new
-                        {
-                            Id = 7,
                             BgColor = "#0b3b7a",
-                            Driver_ids = "[16,19]",
+                            Driver_ids = "[62,132]",
                             Name = "Williams"
                         },
                         new
                         {
-                            Id = 8,
-                            BgColor = "#ffffff",
-                            Driver_ids = "[11,15]",
-                            Name = "Haas"
+                            Id = 4,
+                            BgColor = "#00533a",
+                            Driver_ids = "[3,19]",
+                            Name = "Aston"
                         },
                         new
                         {
-                            Id = 9,
+                            Id = 5,
                             BgColor = "#04111f",
-                            Driver_ids = "[14,17]",
+                            Driver_ids = "[59,17]",
                             Name = "Alpine"
                         },
                         new
                         {
-                            Id = 10,
-                            BgColor = "#0da49f",
-                            Driver_ids = "[6,8]",
-                            Name = "Mercedes"
+                            Id = 6,
+                            BgColor = "#1534cc",
+                            Driver_ids = "[94,2]",
+                            Name = "Visa CashApp RB"
+                        },
+                        new
+                        {
+                            Id = 7,
+                            BgColor = "#ffffff",
+                            Driver_ids = "[10,11]",
+                            Name = "Haas"
+                        },
+                        new
+                        {
+                            Id = 8,
+                            BgColor = "#ff6c0b",
+                            Driver_ids = "[54,112]",
+                            Name = "McLaren"
+                        },
+                        new
+                        {
+                            Id = 9,
+                            BgColor = "#000000",
+                            Driver_ids = "[80,15]",
+                            Name = "Stake Sauber"
                         });
                 });
 #pragma warning restore 612, 618

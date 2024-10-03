@@ -7,6 +7,6 @@
         // Átirányítás másik oldalra
         window.location.href = "/";
     } else {
-        alert("Helyes jelszó, folytatás...");
+        alert("Helyes jelszó, folytatás...");//
     }
 }

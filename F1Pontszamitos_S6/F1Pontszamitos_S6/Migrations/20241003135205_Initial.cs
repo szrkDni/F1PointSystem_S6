@@ -64,26 +64,26 @@ namespace F1Pontszamitos_S6.Migrations
                 columns: new[] { "Id", "FastestLapList", "FinishingPositions", "Name", "ShortName", "Team_id", "isActive" },
                 values: new object[,]
                 {
-                    { 1, "[]", "[]", "Verstappen", "VER", 1, true },
-                    { 2, "[]", "[]", "Norris", "NOR", 3, true },
-                    { 3, "[]", "[]", "Leclerc", "LEC", 2, true },
-                    { 4, "[]", "[]", "Piastri", "PIA", 3, true },
-                    { 5, "[]", "[]", "Sainz", "SAI", 2, true },
-                    { 6, "[]", "[]", "Hamilton", "HAM", 10, true },
-                    { 7, "[]", "[]", "Perez", "PER", 1, true },
-                    { 8, "[]", "[]", "Russel", "RUS", 10, true },
-                    { 9, "[]", "[]", "Alonso", "ALO", 5, true },
-                    { 10, "[]", "[]", "Stroll", "STR", 5, true },
-                    { 11, "[]", "[]", "Hulkenberg", "HUL", 8, true },
-                    { 12, "[]", "[]", "Tsunoda", "TSU", 6, true },
-                    { 13, "[]", "[]", "Ricciardo", "RIC", 6, true },
-                    { 14, "[]", "[]", "Gasly", "GAS", 9, true },
-                    { 15, "[]", "[]", "Magnussen", "MAG", 8, true },
-                    { 16, "[]", "[]", "Albon", "ALB", 7, true },
-                    { 17, "[]", "[]", "Ocon", "OCO", 9, true },
-                    { 18, "[]", "[]", "Zhou", "ZHO", 4, true },
-                    { 19, "[]", "[]", "Sargeant", "SAR", 7, true },
-                    { 20, "[]", "[]", "Bottas", "BOT", 4, true }
+                    { 1, "[]", "[]", "Sainz", "SAI", 1, true },
+                    { 2, "[]", "[]", "Ricciardo", "RIC", 6, true },
+                    { 3, "[]", "[]", "Alonso", "ALO", 4, true },
+                    { 7, "[]", "[]", "Hamilton", "HAM", 10, true },
+                    { 9, "[]", "[]", "Verstappen", "VER", 2, true },
+                    { 10, "[]", "[]", "Hulkenberg", "HUL", 7, true },
+                    { 11, "[]", "[]", "Magnussen", "MAG", 7, true },
+                    { 14, "[]", "[]", "Perez", "PER", 2, true },
+                    { 15, "[]", "[]", "Bottas", "BOT", 9, true },
+                    { 17, "[]", "[]", "Ocon", "OCO", 5, true },
+                    { 19, "[]", "[]", "Stroll", "STR", 4, true },
+                    { 50, "[]", "[]", "Russel", "RUS", 10, true },
+                    { 54, "[]", "[]", "Norris", "NOR", 8, true },
+                    { 58, "[]", "[]", "Leclerc", "LEC", 1, true },
+                    { 59, "[]", "[]", "Gasly", "GAS", 5, true },
+                    { 62, "[]", "[]", "Albon", "ALB", 3, true },
+                    { 80, "[]", "[]", "Zhou", "ZHO", 9, true },
+                    { 94, "[]", "[]", "Tsunoda", "TSU", 6, true },
+                    { 112, "[]", "[]", "Piastri", "PIA", 8, true },
+                    { 132, "[]", "[]", "Sargeant", "SAR", 3, true }
                 });
 
             migrationBuilder.InsertData(
@@ -118,16 +118,16 @@ namespace F1Pontszamitos_S6.Migrations
                 columns: new[] { "Id", "BgColor", "Driver_ids", "Name" },
                 values: new object[,]
                 {
-                    { 1, "#021652", "[1,7]", "Red Bull" },
-                    { 2, "#fe0d0d", "[3,5]", "Ferrari" },
-                    { 3, "#ff6c0b", "[2,4]", "McLaren" },
-                    { 4, "#9f0d11", "[18,20]", "Alfa" },
-                    { 5, "#00533a", "[9,10]", "Aston" },
-                    { 6, "#0d3349", "[12,13]", "Tauri" },
-                    { 7, "#0b3b7a", "[16,19]", "Williams" },
-                    { 8, "#ffffff", "[11,15]", "Haas" },
-                    { 9, "#04111f", "[14,17]", "Alpine" },
-                    { 10, "#0da49f", "[6,8]", "Mercedes" }
+                    { 1, "#fe0d0d", "[58,1]", "Ferrari" },
+                    { 2, "#021652", "[9,14]", "Red Bull" },
+                    { 3, "#0b3b7a", "[62,132]", "Williams" },
+                    { 4, "#00533a", "[3,19]", "Aston" },
+                    { 5, "#04111f", "[59,17]", "Alpine" },
+                    { 6, "#1534cc", "[94,2]", "Visa CashApp RB" },
+                    { 7, "#ffffff", "[10,11]", "Haas" },
+                    { 8, "#ff6c0b", "[54,112]", "McLaren" },
+                    { 9, "#000000", "[80,15]", "Stake Sauber" },
+                    { 10, "#0da49f", "[7,50]", "Mercedes" }
                 });
         }
 

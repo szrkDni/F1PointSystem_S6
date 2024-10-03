@@ -8,12 +8,15 @@ namespace F1Pontszamitos_S6.Shared.Models
 {
     public class Individual
     {
+
+        public int Id { get; }
         public string Name { get;}
 
         public int FinishedPosition { get; }
 
-        public Individual(string name, int finishedPosition)
+        public Individual(int id, string name, int finishedPosition)
         {
+            Id = id;
             Name = name;
             FinishedPosition = finishedPosition;
         }
