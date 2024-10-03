@@ -38,6 +38,25 @@ namespace F1Pontszamitos_S6.Controllers
             return DriverSort(unsorted);
         }
 
+        [HttpGet("includeInactive")] //MINDET VISSZAADJA MEG AZ INACTIVAKAT IS
+        public async Task<ActionResult<List<Driver>>> GetAllDriversInactiveAsync()
+        {
+            var alldrivers = _dbContext.DriversTable;
+            var unsorted = await alldrivers.ToListAsync();
+
+            if (unsorted is null)
+            {
+                return Ok(new List<Driver>());
+            }
+
+            if (!unsorted[0].FinishingPositions.Any())
+            {
+                return unsorted.ToList();
+            }
+
+            return DriverSort(unsorted);
+        }
+
 
         [HttpGet("previous")]
         public async Task<ActionResult<List<Driver>>> GetPreviousOrder()
