@@ -20,10 +20,10 @@ namespace F1Pontszamitos_S6.DataB
                 new Driver { Id = 50, Name = "Russel", ShortName = "RUS", Team_id = 10, FinishingPositions = new List<int>(), FastestLapList = new List<int>() , isActive = true },
                 
                 new Driver { Id = 58, Name = "Leclerc", ShortName = "LEC", Team_id = 1, FinishingPositions = new List<int>(), FastestLapList = new List<int>(), isActive = true },
-                new Driver { Id = 1, Name = "Sainz", ShortName = "SAI", Team_id = 1, FinishingPositions = new List<int>(), FastestLapList = new List<int>()  , isActive = true },
+                new Driver { Id = 1, Name = "Sainz", ShortName = "SAI", Team_id = 1, FinishingPositions = new List<int>(), FastestLapList = new List<int>()  , isActive = false }, //FALSE
                 
                 new Driver { Id = 9, Name = "Verstappen", ShortName = "VER", Team_id = 2, FinishingPositions = new List<int>(), FastestLapList = new List<int>(), isActive = true },
-                new Driver { Id = 14, Name = "Perez", ShortName = "PER", Team_id = 2, FinishingPositions = new List<int>(), FastestLapList = new List<int>(), isActive = true },
+                new Driver { Id = 14, Name = "Perez", ShortName = "PER", Team_id = 2, FinishingPositions = new List<int>(), FastestLapList = new List<int>(), isActive = false }, //FASLE
 
                 new Driver { Id = 62, Name = "Albon", ShortName = "ALB", Team_id = 3, FinishingPositions = new List<int>(), FastestLapList = new List<int>() , isActive = true },
                 new Driver { Id = 132, Name = "Sargeant", ShortName = "SAR", Team_id = 3, FinishingPositions = new List<int>(), FastestLapList = new List<int>() , isActive = true },
@@ -44,13 +44,17 @@ namespace F1Pontszamitos_S6.DataB
                 new Driver { Id = 112, Name = "Piastri", ShortName = "PIA", Team_id = 8, FinishingPositions = new List<int>(), FastestLapList = new List<int>(), isActive = true },
 
                 new Driver { Id = 80, Name = "Zhou", ShortName = "ZHO", Team_id = 9, FinishingPositions = new List<int>(), FastestLapList = new List<int>() , isActive = true },
-                new Driver { Id = 15, Name = "Bottas", ShortName = "BOT", Team_id = 9, FinishingPositions = new List<int>(), FastestLapList = new List<int>() , isActive = true }
+                new Driver { Id = 15, Name = "Bottas", ShortName = "BOT", Team_id = 9, FinishingPositions = new List<int>(), FastestLapList = new List<int>() , isActive = true },
+                
+
+                new Driver { Id = 120, Name = "Szarka", ShortName = "SZA", Team_id = 2, FinishingPositions = new(), FastestLapList = new(), isActive = true },
+                new Driver { Id = 121, Name = "Bagosi", ShortName = "BAG", Team_id = 1, FinishingPositions = new(), FastestLapList = new(), isActive = true }
                 );
 
             modelBuilder.Entity<Team>().HasData(
                 new Team { Id = 10, Name = "Mercedes", BgColor = "#0da49f", Driver_ids = new List<int> { 7, 50 } },
-                new Team { Id = 1, Name = "Ferrari", BgColor = "#fe0d0d", Driver_ids = new List<int> { 58, 1 } },
-                new Team { Id = 2, Name = "Red Bull", BgColor = "#021652", Driver_ids = new List<int> { 9, 14 } },
+                new Team { Id = 1, Name = "Ferrari", BgColor = "#fe0d0d", Driver_ids = new List<int> { 58, 1, 121 } },
+                new Team { Id = 2, Name = "Red Bull", BgColor = "#021652", Driver_ids = new List<int> { 9, 14, 120 } },
                 new Team { Id = 3, Name = "Williams", BgColor = "#0b3b7a", Driver_ids = new List<int> { 62, 132 } },
                 new Team { Id = 4, Name = "Aston", BgColor = "#00533a", Driver_ids = new List<int> { 3, 19 } },
                 new Team { Id = 5, Name = "Alpine", BgColor = "#04111f", Driver_ids = new List<int> { 59, 17 } },

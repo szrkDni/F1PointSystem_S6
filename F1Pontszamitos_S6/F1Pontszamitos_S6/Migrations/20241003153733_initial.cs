@@ -7,7 +7,7 @@
 namespace F1Pontszamitos_S6.Migrations
 {
     /// <inheritdoc />
-    public partial class Initial : Migration
+    public partial class initial : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -64,14 +64,14 @@ namespace F1Pontszamitos_S6.Migrations
                 columns: new[] { "Id", "FastestLapList", "FinishingPositions", "Name", "ShortName", "Team_id", "isActive" },
                 values: new object[,]
                 {
-                    { 1, "[]", "[]", "Sainz", "SAI", 1, true },
+                    { 1, "[]", "[]", "Sainz", "SAI", 1, false },
                     { 2, "[]", "[]", "Ricciardo", "RIC", 6, true },
                     { 3, "[]", "[]", "Alonso", "ALO", 4, true },
                     { 7, "[]", "[]", "Hamilton", "HAM", 10, true },
                     { 9, "[]", "[]", "Verstappen", "VER", 2, true },
                     { 10, "[]", "[]", "Hulkenberg", "HUL", 7, true },
                     { 11, "[]", "[]", "Magnussen", "MAG", 7, true },
-                    { 14, "[]", "[]", "Perez", "PER", 2, true },
+                    { 14, "[]", "[]", "Perez", "PER", 2, false },
                     { 15, "[]", "[]", "Bottas", "BOT", 9, true },
                     { 17, "[]", "[]", "Ocon", "OCO", 5, true },
                     { 19, "[]", "[]", "Stroll", "STR", 4, true },
@@ -83,6 +83,8 @@ namespace F1Pontszamitos_S6.Migrations
                     { 80, "[]", "[]", "Zhou", "ZHO", 9, true },
                     { 94, "[]", "[]", "Tsunoda", "TSU", 6, true },
                     { 112, "[]", "[]", "Piastri", "PIA", 8, true },
+                    { 120, "[]", "[]", "Szarka", "SZA", 2, true },
+                    { 121, "[]", "[]", "Bagosi", "BAG", 1, true },
                     { 132, "[]", "[]", "Sargeant", "SAR", 3, true }
                 });
 
@@ -118,8 +120,8 @@ namespace F1Pontszamitos_S6.Migrations
                 columns: new[] { "Id", "BgColor", "Driver_ids", "Name" },
                 values: new object[,]
                 {
-                    { 1, "#fe0d0d", "[58,1]", "Ferrari" },
-                    { 2, "#021652", "[9,14]", "Red Bull" },
+                    { 1, "#fe0d0d", "[58,1,121]", "Ferrari" },
+                    { 2, "#021652", "[9,14,120]", "Red Bull" },
                     { 3, "#0b3b7a", "[62,132]", "Williams" },
                     { 4, "#00533a", "[3,19]", "Aston" },
                     { 5, "#04111f", "[59,17]", "Alpine" },

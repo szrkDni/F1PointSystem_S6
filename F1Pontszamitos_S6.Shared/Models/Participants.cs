@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 public struct ParticipantData
 {
     byte m_aiControlled;      // Whether the vehicle is AI (1) or Human (0) controlled
-    byte m_driverId;	   // Driver id - see appendix, 255 if network human
+    public byte m_driverId;	   // Driver id - see appendix, 255 if network human
     byte m_networkId;	   // Network id – unique identifier for network players
     byte m_teamId;            // Team id - see appendix
     byte m_myTeam;            // My team flag – 1 = My Team, 0 = otherwise

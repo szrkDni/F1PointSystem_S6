@@ -14,11 +14,14 @@ namespace F1Pontszamitos_S6.Shared.Models
 
         public int FinishedPosition { get; }
 
-        public Individual(int id, string name, int finishedPosition)
+        public UInt32 bestLaptime { get; set; }
+
+        public Individual(int id, string name, int finishedPosition, uint laptime)
         {
             Id = id;
             Name = name;
             FinishedPosition = finishedPosition;
+            bestLaptime = laptime;
         }
     }
 }

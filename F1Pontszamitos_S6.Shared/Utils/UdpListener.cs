@@ -83,7 +83,7 @@ namespace F1Pontszamitos_S6.Shared.Utils
                                 // csak nevek nelkül es az nem túl előnyös
                                 for (int i = 1 - 1; i < finalData.Length; i++)
                                 {
-                                    individualsToReturn.Add(new Individual(participants[i].GetName(), finalData[i].m_position));
+                                    individualsToReturn.Add(new Individual(participants[i].m_driverId, participants[i].GetName(), finalData[i].m_position, finalData[i].m_bestLapTimeInMS));
                                 }
                                 //filled = true;
 

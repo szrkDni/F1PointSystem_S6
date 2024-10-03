@@ -86,7 +86,7 @@ namespace F1Pontszamitos_S6.Migrations
                             Name = "Sainz",
                             ShortName = "SAI",
                             Team_id = 1,
-                            isActive = true
+                            isActive = false
                         },
                         new
                         {
@@ -106,7 +106,7 @@ namespace F1Pontszamitos_S6.Migrations
                             Name = "Perez",
                             ShortName = "PER",
                             Team_id = 2,
-                            isActive = true
+                            isActive = false
                         },
                         new
                         {
@@ -246,6 +246,26 @@ namespace F1Pontszamitos_S6.Migrations
                             Name = "Bottas",
                             ShortName = "BOT",
                             Team_id = 9,
+                            isActive = true
+                        },
+                        new
+                        {
+                            Id = 120,
+                            FastestLapList = "[]",
+                            FinishingPositions = "[]",
+                            Name = "Szarka",
+                            ShortName = "SZA",
+                            Team_id = 2,
+                            isActive = true
+                        },
+                        new
+                        {
+                            Id = 121,
+                            FastestLapList = "[]",
+                            FinishingPositions = "[]",
+                            Name = "Bagosi",
+                            ShortName = "BAG",
+                            Team_id = 1,
                             isActive = true
                         });
                 });
@@ -426,14 +446,14 @@ namespace F1Pontszamitos_S6.Migrations
                         {
                             Id = 1,
                             BgColor = "#fe0d0d",
-                            Driver_ids = "[58,1]",
+                            Driver_ids = "[58,1,121]",
                             Name = "Ferrari"
                         },
                         new
                         {
                             Id = 2,
                             BgColor = "#021652",
-                            Driver_ids = "[9,14]",
+                            Driver_ids = "[9,14,120]",
                             Name = "Red Bull"
                         },
                         new
