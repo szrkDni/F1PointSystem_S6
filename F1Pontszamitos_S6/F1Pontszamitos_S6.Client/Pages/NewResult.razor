@@ -85,13 +85,12 @@ else
 
     protected async Task HandleSubmit()
     {
-
         for (int i = 0; i < raceResult.Length; i++)
         {
-
             var result = await Http.PutAsJsonAsync($"api/drivers/{raceResult[i]}/{i + 1}/{fastestManId}", new Driver());
-            
         }
+
+        var inactiveResult = await Http.PutAsJsonAsync("api/drivers/namesnids/inactive", new Driver());
 
         NavManager.NavigateTo("standings");
     }

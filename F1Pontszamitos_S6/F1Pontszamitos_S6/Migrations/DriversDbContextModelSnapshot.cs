@@ -146,7 +146,7 @@ namespace F1Pontszamitos_S6.Migrations
                             Name = "Stroll",
                             ShortName = "STR",
                             Team_id = 4,
-                            isActive = true
+                            isActive = false
                         },
                         new
                         {
@@ -267,6 +267,16 @@ namespace F1Pontszamitos_S6.Migrations
                             ShortName = "BAG",
                             Team_id = 1,
                             isActive = true
+                        },
+                        new
+                        {
+                            Id = 122,
+                            FastestLapList = "[]",
+                            FinishingPositions = "[]",
+                            Name = "Berner",
+                            ShortName = "BER",
+                            Team_id = 4,
+                            isActive = true
                         });
                 });
 
@@ -292,122 +302,146 @@ namespace F1Pontszamitos_S6.Migrations
                         new
                         {
                             Id = 1,
-                            Name = "Bahrain GP",
-                            ShortName = "BHR"
+                            Name = "The Australia GP",
+                            ShortName = "AUS"
                         },
                         new
                         {
                             Id = 2,
-                            Name = "Las Vegas GP",
-                            ShortName = "VEGAS"
+                            Name = "The Japanese GP",
+                            ShortName = "JPN"
                         },
                         new
                         {
                             Id = 3,
-                            Name = "Miami GP",
-                            ShortName = "MIAMI"
+                            Name = "The Chinese GP",
+                            ShortName = "CHN"
                         },
                         new
                         {
                             Id = 4,
-                            Name = "Brazilian GP",
-                            ShortName = "BRAZ"
+                            Name = "The Qatar GP",
+                            ShortName = "QTR"
                         },
                         new
                         {
                             Id = 5,
-                            Name = "Hungarian GP",
-                            ShortName = "HUN"
+                            Name = "The Bahrain GP",
+                            ShortName = "BHR"
                         },
                         new
                         {
                             Id = 6,
-                            Name = "Hungarian GP",
-                            ShortName = "HUN"
+                            Name = "The Saud Arabian GP",
+                            ShortName = "SAU"
                         },
                         new
                         {
                             Id = 7,
-                            Name = "Hungarian GP",
-                            ShortName = "HUN"
+                            Name = "The Miami GP",
+                            ShortName = "MMI"
                         },
                         new
                         {
                             Id = 8,
-                            Name = "Hungarian GP",
-                            ShortName = "HUN"
+                            Name = "The Canadian GP",
+                            ShortName = "CDN"
                         },
                         new
                         {
                             Id = 9,
-                            Name = "Hungarian GP",
-                            ShortName = "HUN"
+                            Name = "The Emilia Romagna GP",
+                            ShortName = "IML"
                         },
                         new
                         {
                             Id = 10,
-                            Name = "Hungarian GP",
-                            ShortName = "HUN"
+                            Name = "The Spanish GP",
+                            ShortName = "SPN"
                         },
                         new
                         {
                             Id = 11,
-                            Name = "Hungarian GP",
-                            ShortName = "HUN"
+                            Name = "The Austrian GP",
+                            ShortName = "AUT"
                         },
                         new
                         {
                             Id = 12,
-                            Name = "Hungarian GP",
-                            ShortName = "HUN"
+                            Name = "The Silverstone GP",
+                            ShortName = "GBR"
                         },
                         new
                         {
                             Id = 13,
-                            Name = "Hungarian GP",
+                            Name = "The Hungarian GP",
                             ShortName = "HUN"
                         },
                         new
                         {
                             Id = 14,
-                            Name = "Hungarian GP",
-                            ShortName = "HUN"
+                            Name = "The Belgian GP",
+                            ShortName = "SPA"
                         },
                         new
                         {
                             Id = 15,
-                            Name = "Hungarian GP",
-                            ShortName = "HUN"
+                            Name = "The Dutch GP",
+                            ShortName = "NED"
                         },
                         new
                         {
                             Id = 16,
-                            Name = "Hungarian GP",
-                            ShortName = "HUN"
+                            Name = "The Italian GP",
+                            ShortName = "MZA"
                         },
                         new
                         {
                             Id = 17,
-                            Name = "Hungarian GP",
-                            ShortName = "HUN"
+                            Name = "The Portuguese GP",
+                            ShortName = "POR"
                         },
                         new
                         {
                             Id = 18,
-                            Name = "Hungarian GP",
-                            ShortName = "HUN"
+                            Name = "The Azerbajain GP",
+                            ShortName = "AZE"
                         },
                         new
                         {
                             Id = 19,
-                            Name = "Hungarian GP",
-                            ShortName = "HUN"
+                            Name = "Marina Bay GP",
+                            ShortName = "SGP"
                         },
                         new
                         {
                             Id = 20,
-                            Name = "Hungarian GP",
-                            ShortName = "HUN"
+                            Name = "Texas GP",
+                            ShortName = "TXS"
+                        },
+                        new
+                        {
+                            Id = 21,
+                            Name = "Mexican GP",
+                            ShortName = "MEX"
+                        },
+                        new
+                        {
+                            Id = 22,
+                            Name = "Sao Paulo GP",
+                            ShortName = "BRA"
+                        },
+                        new
+                        {
+                            Id = 23,
+                            Name = "Abu Dabhi GP",
+                            ShortName = "ABU"
+                        },
+                        new
+                        {
+                            Id = 24,
+                            Name = "The Las Vegas GP",
+                            ShortName = "VGS"
                         });
                 });
 
@@ -467,7 +501,7 @@ namespace F1Pontszamitos_S6.Migrations
                         {
                             Id = 4,
                             BgColor = "#00533a",
-                            Driver_ids = "[3,19]",
+                            Driver_ids = "[3,19,122]",
                             Name = "Aston"
                         },
                         new

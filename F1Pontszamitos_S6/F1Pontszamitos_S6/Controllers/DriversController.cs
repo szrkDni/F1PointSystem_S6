@@ -26,11 +26,13 @@ namespace F1Pontszamitos_S6.Controllers
             var alldrivers = _dbContext.DriversTable;
             var unsorted = await alldrivers.Where(x => x.isActive).ToListAsync();
 
-            if (unsorted is null) {
+            if (unsorted is null)
+            {
                 return Ok(new List<Driver>());
             }
 
-            if (!unsorted[0].FinishingPositions.Any()) {
+            if (!unsorted[0].FinishingPositions.Any())
+            {
                 return unsorted.ToList();
             }
 
@@ -73,10 +75,10 @@ namespace F1Pontszamitos_S6.Controllers
             {
                 for (int i = 0; i < previous.Count; i++)
                 {
-                    
-                        previous[i].FinishingPositions.RemoveAt(previous[i].FinishingPositions.Count - 1);
-                        
-                    
+
+                    previous[i].FinishingPositions.RemoveAt(previous[i].FinishingPositions.Count - 1);
+
+
                 }
             }
 
@@ -100,12 +102,29 @@ namespace F1Pontszamitos_S6.Controllers
         }
 
         [HttpGet("namesnids")]
-        public async Task<ActionResult<Dictionary<int,string>>> GetNamesAndIds()
+        public async Task<ActionResult<Dictionary<int, string>>> GetNamesAndIds()
         {
-            
+
             var query = await _dbContext.DriversTable.Where(x => x.isActive).ToDictionaryAsync(x => x.Id, x => x.Name);
 
             return Ok(query);
+        }
+
+        [HttpPut("namesnids/inactive")]
+        public IActionResult PutNamesAndIdsInactive()
+        {
+
+            var query = _dbContext.DriversTable.Where(x => !x.isActive);
+
+            foreach (var item in query)
+            {
+                item.FinishingPositions.Add(21);
+                item.FastestLapList.Add(0);
+            }
+
+            _dbContext.SaveChanges();
+
+            return Ok();
         }
 
         //Add new race result
@@ -169,7 +188,7 @@ namespace F1Pontszamitos_S6.Controllers
             driver.isActive = true;
             driver.FastestLapList = new();
             driver.FinishingPositions = new();
-            
+
             _dbContext.DriversTable.Add(driver);
             await _dbContext.SaveChangesAsync();
 
@@ -218,5 +237,5 @@ namespace F1Pontszamitos_S6.Controllers
 
     }
 
-    
+
 }

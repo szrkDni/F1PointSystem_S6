@@ -29,7 +29,7 @@ namespace F1Pontszamitos_S6.DataB
                 new Driver { Id = 132, Name = "Sargeant", ShortName = "SAR", Team_id = 3, FinishingPositions = new List<int>(), FastestLapList = new List<int>() , isActive = true },
                 
                 new Driver { Id = 3, Name = "Alonso", ShortName = "ALO", Team_id = 4, FinishingPositions = new List<int>(), FastestLapList = new List<int>() , isActive = true },
-                new Driver { Id = 19, Name = "Stroll", ShortName = "STR", Team_id = 4, FinishingPositions = new List<int>(), FastestLapList = new List<int>() , isActive = true },
+                new Driver { Id = 19, Name = "Stroll", ShortName = "STR", Team_id = 4, FinishingPositions = new List<int>(), FastestLapList = new List<int>() , isActive = false },//FALSE
                 
                 new Driver { Id = 59, Name = "Gasly", ShortName = "GAS", Team_id = 5, FinishingPositions = new List<int>(), FastestLapList = new List<int>()  , isActive = true },
                 new Driver { Id = 17, Name = "Ocon", ShortName = "OCO", Team_id = 5, FinishingPositions = new List<int>(), FastestLapList = new List<int>() , isActive = true },
@@ -48,7 +48,9 @@ namespace F1Pontszamitos_S6.DataB
                 
 
                 new Driver { Id = 120, Name = "Szarka", ShortName = "SZA", Team_id = 2, FinishingPositions = new(), FastestLapList = new(), isActive = true },
-                new Driver { Id = 121, Name = "Bagosi", ShortName = "BAG", Team_id = 1, FinishingPositions = new(), FastestLapList = new(), isActive = true }
+                new Driver { Id = 121, Name = "Bagosi", ShortName = "BAG", Team_id = 1, FinishingPositions = new(), FastestLapList = new(), isActive = true },
+                new Driver { Id = 122, Name = "Berner", ShortName = "BER", Team_id = 4, FinishingPositions = new(), FastestLapList = new(), isActive = true }
+
                 );
 
             modelBuilder.Entity<Team>().HasData(
@@ -56,7 +58,7 @@ namespace F1Pontszamitos_S6.DataB
                 new Team { Id = 1, Name = "Ferrari", BgColor = "#fe0d0d", Driver_ids = new List<int> { 58, 1, 121 } },
                 new Team { Id = 2, Name = "Red Bull", BgColor = "#021652", Driver_ids = new List<int> { 9, 14, 120 } },
                 new Team { Id = 3, Name = "Williams", BgColor = "#0b3b7a", Driver_ids = new List<int> { 62, 132 } },
-                new Team { Id = 4, Name = "Aston", BgColor = "#00533a", Driver_ids = new List<int> { 3, 19 } },
+                new Team { Id = 4, Name = "Aston", BgColor = "#00533a", Driver_ids = new List<int> { 3, 19, 122 } },
                 new Team { Id = 5, Name = "Alpine", BgColor = "#04111f", Driver_ids = new List<int> { 59, 17 } },
                 new Team { Id = 6, Name = "Visa CashApp RB", BgColor = "#1534cc", Driver_ids = new List<int> { 94, 2 } },
                 new Team { Id = 7, Name = "Haas", BgColor = "#ffffff", Driver_ids = new List<int> { 10, 11 } },
@@ -65,26 +67,30 @@ namespace F1Pontszamitos_S6.DataB
                 );
 
             modelBuilder.Entity<Race>().HasData(
-                new Race { Id = 1, Name = "Bahrain GP", ShortName = "BHR" },
-                new Race { Id = 2, Name = "Las Vegas GP", ShortName = "VEGAS" },
-                new Race { Id = 3, Name = "Miami GP", ShortName = "MIAMI" },
-                new Race { Id = 4, Name = "Brazilian GP", ShortName = "BRAZ" },
-                new Race { Id = 5, Name = "Hungarian GP", ShortName = "HUN" },
-                new Race { Id = 6, Name = "Hungarian GP", ShortName = "HUN" },
-                new Race { Id = 7, Name = "Hungarian GP", ShortName = "HUN" },
-                new Race { Id = 8, Name = "Hungarian GP", ShortName = "HUN" },
-                new Race { Id = 9, Name = "Hungarian GP", ShortName = "HUN" },
-                new Race { Id = 10, Name = "Hungarian GP", ShortName = "HUN" },
-                new Race { Id = 11, Name = "Hungarian GP", ShortName = "HUN" },
-                new Race { Id = 12, Name = "Hungarian GP", ShortName = "HUN" },
-                new Race { Id = 13, Name = "Hungarian GP", ShortName = "HUN" },
-                new Race { Id = 14, Name = "Hungarian GP", ShortName = "HUN" },
-                new Race { Id = 15, Name = "Hungarian GP", ShortName = "HUN" },
-                new Race { Id = 16, Name = "Hungarian GP", ShortName = "HUN" },
-                new Race { Id = 17, Name = "Hungarian GP", ShortName = "HUN" },
-                new Race { Id = 18, Name = "Hungarian GP", ShortName = "HUN" },
-                new Race { Id = 19, Name = "Hungarian GP", ShortName = "HUN" },
-                new Race { Id = 20, Name = "Hungarian GP", ShortName = "HUN" }
+                new Race { Id = 1, Name = "The Australian GP", ShortName = "AUS" },
+                new Race { Id = 2, Name = "The Japanese GP", ShortName = "JPN" },
+                new Race { Id = 3, Name = "The Chinese GP", ShortName = "CHN" },
+                new Race { Id = 4, Name = "The Qatar GP", ShortName = "QTR" },
+                new Race { Id = 5, Name = "The Bahrain GP", ShortName = "BHR" },
+                new Race { Id = 6, Name = "The Saud Arabian GP", ShortName = "SAU" },
+                new Race { Id = 7, Name = "The Miami GP", ShortName = "MMI" },
+                new Race { Id = 8, Name = "The Canadian GP", ShortName = "CDN" },
+                new Race { Id = 9, Name = "The Emilia Romagna GP", ShortName = "IML" },
+                new Race { Id = 10, Name = "The Spanish GP", ShortName = "SPN" },
+                new Race { Id = 11, Name = "The Austrian GP", ShortName = "AUT" },
+                new Race { Id = 12, Name = "The Silverstone GP", ShortName = "GBR" },
+                new Race { Id = 13, Name = "The Hungarian GP", ShortName = "HUN" },
+                new Race { Id = 14, Name = "The Belgian GP", ShortName = "SPA" },
+                new Race { Id = 15, Name = "The Dutch GP", ShortName = "NED" },
+                new Race { Id = 16, Name = "The Italian GP", ShortName = "MZA" },
+                new Race { Id = 17, Name = "The Portuguese GP", ShortName = "POR" },
+                new Race { Id = 18, Name = "The Azerbajain GP", ShortName = "AZE" },
+                new Race { Id = 19, Name = "Marina Bay GP", ShortName = "SGP" },
+                new Race { Id = 20, Name = "Texas GP", ShortName = "TXS" },
+                new Race { Id = 21, Name = "Mexican GP", ShortName = "MEX" },
+                new Race { Id = 22, Name = "Sao Paulo GP", ShortName = "BRA" },
+                new Race { Id = 23, Name = "Abu Dabhi GP", ShortName = "ABU" },
+                new Race { Id = 24, Name = "The Las Vegas GP", ShortName = "VGS" }
                 );
         }
 

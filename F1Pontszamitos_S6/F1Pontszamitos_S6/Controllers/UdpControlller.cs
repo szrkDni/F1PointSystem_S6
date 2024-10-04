@@ -84,7 +84,7 @@ namespace F1Pontszamitos_S6.Controllers
             var inactive = _dbContext.DriversTable.Where(x => !x.isActive);
             foreach (var item in inactive) 
             {
-                item.FinishingPositions.Add(0);
+                item.FinishingPositions.Add(21);
                 item.FastestLapList.Add(0);
             }
 
