@@ -37,7 +37,7 @@ else
             </div>
 
             <label class="mt-4 fltext">Fastest Lap</label>
-            <InputSelect @bind-Value="fastestManId" class="form-control input input-width"><OptionList driverDict="driverNames"></OptionList></InputSelect>
+            <InputSelect @bind-Value="fastestManId" class="form-control input input-width"><OptionList driverDict="driverNames" usefor="fastestlap"></OptionList></InputSelect>
 
             <button type="submit" class="btn btn-primary mt-4 mb-4 btn-cus">Add Result</button>
         </EditForm>
