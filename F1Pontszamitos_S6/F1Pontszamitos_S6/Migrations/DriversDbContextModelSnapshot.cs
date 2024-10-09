@@ -250,7 +250,7 @@ namespace F1Pontszamitos_S6.Migrations
                         },
                         new
                         {
-                            Id = 120,
+                            Id = 170,
                             FastestLapList = "[]",
                             FinishingPositions = "[]",
                             Name = "Szarka",
@@ -260,7 +260,7 @@ namespace F1Pontszamitos_S6.Migrations
                         },
                         new
                         {
-                            Id = 121,
+                            Id = 171,
                             FastestLapList = "[]",
                             FinishingPositions = "[]",
                             Name = "Bagosi",
@@ -270,7 +270,7 @@ namespace F1Pontszamitos_S6.Migrations
                         },
                         new
                         {
-                            Id = 122,
+                            Id = 172,
                             FastestLapList = "[]",
                             FinishingPositions = "[]",
                             Name = "Berner",
@@ -302,7 +302,7 @@ namespace F1Pontszamitos_S6.Migrations
                         new
                         {
                             Id = 1,
-                            Name = "The Australia GP",
+                            Name = "The Australian GP",
                             ShortName = "AUS"
                         },
                         new

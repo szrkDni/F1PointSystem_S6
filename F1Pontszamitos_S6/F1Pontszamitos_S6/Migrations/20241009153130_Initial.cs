@@ -7,7 +7,7 @@
 namespace F1Pontszamitos_S6.Migrations
 {
     /// <inheritdoc />
-    public partial class initial : Migration
+    public partial class Initial : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -83,10 +83,10 @@ namespace F1Pontszamitos_S6.Migrations
                     { 80, "[]", "[]", "Zhou", "ZHO", 9, true },
                     { 94, "[]", "[]", "Tsunoda", "TSU", 6, true },
                     { 112, "[]", "[]", "Piastri", "PIA", 8, true },
-                    { 120, "[]", "[]", "Szarka", "SZA", 2, true },
-                    { 121, "[]", "[]", "Bagosi", "BAG", 1, true },
-                    { 122, "[]", "[]", "Berner", "BER", 4, true },
-                    { 132, "[]", "[]", "Sargeant", "SAR", 3, true }
+                    { 132, "[]", "[]", "Sargeant", "SAR", 3, true },
+                    { 170, "[]", "[]", "Szarka", "SZA", 2, true },
+                    { 171, "[]", "[]", "Bagosi", "BAG", 1, true },
+                    { 172, "[]", "[]", "Berner", "BER", 4, true }
                 });
 
             migrationBuilder.InsertData(
@@ -94,7 +94,7 @@ namespace F1Pontszamitos_S6.Migrations
                 columns: new[] { "Id", "Name", "ShortName" },
                 values: new object[,]
                 {
-                    { 1, "The Australia GP", "AUS" },
+                    { 1, "The Australian GP", "AUS" },
                     { 2, "The Japanese GP", "JPN" },
                     { 3, "The Chinese GP", "CHN" },
                     { 4, "The Qatar GP", "QTR" },

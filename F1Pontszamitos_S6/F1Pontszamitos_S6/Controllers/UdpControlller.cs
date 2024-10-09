@@ -42,7 +42,7 @@ namespace F1Pontszamitos_S6.Controllers
                     //if id is 0 or 255 -> driver is null else not null
                     var driver = _dbContext.DriversTable.Find(item.Id);
 
-                    if (driver is not null && driver.isActive)
+                    if (driver is not null)
                     {
                         driver.FinishingPositions.Add(item.FinishedPosition);
                         ManageFastestLap(item, driver);
@@ -51,12 +51,8 @@ namespace F1Pontszamitos_S6.Controllers
                     {
                         driver = _dbContext.DriversTable.Find(1);
 
-                        if (driver.isActive)
-                        {
-                            driver.FinishingPositions.Add(item.FinishedPosition);
-                            //driver.FastestLapList.Add(0);
-                            ManageFastestLap(item, driver);
-                        }
+                        driver.FinishingPositions.Add(item.FinishedPosition);
+                        ManageFastestLap(item, driver);
                     }
                     else if(item.Id == 255)
                     {
@@ -81,14 +77,22 @@ namespace F1Pontszamitos_S6.Controllers
                 }
             }
 
-            var inactive = _dbContext.DriversTable.Where(x => !x.isActive);
-            foreach (var item in inactive) 
-            {
-                item.FinishingPositions.Add(21);
-                item.FastestLapList.Add(0);
-            }
 
-            
+            //Azoknak is ad pontot akik inactivak ha a player helyett mennek
+            //Itt csak azoknak ir 21. rajthelyett akik fent nem kaptak versenyeredmenyt (tehat nem vettek reszt a futamon)
+
+
+            var database = _dbContext.DriversTable.ToList();
+            var maxRange = database.Max(x => x.FinishingPositions.Count);
+
+            foreach (var item in database)
+            {
+                if (item.FinishingPositions.Count < maxRange)
+                {
+                    item.FinishingPositions.Add(21);
+                    item.FastestLapList.Add(0);
+                }
+            }
 
             //Individual with the minimum time
             //Individual individualWithLowestTime = individuals.FirstOrDefault(i => i.bestLaptime == minTime);

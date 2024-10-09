@@ -24,7 +24,7 @@ namespace F1Pontszamitos_S6.Controllers
         public async Task<ActionResult<List<Driver>>> GetAllDriversAsync()
         {
             var alldrivers = _dbContext.DriversTable;
-            var unsorted = await alldrivers.Where(x => x.isActive).ToListAsync();
+            var unsorted = await alldrivers.Where(x => x.isActive || (!x.isActive && x.FinishingPositions.Min(y => y <= 10))).ToListAsync();
 
             if (unsorted is null)
             {

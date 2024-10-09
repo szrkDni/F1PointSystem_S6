@@ -47,9 +47,9 @@ namespace F1Pontszamitos_S6.DataB
                 new Driver { Id = 15, Name = "Bottas", ShortName = "BOT", Team_id = 9, FinishingPositions = new List<int>(), FastestLapList = new List<int>() , isActive = true },
                 
 
-                new Driver { Id = 120, Name = "Szarka", ShortName = "SZA", Team_id = 2, FinishingPositions = new(), FastestLapList = new(), isActive = true },
-                new Driver { Id = 121, Name = "Bagosi", ShortName = "BAG", Team_id = 1, FinishingPositions = new(), FastestLapList = new(), isActive = true },
-                new Driver { Id = 122, Name = "Berner", ShortName = "BER", Team_id = 4, FinishingPositions = new(), FastestLapList = new(), isActive = true }
+                new Driver { Id = 170, Name = "Szarka", ShortName = "SZA", Team_id = 2, FinishingPositions = new(), FastestLapList = new(), isActive = true },
+                new Driver { Id = 171, Name = "Bagosi", ShortName = "BAG", Team_id = 1, FinishingPositions = new(), FastestLapList = new(), isActive = true },
+                new Driver { Id = 172, Name = "Berner", ShortName = "BER", Team_id = 4, FinishingPositions = new(), FastestLapList = new(), isActive = true }
 
                 );
 

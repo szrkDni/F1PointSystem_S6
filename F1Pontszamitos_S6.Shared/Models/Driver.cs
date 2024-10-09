@@ -24,7 +24,7 @@ namespace F1Pontszamitos_S6.Shared.Models
 
         public List<int>? FastestLapList { get; set; }
 
-        public bool isActive { get; set; } 
+        public bool isActive { get; set; }
 
         public int GetPoints()
         {

@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace F1Pontszamitos_S6.Migrations
 {
     [DbContext(typeof(DriversDbContext))]
-    [Migration("20241004103818_initial")]
-    partial class initial
+    [Migration("20241009153130_Initial")]
+    partial class Initial
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -253,7 +253,7 @@ namespace F1Pontszamitos_S6.Migrations
                         },
                         new
                         {
-                            Id = 120,
+                            Id = 170,
                             FastestLapList = "[]",
                             FinishingPositions = "[]",
                             Name = "Szarka",
@@ -263,7 +263,7 @@ namespace F1Pontszamitos_S6.Migrations
                         },
                         new
                         {
-                            Id = 121,
+                            Id = 171,
                             FastestLapList = "[]",
                             FinishingPositions = "[]",
                             Name = "Bagosi",
@@ -273,7 +273,7 @@ namespace F1Pontszamitos_S6.Migrations
                         },
                         new
                         {
-                            Id = 122,
+                            Id = 172,
                             FastestLapList = "[]",
                             FinishingPositions = "[]",
                             Name = "Berner",
@@ -305,7 +305,7 @@ namespace F1Pontszamitos_S6.Migrations
                         new
                         {
                             Id = 1,
-                            Name = "The Australia GP",
+                            Name = "The Australian GP",
                             ShortName = "AUS"
                         },
                         new
