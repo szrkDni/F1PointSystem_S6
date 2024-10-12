@@ -59,6 +59,18 @@ namespace F1Pontszamitos_S6.Controllers
             return DriverSort(unsorted);
         }
 
+        [HttpGet("id={id:int}")]
+        public async Task<ActionResult<Driver>> GetDriverById(int id)
+        {
+            var driver = await _dbContext.DriversTable.FindAsync(id);
+
+            if (driver == null)
+            {
+                return NotFound("Driver couldnt be found");
+            }
+
+            return driver;
+        }
 
         [HttpGet("previous")]
         public async Task<ActionResult<List<Driver>>> GetPreviousOrder()
@@ -173,21 +185,16 @@ namespace F1Pontszamitos_S6.Controllers
 
 
         /*Még tesztelni mindenképp*/
-        [HttpPut("addCustom")]
-        public async Task<ActionResult<Driver>> AddNewCustomDriver(Driver driver)
+        [HttpPut("addCustom/{d_name}/{d_shortname}/{d_teamId:int}")]
+        public async Task<ActionResult<Driver>> AddNewCustomDriver(string d_name, string d_shortname, int d_teamId)
         {
-            var numberOfDrivers = _dbContext.DriversTable.Count();
+            var maxId = _dbContext.DriversTable.Max(x => x.Id);
+
+            Driver driver = new Driver { Name = d_name, Id = maxId+1 , ShortName = d_shortname, FastestLapList = new(), FinishingPositions = new(), isActive = true, Team_id = d_teamId};
 
             var itsTeam = _dbContext.TeamsTable.Find(driver.Team_id);
             itsTeam.Driver_ids.Add(driver.Id);
-
-            var nextId = numberOfDrivers + 50;
-
-            //We only get the Name, ShourtName attributes, others are at default
-            driver.Id = nextId;
-            driver.isActive = true;
-            driver.FastestLapList = new();
-            driver.FinishingPositions = new();
+            
 
             _dbContext.DriversTable.Add(driver);
             await _dbContext.SaveChangesAsync();
@@ -195,7 +202,7 @@ namespace F1Pontszamitos_S6.Controllers
             return Ok("Custom driver added successfully");
         }
 
-        [HttpPut("modifyIsActive")]
+        [HttpPut("modifyIsActive/{id:int}")]
         public async Task<ActionResult<Driver>> ModifyIsActiveAttibute(int id)
         {
             var driver = _dbContext.DriversTable.Find(id);

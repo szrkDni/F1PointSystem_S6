@@ -23,7 +23,7 @@ namespace F1Pontszamitos_S6.Controllers
         {
 
 
-            var query = await _dbContext.DriversTable.Where(x => x.Id > 50).Join(_dbContext.TeamsTable,
+            var query = await _dbContext.DriversTable.Join(_dbContext.TeamsTable,
                 driver => driver.Team_id,
                 team => team.Id,
                 (driver, team) =>
