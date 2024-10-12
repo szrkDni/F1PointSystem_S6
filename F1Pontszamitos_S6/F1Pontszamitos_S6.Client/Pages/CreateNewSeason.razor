@@ -4,53 +4,59 @@
 @inject HttpClient Http
 @rendermode @( new InteractiveWebAssemblyRenderMode(prerender: false))
 
-<PageTitle>Create New Season</PageTitle>
-<div style="text-align: center">
-    <span>Added Custom Drivers</span>
-    <table>
-       @foreach (var driver in customDrivers)
-       {
-            <tr>
-                <td>@driver.DriverId</td>
-                <td>@driver.Name</td>
-                <td>@driver.TeamId</td>
-                <td>@driver.Team_name</td>
-            </tr>
-       }
-    </table>
-
-    <NavLink class="btn btn-primary mt-4" href="driverform">Add Custom Driver</NavLink>
-    <p class="mt-4"><span style="color: red">Disclaimer:</span><br> After the first race of the season, you will be unable to add any more custom driver</p>
-@* 
-    @if (!(firstDriver.FinishingPositions.Any()))
-    {
-
+@if(customDrivers.Any())
+{
+    <Loader/>
+}
+else
+{
+    <PageTitle>Create New Season</PageTitle>
+    <div style="text-align: center">
+        <span>Added Custom Drivers</span>
+        <table>
+            @foreach (var driver in customDrivers)
+            {
+                <tr>
+                    <td>@driver.DriverId</td>
+                    <td>@driver.Name</td>
+                    <td>@driver.TeamId</td>
+                    <td>@driver.Team_name</td>
+                </tr>
+            }
+        </table>
         
-    }
-    else
-    {
+        @if (!(tmp.FinishingPositions.Any()))
+        {
+        
 
-        <p class="mt-4">Unfortunately the season has already started,<br> which means you are unable to add more custom drivers</p>
+                <NavLink class="btn btn-primary mt-4" href="driverform">Add Custom Driver</NavLink>
+                <p class="mt-4"><span style="color: red">Disclaimer:</span><br> After the first race of the season, you will be unable to add any more custom driver</p>
+
+        }
+        else
+        {
+
+                <p class="mt-4">Unfortunately the season has already started,<br> which means you are unable to add more custom drivers</p>
 
 
 
-    } *@
-</div>
-
+        } 
+    </div>
+}
 
 @code{
-    Driver firstDriver = new();
+    List<DriverTableModel> allDrivers = new();
     List<DriverTableModel> customDrivers = new();
-    List<string> driverNames = new();
+    Driver tmp = new();
 
-    
+
     protected override async Task OnInitializedAsync()
     {
-        customDrivers = await Http.GetFromJsonAsync<List<DriverTableModel>>("api/main");
-        firstDriver = await Http.GetFromJsonAsync<Driver>("api/drivers/leader");
-        driverNames = await Http.GetFromJsonAsync<List<string>>("api/drivers/names");
+        allDrivers = await Http.GetFromJsonAsync<List<DriverTableModel>>("api/main");
 
+        customDrivers = allDrivers.Where(x => x.DriverId > 169).ToList();
 
+        tmp = await Http.GetFromJsonAsync<Driver>("api/drivers/id=1");
     }
 
 }

@@ -56,12 +56,11 @@
 
     }
 
-
     private void HandleSubmit()
     {
         /*mindenképp a short namet ToUpperrel kell rögzíteni*/
-        var driverAddResponse = Http.PutAsJsonAsync("api/drivers/addCustom", driverToAdd);
-        var driverInvalidaeResponse = Http.PutAsJsonAsync("api/drivers/modifyIsActive", driverToReplaceId);
+        var driverAddResponse = Http.PutAsJsonAsync($"api/drivers/addCustom/{driverToAdd.Name}/{driverToAdd.ShortName}/{driverToAdd.Team_id}", new Driver());
+        var driverInvalidaeResponse = Http.PutAsJsonAsync($"api/drivers/modifyIsActive/{driverToReplaceId}", new Driver());
         NavManager.NavigateTo("createnew");
     }
 }
