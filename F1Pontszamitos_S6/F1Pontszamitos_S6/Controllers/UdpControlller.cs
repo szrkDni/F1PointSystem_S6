@@ -45,8 +45,7 @@ namespace F1Pontszamitos_S6.Controllers
                     if (driver is not null)
                     {
                         driver.FinishingPositions.Add(item.FinishedPosition);
-                        //driver.lapsByRaces.Add(item.listOfLaps);
-                        driver.lapsByRaces.Add(null);
+                        driver.lapsByRaces.Add(item.listOfLaps);
                         ManageFastestLap(item, driver);
                     }
                     else if (item.Id == 0) //Sainz
