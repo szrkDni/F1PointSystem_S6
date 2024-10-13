@@ -16,7 +16,7 @@ namespace F1Pontszamitos_S6.Shared.Models
 
         public UInt32 bestLaptime { get; set; }
 
-        List<UInt32> listOfLaps = new();
+        public List<UInt32> listOfLaps = new();
 
         public Individual(int id, string name, int finishedPosition, uint laptime, List<uint> listOfLaps)
         {

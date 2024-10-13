@@ -45,6 +45,8 @@ namespace F1Pontszamitos_S6.Controllers
                     if (driver is not null)
                     {
                         driver.FinishingPositions.Add(item.FinishedPosition);
+                        //driver.lapsByRaces.Add(item.listOfLaps);
+                        driver.lapsByRaces.Add(null);
                         ManageFastestLap(item, driver);
                     }
                     else if (item.Id == 0) //Sainz
@@ -52,6 +54,7 @@ namespace F1Pontszamitos_S6.Controllers
                         driver = _dbContext.DriversTable.Find(1);
 
                         driver.FinishingPositions.Add(item.FinishedPosition);
+                        driver.lapsByRaces.Add(item.listOfLaps);
                         ManageFastestLap(item, driver);
                     }
                     else if(item.Id == 255)
@@ -91,6 +94,7 @@ namespace F1Pontszamitos_S6.Controllers
                 {
                     item.FinishingPositions.Add(21);
                     item.FastestLapList.Add(0);
+                    item.lapsByRaces.Add(new List<UInt32> { 0 });
                 }
             }
 
@@ -122,6 +126,7 @@ namespace F1Pontszamitos_S6.Controllers
             if (driver.isActive)
             {
                 driver.FinishingPositions.Add(item.FinishedPosition);
+                driver.lapsByRaces.Add(item.listOfLaps);
                 ManageFastestLap(item, driver); ;
             }
         }
