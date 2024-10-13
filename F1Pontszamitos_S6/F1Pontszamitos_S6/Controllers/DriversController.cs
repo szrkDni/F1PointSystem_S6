@@ -21,7 +21,7 @@ namespace F1Pontszamitos_S6.Controllers
 
 
         [HttpGet]
-        public async Task<ActionResult<List<Driver>>> GetAllDriversAsync()
+        public async Task<ActionResult<List<Driver>>> GetAllActiveDriversAsync()
         {
             var alldrivers = _dbContext.DriversTable;
             var unsorted = await alldrivers.Where(x => x.isActive || (!x.isActive && x.FinishingPositions.Min(y => y <= 10))).ToListAsync();
@@ -57,19 +57,6 @@ namespace F1Pontszamitos_S6.Controllers
             }
 
             return DriverSort(unsorted);
-        }
-
-        [HttpGet("id={id:int}")]
-        public async Task<ActionResult<Driver>> GetDriverById(int id)
-        {
-            var driver = await _dbContext.DriversTable.FindAsync(id);
-
-            if (driver == null)
-            {
-                return NotFound("Driver couldnt be found");
-            }
-
-            return driver;
         }
 
         [HttpGet("previous")]
