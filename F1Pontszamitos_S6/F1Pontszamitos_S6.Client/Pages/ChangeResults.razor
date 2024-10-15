@@ -17,9 +17,15 @@ else
     <EditForm Model="driverList" OnSubmit="HandleSubmit">
         @foreach (var item in modifiedDriverList)
         {
-            <div>
+            //Megnézi van e több versenyző akinek egyezik a beállított érték
+            bool taken = modifiedDriverList.Count(x => x.newResult == item.newResult) > 1 && item.newResult != 21;
+
+            <div class="driverDiv @(taken? "warning" : "")">
                 <p>@string.Concat(item.driver.Name, " - ", item.driver.GetTeamName(teamList))</p>
-                <input type="number" placeholder="@item.driver.FinishingPositions[currentRace]" min="1" max="21" @bind="item.newResult">
+                @* <input type="number" placeholder="@item.driver.FinishingPositions[currentRace]" min="1" max="21" @bind="item.newResult"> *@
+                <select @bind="item.newResult">
+                    @for (var i = 0; i < 21; i++) { <option value="@(i+1)">@(i + 1)</option> }
+                </select>
             </div>
         }
         <button type="submit" class="btn btn-primary mt-4 mb-4 btn-cus">Add Result</button>
@@ -38,9 +44,8 @@ else
     {
         driverList =  await Http.GetFromJsonAsync<List<Driver>>("api/drivers/includeInactive");
         teamList =  await Http.GetFromJsonAsync<List<Team>>("api/teams");
-        driverList = driverList.OrderBy(x => x.Team_id).ToList();
-
         currentRace = driverList[0].FinishingPositions.Any()? driverList[0].FinishingPositions.Count - 1 : 0;
+        driverList = driverList.OrderBy(x => x.FinishingPositions[currentRace]).ToList();
 
         foreach (var item in driverList) modifiedDriverList.Add(new ModifiedDriver(item, currentRace));
     }

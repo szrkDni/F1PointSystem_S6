@@ -1,1 +1,27 @@
-﻿
+﻿/*NEM JO MERT MINDEN PIXELBEN VAN MEGADVA AT KELL MAJD IRNI*/
+
+
+.driverDiv {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: white;
+    width: 40%;
+}
+
+.driverDiv p {
+    margin: 0;
+    flex: 1; /* Ez lehetővé teszi, hogy a szöveg kitöltse a rendelkezésre álló helyet */
+}
+
+.driverDiv select {
+    margin-left: 10px; /* Térköz a dropdown lista és a szöveg között */
+}
+
+.warning{
+    background-color: yellow;
+}
