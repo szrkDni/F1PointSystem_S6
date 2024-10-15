@@ -16,4 +16,10 @@
     <ProjectReference Include="..\..\F1Pontszamitos_S6.Shared\F1Pontszamitos_S6.Shared.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Content Update="Pages\ChangeResults.razor">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+    </Content>
+  </ItemGroup>
+
 </Project>

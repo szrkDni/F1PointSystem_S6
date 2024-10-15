@@ -1,0 +1,63 @@
+﻿@page "/changeresult"
+@using F1Pontszamitos_S6.Client.Componenets
+@using F1Pontszamitos_S6.Shared.QueryModels
+@inject NavigationManager navManager
+@inject HttpClient Http
+@rendermode @( new InteractiveWebAssemblyRenderMode(prerender: false))
+<link href="css/changeresult.css" rel="stylesheet" />
+
+<PageTitle>Change Results</PageTitle>
+
+@if (!driverList.Any() || driverList[0].FinishingPositions.Count == 0)
+{
+    <Loader/>
+}
+else
+{
+    <EditForm Model="driverList" OnSubmit="HandleSubmit">
+        @foreach (var item in modifiedDriverList)
+        {
+            <div>
+                <p>@string.Concat(item.driver.Name, " - ", item.driver.GetTeamName(teamList))</p>
+                <input type="number" placeholder="@item.driver.FinishingPositions[currentRace]" min="1" max="21" @bind="item.newResult">
+            </div>
+        }
+        <button type="submit" class="btn btn-primary mt-4 mb-4 btn-cus">Add Result</button>
+    </EditForm>
+}
+
+
+@code{
+    List<Driver> driverList = new();
+    List<Team> teamList = new();
+    List<ModifiedDriver> modifiedDriverList = new();
+
+    int currentRace;
+
+    protected override async Task OnInitializedAsync()
+    {
+        driverList =  await Http.GetFromJsonAsync<List<Driver>>("api/drivers/includeInactive");
+        teamList =  await Http.GetFromJsonAsync<List<Team>>("api/teams");
+        driverList = driverList.OrderBy(x => x.Team_id).ToList();
+
+        currentRace = driverList[0].FinishingPositions.Any()? driverList[0].FinishingPositions.Count - 1 : 0;
+
+        foreach (var item in driverList) modifiedDriverList.Add(new ModifiedDriver(item, currentRace));
+    }
+
+    protected async Task HandleSubmit()
+    {
+        for (int i = 0; i < modifiedDriverList.Count; i++)
+        {
+            if (modifiedDriverList.Count(x => x.newResult == i+1 && x.newResult != 21) > 1) return;
+        }
+
+        foreach (var item in modifiedDriverList)
+        {
+            var response = await Http.PutAsJsonAsync($"api/drivers/modifyRaceResult/{currentRace}/{item.driver.Id}/{item.newResult}", new Driver());
+            var n = response.IsSuccessStatusCode;
+        }
+
+        navManager.NavigateTo("raceresults");
+    }
+}

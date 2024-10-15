@@ -154,8 +154,6 @@
 
     private Dictionary<int,string> DriverNameDict()
     {    
-
-
         return driverNamesAndIds.Except(driverNamesAndIds.Where(x => raceResult.Contains(x.Key))).ToDictionary();
     }
 }

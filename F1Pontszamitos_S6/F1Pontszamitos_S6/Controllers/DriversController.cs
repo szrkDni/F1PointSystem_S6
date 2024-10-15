@@ -195,6 +195,16 @@ namespace F1Pontszamitos_S6.Controllers
             return Ok("Driver inactivated successfully");
         }
 
+        [HttpPut("modifyRaceResult/{index:int}/{id:int}/{newResult:int}")]
+        public async Task<ActionResult<Driver>> ModifyRaceResultAsync(int index ,int id, int newResult)
+        {
+            var driver = _dbContext.DriversTable.Find(id);
+            driver.FinishingPositions[index] = newResult;
+
+            await _dbContext.SaveChangesAsync();
+            return Ok("Race results updated");
+        }
+
         /***************************************************************************/
         private List<Driver> DriverSort(List<Driver> driver)
         {
