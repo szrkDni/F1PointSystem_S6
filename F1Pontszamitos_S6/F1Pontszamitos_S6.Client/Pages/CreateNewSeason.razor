@@ -16,45 +16,50 @@
 }
 else
 {
-    <PageTitle>Create New Season</PageTitle>
-    <div style="text-align: center">
-        <span>Added Custom Drivers</span>
-        <table>
-            @foreach (var driver in customDrivers)
+    <PasswordForm OnPasswordConfirmed="HandlePasswordConfirmation"></PasswordForm>
+    if (correct)
+    {        
+        <PageTitle>Create New Season</PageTitle>
+        <div style="text-align: center">
+            <span>Added Custom Drivers</span>
+            <table>
+                @foreach (var driver in customDrivers)
+                {
+                    <tr>
+                        <td>@driver.DriverId</td>
+                        <td>@driver.Name</td>
+                        <td>@driver.TeamId</td>
+                        <td>@driver.Team_name</td>
+                        <button @onclick="() => delete(driver.DriverId)" class="btn btn-danger mt-4 mb-4 btn-cus">Delete</button>
+                    </tr>
+                }
+            </table>
+        
+            @if (!(first[0].FinishingPositions.Any()))
             {
-                <tr>
-                    <td>@driver.DriverId</td>
-                    <td>@driver.Name</td>
-                    <td>@driver.TeamId</td>
-                    <td>@driver.Team_name</td>
-                    <button @onclick="() => delete(driver.DriverId)" class="btn btn-danger mt-4 mb-4 btn-cus">Delete</button>
-                </tr>
+        
+
+                    <NavLink class="btn btn-primary mt-4" href="driverform">Add Custom Driver</NavLink>
+                    <p class="mt-4"><span style="color: red">Disclaimer:</span><br> After the first race of the season, you will be unable to add any more custom driver</p>
+
             }
-        </table>
-        
-        @if (!(first[0].FinishingPositions.Any()))
-        {
-        
+            else
+            {
 
-                <NavLink class="btn btn-primary mt-4" href="driverform">Add Custom Driver</NavLink>
-                <p class="mt-4"><span style="color: red">Disclaimer:</span><br> After the first race of the season, you will be unable to add any more custom driver</p>
-
-        }
-        else
-        {
-
-                <p class="mt-4">Unfortunately the season has already started,<br> which means you are unable to add more custom drivers</p>
+                    <p class="mt-4">Unfortunately the season has already started,<br> which means you are unable to add more custom drivers</p>
 
 
 
-        } 
-    </div>
+            } 
+        </div>
+    }
 }
 
 @code {
     List<DriverTableModel> allDrivers = new();
     List<DriverTableModel> customDrivers = new();
     List<Driver> first = new List<Driver>();
+    bool correct = false;
 
     protected override async Task OnInitializedAsync()
     {
@@ -75,7 +80,10 @@ else
             StateHasChanged(); // Újrarendereli a komponenst
         }
     }
-
+    private void HandlePasswordConfirmation(bool isCorrect)
+    {
+        correct = isCorrect;
+    }
 
 }
 

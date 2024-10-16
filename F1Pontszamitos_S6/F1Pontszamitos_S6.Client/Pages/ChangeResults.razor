@@ -14,22 +14,26 @@
 }
 else
 {
-    <EditForm Model="driverList" OnSubmit="HandleSubmit">
-        @foreach (var item in modifiedDriverList)
-        {
-            //Megnézi van e több versenyző akinek egyezik a beállított érték
-            bool taken = modifiedDriverList.Count(x => x.newResult == item.newResult) > 1 && item.newResult != 21;
+    <PasswordForm OnPasswordConfirmed="HandlePasswordConfirmation"></PasswordForm>
+    if (correct)
+    {
+        <EditForm Model="driverList" OnSubmit="HandleSubmit">
+            @foreach (var item in modifiedDriverList)
+            {
+                //Megnézi van e több versenyző akinek egyezik a beállított érték
+                bool taken = modifiedDriverList.Count(x => x.newResult == item.newResult) > 1 && item.newResult != 21;
 
-            <div class="driverDiv @(taken? "warning" : "")">
-                <p>@string.Concat(item.driver.Name, " - ", item.driver.GetTeamName(teamList))</p>
-                @* <input type="number" placeholder="@item.driver.FinishingPositions[currentRace]" min="1" max="21" @bind="item.newResult"> *@
-                <select @bind="item.newResult">
-                    @for (var i = 0; i < 21; i++) { <option value="@(i+1)">@(i + 1)</option> }
-                </select>
-            </div>
-        }
-        <button type="submit" class="btn btn-primary mt-4 mb-4 btn-cus">Add Result</button>
-    </EditForm>
+                <div class="driverDiv @(taken? "warning" : "")">
+                    <p>@string.Concat(item.driver.Name, " - ", item.driver.GetTeamName(teamList))</p>
+                    @* <input type="number" placeholder="@item.driver.FinishingPositions[currentRace]" min="1" max="21" @bind="item.newResult"> *@
+                    <select @bind="item.newResult">
+                        @for (var i = 0; i < 21; i++) { <option value="@(i+1)">@(i + 1)</option> }
+                    </select>
+                </div>
+            }
+            <button type="submit" class="btn btn-primary mt-4 mb-4 btn-cus">Add Result</button>
+        </EditForm>
+    }
 }
 
 
@@ -37,6 +41,7 @@ else
     List<Driver> driverList = new();
     List<Team> teamList = new();
     List<ModifiedDriver> modifiedDriverList = new();
+    bool correct = false;
 
     int currentRace;
 
@@ -64,5 +69,9 @@ else
         }
 
         navManager.NavigateTo("raceresults");
+    }
+    private void HandlePasswordConfirmation(bool isCorrect)
+    {
+        correct = isCorrect;
     }
 }

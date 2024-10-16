@@ -26,7 +26,7 @@ namespace F1Pontszamitos_S6.Controllers
         {
             var alldrivers = _dbContext.DriversTable;
             //var unsorted = await alldrivers.Where(x => x.isActive || (!x.isActive && x.FinishingPositions.Min(y => y <= 10))).ToListAsync();
-            var unsorted = await alldrivers.Where(x => x.isActive || x.FinishingPositions.Any(y => y <= 10)).ToListAsync();
+            var unsorted = await alldrivers.Where(x => x.isActive).ToListAsync();
 
             if (unsorted is null)
             {
@@ -65,8 +65,8 @@ namespace F1Pontszamitos_S6.Controllers
         public async Task<ActionResult<List<Driver>>> GetPreviousOrder()
         {
             var alldrivers = _dbContext.DriversTable;
-            //var previous = await alldrivers.Where(x => x.isActive).ToListAsync();
-            var previous = await alldrivers.ToListAsync();
+            var previous = await alldrivers.Where(x => x.isActive).ToListAsync();
+            //var previous = await alldrivers.ToListAsync();
 
             if (previous is null) return Ok(new List<Driver>());
 

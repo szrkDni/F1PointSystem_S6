@@ -1,38 +1,53 @@
 ﻿@page "/try"
 
-    @using System.Net.Sockets;
-    @using System.Net;
-    @using System.Text;
-    @using System.Runtime.InteropServices;
-    @using System.Collections;
-    @using F1Pontszamitos_S6.Shared.Utils;
-    @inject HttpClient Http;
+@using System.Net.Sockets;
+@using System.Net;
+@using System.Text;
+@using System.Runtime.InteropServices;
+@using System.Collections;
+@using F1Pontszamitos_S6.Shared.Utils;
+@using F1Pontszamitos_S6.Client.Componenets
+@implements IDisposable
+@inject HttpClient Http;
 @rendermode @( new InteractiveWebAssemblyRenderMode(prerender: false))
 
 <PageTitle>UDP Listen</PageTitle>
 
+<PasswordForm OnPasswordConfirmed="HandlePasswordConfirmation"></PasswordForm>
 
-@if (raceOrder is not null && raceOrder.Count != 0)
+@* @if (raceOrder is not null && raceOrder.Count != 0)
 {
     @foreach (var item in raceOrder)
     {
         <p>@String.Format($"{item.Name} - {item.FinishedPosition}")</p>
     }
-}
+} *@
 
+<h2>We are listening your port...</h2>
 
 @code {
 
     public List<Individual> raceOrder { get; set; } = new();
+    bool correct = false;
 
-    protected override async Task OnInitializedAsync()
+    private async Task FetchRaceOrder()
     {
-        Console.WriteLine("OnparametersSet");
         raceOrder = await Http.GetFromJsonAsync<List<Individual>>("api/udp/start");
-
-
-        int k = 0;
+        StateHasChanged(); // Refresh the UI to display the new data
     }
 
+    // This method gets triggered when the password is confirmed
+    private async void HandlePasswordConfirmation(bool isCorrect)
+    {
+        correct = isCorrect;
+        if (correct)
+        {
+            await FetchRaceOrder(); // Fetch race order after password is confirmed
+        }
+    }
 
+    public void Dispose()
+    {
+        var response = Http.GetAsync("api/udp/stop");
+    }
 }

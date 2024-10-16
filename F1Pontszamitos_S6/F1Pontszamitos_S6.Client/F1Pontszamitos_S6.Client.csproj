@@ -17,6 +17,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Content Update="Componenets\PasswordForm.razor">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+    </Content>
     <Content Update="Pages\ChangeResults.razor">
       <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
     </Content>
