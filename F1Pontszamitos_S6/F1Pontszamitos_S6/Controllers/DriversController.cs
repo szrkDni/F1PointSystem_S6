@@ -5,6 +5,7 @@ using F1Pontszamitos_S6.Shared.QueryModels;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Reflection.Metadata.Ecma335;
+using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
 
 namespace F1Pontszamitos_S6.Controllers
 {
@@ -98,7 +99,10 @@ namespace F1Pontszamitos_S6.Controllers
         public async Task<ActionResult<Dictionary<int, string>>> GetNamesAndIds()
         {
 
-            var query = await _dbContext.DriversTable.Where(x => x.isActive).ToDictionaryAsync(x => x.Id, x => x.Name);
+            var query = await _dbContext.DriversTable
+                .OrderBy(x => x.isActive ? 0 : 1)
+                .ThenBy(x => x.Team_id)
+                .ToDictionaryAsync(x => x.Id, x => x.Name);
 
             return Ok(query);
         }
@@ -193,6 +197,22 @@ namespace F1Pontszamitos_S6.Controllers
             await _dbContext.SaveChangesAsync();
 
             return Ok("Driver inactivated successfully");
+        }
+        
+        [HttpDelete("delete/{id:int}")]
+        public async Task<ActionResult> DeleteDriver(int id)
+        {
+            var driver = await _dbContext.DriversTable.FindAsync(id);
+
+            var whorepleace = await _dbContext.DriversTable.Where(x => x.Team_id == driver.Team_id && !x.isActive).FirstAsync();
+
+            whorepleace.isActive = true;
+
+            _dbContext.DriversTable.Remove(driver);
+
+            await _dbContext.SaveChangesAsync();
+
+            return Ok();
         }
 
         [HttpPut("modifyRaceResult/{index:int}/{id:int}/{newResult:int}")]

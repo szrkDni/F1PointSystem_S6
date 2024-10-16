@@ -4,7 +4,13 @@
 @inject HttpClient Http
 @rendermode @( new InteractiveWebAssemblyRenderMode(prerender: false))
 
-@if(customDrivers.Any())
+<PageTitle>Standings</PageTitle>
+<link href="css/createnew.css" rel="stylesheet" />
+
+
+
+
+@if(!customDrivers.Any())
 {
     <Loader/>
 }
@@ -21,6 +27,7 @@ else
                     <td>@driver.Name</td>
                     <td>@driver.TeamId</td>
                     <td>@driver.Team_name</td>
+                    <button @onclick="() => delete(driver.DriverId)" class="btn btn-danger mt-4 mb-4 btn-cus">Delete</button>
                 </tr>
             }
         </table>
@@ -44,10 +51,10 @@ else
     </div>
 }
 
-@code{
+@code {
     List<DriverTableModel> allDrivers = new();
     List<DriverTableModel> customDrivers = new();
-    List<Driver> first = new();
+    List<Driver> first = new List<Driver>();
 
     protected override async Task OnInitializedAsync()
     {
@@ -55,7 +62,20 @@ else
         first = await Http.GetFromJsonAsync<List<Driver>>("api/drivers");
 
         customDrivers = allDrivers.Where(x => x.DriverId > 169).ToList();
-
     }
 
+    private async void delete(int id)
+    {
+
+        var response = await Http.DeleteAsync($"api/drivers/delete/{id}");
+        
+        if (response.IsSuccessStatusCode)
+        {
+            customDrivers = customDrivers.Where(x => x.DriverId != id).ToList();
+            StateHasChanged(); // Újrarendereli a komponenst
+        }
+    }
+
+
 }
+
