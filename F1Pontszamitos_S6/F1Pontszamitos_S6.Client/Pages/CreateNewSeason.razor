@@ -49,7 +49,6 @@ else
     List<DriverTableModel> customDrivers = new();
     List<Driver> first = new();
 
-
     protected override async Task OnInitializedAsync()
     {
         allDrivers = await Http.GetFromJsonAsync<List<DriverTableModel>>("api/main");
