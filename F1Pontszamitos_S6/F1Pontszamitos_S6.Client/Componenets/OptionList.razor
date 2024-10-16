@@ -3,23 +3,41 @@
 
 @if(usefor == "grids")
 {
-    foreach (var driver in driverDict)
+    var driverDictList = driverDict.ToList();
+
+    for (int i = 0; i < driverDictList.Count; i++)
+    {
+        if(i >= 20) 
+        {
+            <option value="@(driverDictList[i].Key)" 
+                style="color: red; 
+                @(raceResult.Contains(driverDictList[i].Key) ? "display: none;" : "")">
+                @driverDictList[i].Value
+            </option>
+        }
+        else
+        {
+            <option value="@(driverDictList[i].Key)" 
+                style="@(raceResult.Contains(driverDictList[i].Key) ? "display: none;" : "")">
+                @driverDictList[i].Value
+            </option>
+        }
+    }
+
+
+    @* foreach (var driver in driverDict)
     {
         <option value="@driver.Key" style="@(raceResult.Contains(driver.Key) ? "display: none;" : "")">@driver.Value</option>
-    }
+    } *@
 }
 else
 {
-    foreach (var driver in driverDict)
-    {
-        <option value="@driver.Key">@driver.Value</option>
-    }
+    foreach (var item in driverDict) { <option value="@(item.Key)">@item.Value</option> }
 }
 
 
 
 @code{
-
     [Parameter]
     public Dictionary<int, string> driverDict {get; set;}
 

@@ -89,8 +89,7 @@ else
         {
             var result = await Http.PutAsJsonAsync($"api/drivers/{raceResult[i]}/{i + 1}/{fastestManId}", new Driver());
         }
-
-        var inactiveResult = await Http.PutAsJsonAsync("api/drivers/namesnids/inactive", new Driver());
+        var inactiveResult = await Http.PutAsJsonAsync($"api/drivers/namesnids/inactive/", raceResult);
 
         NavManager.NavigateTo("standings");
     }

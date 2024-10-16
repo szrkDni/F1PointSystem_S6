@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace F1Pontszamitos_S6.Migrations
 {
     [DbContext(typeof(DriversDbContext))]
-    [Migration("20241013172444_Initial")]
+    [Migration("20241015205055_Initial")]
     partial class Initial
     {
         /// <inheritdoc />

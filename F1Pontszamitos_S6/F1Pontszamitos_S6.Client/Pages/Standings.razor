@@ -150,7 +150,13 @@ else
 
         if (HttpRequestResultDriverPrev is not null)
         {
+            var index = 1;
             previous = HttpRequestResultDriverPrev;
+            foreach (var item in previous)
+            {
+                Console.WriteLine(string.Concat(index, ". ", item.Name, " ", item.GetPoints()));
+                index++;
+            }
         }
 
         if (HttpRequestResultTeam is not null)
