@@ -24,7 +24,8 @@ namespace F1Pontszamitos_S6.Controllers
         public async Task<ActionResult<List<Driver>>> GetAllActiveDriversAsync()
         {
             var alldrivers = _dbContext.DriversTable;
-            var unsorted = await alldrivers.Where(x => x.isActive || (!x.isActive && x.FinishingPositions.Min(y => y <= 10))).ToListAsync();
+            //var unsorted = await alldrivers.Where(x => x.isActive || (!x.isActive && x.FinishingPositions.Min(y => y <= 10))).ToListAsync();
+            var unsorted = await alldrivers.Where(x => x.isActive || x.FinishingPositions.Any(y => y <= 10)).ToListAsync();
 
             if (unsorted is null)
             {
@@ -94,20 +95,23 @@ namespace F1Pontszamitos_S6.Controllers
             return await _dbContext.DriversTable.FirstAsync();
         }
 
-        [HttpGet("namesnids")]
+        [HttpGet("namesnids")] //NewResultban mostmár tudunk inaktív versenyzőket regisztrálni
         public async Task<ActionResult<Dictionary<int, string>>> GetNamesAndIds()
         {
 
-            var query = await _dbContext.DriversTable.Where(x => x.isActive).ToDictionaryAsync(x => x.Id, x => x.Name);
+            var query = await _dbContext.DriversTable
+                .OrderBy(x => x.isActive? 0 : 1)
+                .ThenBy(x => x.Team_id)
+                .ToDictionaryAsync(x => x.Id, x => x.Name);
 
             return Ok(query);
         }
 
-        [HttpPut("namesnids/inactive")]
-        public IActionResult PutNamesAndIdsInactive()
+        [HttpPut("namesnids/inactive/")]
+        public IActionResult PutNamesAndIdsInactive([FromBody] int[] idList)
         {
 
-            var query = _dbContext.DriversTable.Where(x => !x.isActive);
+            var query = _dbContext.DriversTable.Where(x => !idList.Contains(x.Id)).ToList();
 
             foreach (var item in query)
             {
