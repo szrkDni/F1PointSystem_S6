@@ -103,6 +103,7 @@ namespace F1Pontszamitos_S6.Controllers
                 .OrderBy(x => x.isActive ? 0 : 1)
                 .ThenBy(x => x.Team_id)
                 .ToDictionaryAsync(x => x.Id, x => x.Name);
+            //
 
             return Ok(query);
         }
