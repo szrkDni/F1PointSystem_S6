@@ -107,6 +107,7 @@ namespace F1Pontszamitos_S6.Controllers
             return Ok(query);
         }
 
+
         [HttpPut("namesnids/inactive/")]
         public IActionResult PutNamesAndIdsInactive([FromBody] int[] idList)
         {
