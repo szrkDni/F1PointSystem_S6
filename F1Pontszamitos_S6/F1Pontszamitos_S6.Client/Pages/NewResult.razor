@@ -15,33 +15,37 @@
 }
 else
 {
-    <p class="resultOfThe">Result of the @nextRace</p>
+    <PasswordForm OnPasswordConfirmed="HandlePasswordConfirmation"></PasswordForm>
+    if (correct)
+    {
+        <p class="resultOfThe">Result of the @nextRace</p>
 
-    <div class="resultWrapper">
-        <EditForm Model="@raceResult" OnSubmit="HandleSubmit">
+        <div class="resultWrapper">
+            <EditForm Model="@raceResult" OnSubmit="HandleSubmit">
             
             
-                <div class="outer-box">
-                <div class="curb leftCurb"></div>
-                <div class="container">
-                    <div class="line top"></div>
+                    <div class="outer-box">
+                    <div class="curb leftCurb"></div>
+                    <div class="container">
+                        <div class="line top"></div>
 
-                    <div class="finishline"></div>
+                        <div class="finishline"></div>
 
-                    <div class="line bottom"></div>
+                        <div class="line bottom"></div>
 
-                    <Grid driverNamesAndIds="driverNames" raceResult="raceResult" />
+                        <Grid driverNamesAndIds="driverNames" raceResult="raceResult" />
                     
+                    </div>
+                    <div class="curb rightCurb"></div>
                 </div>
-                <div class="curb rightCurb"></div>
-            </div>
 
-            <label class="mt-4 fltext">Fastest Lap</label>
-            <InputSelect @bind-Value="fastestManId" class="form-control input input-width"><OptionList driverDict="driverNames" usefor="fastestlap"></OptionList></InputSelect>
+                <label class="mt-4 fltext">Fastest Lap</label>
+                <InputSelect @bind-Value="fastestManId" class="form-control input input-width"><OptionList driverDict="driverNames" usefor="fastestlap"></OptionList></InputSelect>
 
-            <button type="submit" class="btn btn-primary mt-4 mb-4 btn-cus">Add Result</button>
-        </EditForm>
-    </div>
+                <button type="submit" class="btn btn-primary mt-4 mb-4 btn-cus">Add Result</button>
+            </EditForm>
+        </div>
+    }
 }
     
 
@@ -51,6 +55,7 @@ else
     int fastestManId;
     string? nextRace = null;
     Dictionary<int,string> driverNames = new();
+    bool correct = false;
 
     private async Task CheckPassword()
     {
@@ -94,4 +99,8 @@ else
         NavManager.NavigateTo("standings");
     }
 
+    private void HandlePasswordConfirmation(bool isCorrect)
+    {
+        correct = isCorrect;
+    }
 }

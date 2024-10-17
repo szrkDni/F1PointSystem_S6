@@ -9,45 +9,51 @@
 <link rel="stylesheet" href="css/driverform.css">
 
 
-<EditForm Model="@driverToAdd" OnSubmit="HandleSubmit"  class="card">
+<PasswordForm OnPasswordConfirmed="HandlePasswordConfirmation"></PasswordForm>
 
-    <span class="joinTitle">Join the Greats</span>
+@if (correct)
+{
+    <EditForm Model="@driverToAdd" OnSubmit="HandleSubmit"  class="card">
 
-    <div class="form-row" style="display: flex; gap: 2vw;">
-        <div >
+        <span class="joinTitle">Join the Greats</span>
+
+        <div class="form-row" style="display: flex; gap: 2vw;">
+            <div >
             
-            <label>Name</label>
-            <InputText @bind-Value="driverToAdd.Name" class="form-control"  placeholder="Enter Name"></InputText>
+                <label>Name</label>
+                <InputText @bind-Value="driverToAdd.Name" class="form-control"  placeholder="Enter Name"></InputText>
 
-        </div>
-        <div >
+            </div>
+            <div >
             
-            <label>Short Name</label>
-            <InputText @bind-Value="driverToAdd.ShortName" class="form-control" placeholder="(e.g. VER, TSU)"></InputText>
+                <label>Short Name</label>
+                <InputText @bind-Value="driverToAdd.ShortName" class="form-control" placeholder="(e.g. VER, TSU)"></InputText>
 
+            </div>
         </div>
-    </div>
 
     
-    <div class="form-row" style="display: flex; gap: 2vw;">
-        <div 
-            <label class="mt-4">Choose team</label>
-            <InputSelect @bind-Value="driverToAdd.Team_id" class="form-control"><OptionList driverDict="teamNames"></OptionList></InputSelect>
+        <div class="form-row" style="display: flex; gap: 2vw;">
+            <div> 
+                <label class="mt-4">Choose team</label>
+                <InputSelect @bind-Value="driverToAdd.Team_id" class="form-control"><OptionList driverDict="teamNames"></OptionList></InputSelect>
+            </div>
+            <div >
+                <label class="mt-4">Who to repleace</label>
+                <InputSelect @bind-Value="driverToReplaceId" class="form-control"><OptionList driverDict="driverNames"></OptionList></InputSelect>
+            </div>
         </div>
-        <div >
-            <label class="mt-4">Who to repleace</label>
-            <InputSelect @bind-Value="driverToReplaceId" class="form-control"><OptionList driverDict="driverNames"></OptionList></InputSelect>
-        </div>
-    </div>
 
-    <button type="submit" class="btn btn-danger mt-4">Add driver</button>
-</EditForm>
+        <button type="submit" class="btn btn-danger mt-4">Add driver</button>
+    </EditForm>
+}
 
 @code{
     Driver driverToAdd = new();
     int driverToReplaceId;
     Dictionary<int, string> driverNames = new();
     Dictionary<int, string> teamNames = new();
+    bool correct = false;
 
     protected override async Task OnInitializedAsync()
     {
@@ -62,5 +68,9 @@
         var driverAddResponse = Http.PutAsJsonAsync($"api/drivers/addCustom/{driverToAdd.Name}/{driverToAdd.ShortName}/{driverToAdd.Team_id}", new Driver());
         var driverInvalidaeResponse = Http.PutAsJsonAsync($"api/drivers/modifyIsActive/{driverToReplaceId}", new Driver());
         NavManager.NavigateTo("createnew");
+    }
+    private void HandlePasswordConfirmation(bool isCorrect)
+    {
+        correct = isCorrect;
     }
 }
