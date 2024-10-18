@@ -10,14 +10,14 @@
 
 
 
-@if(!customDrivers.Any())
+@* @if ((!customDrivers.Any()) || allDrivers.Count == 20)
 {
     <Loader/>
 }
 else
-{
+{ *@
     <PasswordForm OnPasswordConfirmed="HandlePasswordConfirmation"></PasswordForm>
-    if (correct)
+    @if (correct)
     {        
         <PageTitle>Create New Season</PageTitle>
         <div style="text-align: center">
@@ -53,7 +53,7 @@ else
             } 
         </div>
     }
-}
+@* } *@
 
 @code {
     List<DriverTableModel> allDrivers = new();

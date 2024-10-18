@@ -30,6 +30,12 @@
                 <InputText @bind-Value="driverToAdd.ShortName" class="form-control" placeholder="(e.g. VER, TSU)"></InputText>
 
             </div>
+            <div>
+
+                <label>Steam Name</label>
+                <InputText @bind-Value="driverToAdd.steamName" class="form-control" placeholder="Your Steam name (CASE SENSITIVE)"></InputText>
+
+            </div>
         </div>
 
     
@@ -65,7 +71,7 @@
     private void HandleSubmit()
     {
         /*mindenképp a short namet ToUpperrel kell rögzíteni*/
-        var driverAddResponse = Http.PutAsJsonAsync($"api/drivers/addCustom/{driverToAdd.Name}/{driverToAdd.ShortName}/{driverToAdd.Team_id}", new Driver());
+        var driverAddResponse = Http.PutAsJsonAsync($"api/drivers/addCustom/{driverToAdd.Name}/{driverToAdd.ShortName}/{driverToAdd.steamName}/{driverToAdd.Team_id}", new Driver());
         var driverInvalidaeResponse = Http.PutAsJsonAsync($"api/drivers/modifyIsActive/{driverToReplaceId}", new Driver());
         NavManager.NavigateTo("createnew");
     }

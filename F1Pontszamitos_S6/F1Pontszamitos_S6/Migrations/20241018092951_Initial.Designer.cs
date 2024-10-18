@@ -11,14 +11,14 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace F1Pontszamitos_S6.Migrations
 {
     [DbContext(typeof(DriversDbContext))]
-    [Migration("20241016123731_initial")]
-    partial class initial
+    [Migration("20241018092951_Initial")]
+    partial class Initial
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
-            modelBuilder.HasAnnotation("ProductVersion", "8.0.8");
+            modelBuilder.HasAnnotation("ProductVersion", "8.0.10");
 
             modelBuilder.Entity("F1Pontszamitos_S6.Shared.Models.Driver", b =>
                 {
@@ -46,6 +46,9 @@ namespace F1Pontszamitos_S6.Migrations
                     b.Property<bool>("isActive")
                         .HasColumnType("INTEGER");
 
+                    b.Property<string>("steamName")
+                        .HasColumnType("TEXT");
+
                     b.HasKey("Id");
 
                     b.ToTable("DriversTable");
@@ -59,7 +62,8 @@ namespace F1Pontszamitos_S6.Migrations
                             Name = "Hamilton",
                             ShortName = "HAM",
                             Team_id = 10,
-                            isActive = true
+                            isActive = true,
+                            steamName = ""
                         },
                         new
                         {
@@ -69,7 +73,8 @@ namespace F1Pontszamitos_S6.Migrations
                             Name = "Russel",
                             ShortName = "RUS",
                             Team_id = 10,
-                            isActive = true
+                            isActive = true,
+                            steamName = ""
                         },
                         new
                         {
@@ -79,7 +84,8 @@ namespace F1Pontszamitos_S6.Migrations
                             Name = "Leclerc",
                             ShortName = "LEC",
                             Team_id = 1,
-                            isActive = true
+                            isActive = true,
+                            steamName = ""
                         },
                         new
                         {
@@ -89,7 +95,8 @@ namespace F1Pontszamitos_S6.Migrations
                             Name = "Sainz",
                             ShortName = "SAI",
                             Team_id = 1,
-                            isActive = false
+                            isActive = true,
+                            steamName = ""
                         },
                         new
                         {
@@ -99,7 +106,8 @@ namespace F1Pontszamitos_S6.Migrations
                             Name = "Verstappen",
                             ShortName = "VER",
                             Team_id = 2,
-                            isActive = true
+                            isActive = true,
+                            steamName = ""
                         },
                         new
                         {
@@ -109,7 +117,8 @@ namespace F1Pontszamitos_S6.Migrations
                             Name = "Perez",
                             ShortName = "PER",
                             Team_id = 2,
-                            isActive = false
+                            isActive = true,
+                            steamName = ""
                         },
                         new
                         {
@@ -119,7 +128,8 @@ namespace F1Pontszamitos_S6.Migrations
                             Name = "Albon",
                             ShortName = "ALB",
                             Team_id = 3,
-                            isActive = true
+                            isActive = true,
+                            steamName = ""
                         },
                         new
                         {
@@ -129,7 +139,8 @@ namespace F1Pontszamitos_S6.Migrations
                             Name = "Sargeant",
                             ShortName = "SAR",
                             Team_id = 3,
-                            isActive = true
+                            isActive = true,
+                            steamName = ""
                         },
                         new
                         {
@@ -139,7 +150,8 @@ namespace F1Pontszamitos_S6.Migrations
                             Name = "Alonso",
                             ShortName = "ALO",
                             Team_id = 4,
-                            isActive = true
+                            isActive = true,
+                            steamName = ""
                         },
                         new
                         {
@@ -149,7 +161,8 @@ namespace F1Pontszamitos_S6.Migrations
                             Name = "Stroll",
                             ShortName = "STR",
                             Team_id = 4,
-                            isActive = false
+                            isActive = true,
+                            steamName = ""
                         },
                         new
                         {
@@ -159,7 +172,8 @@ namespace F1Pontszamitos_S6.Migrations
                             Name = "Gasly",
                             ShortName = "GAS",
                             Team_id = 5,
-                            isActive = true
+                            isActive = true,
+                            steamName = ""
                         },
                         new
                         {
@@ -169,7 +183,8 @@ namespace F1Pontszamitos_S6.Migrations
                             Name = "Ocon",
                             ShortName = "OCO",
                             Team_id = 5,
-                            isActive = true
+                            isActive = true,
+                            steamName = ""
                         },
                         new
                         {
@@ -179,7 +194,8 @@ namespace F1Pontszamitos_S6.Migrations
                             Name = "Tsunoda",
                             ShortName = "TSU",
                             Team_id = 6,
-                            isActive = true
+                            isActive = true,
+                            steamName = ""
                         },
                         new
                         {
@@ -189,7 +205,8 @@ namespace F1Pontszamitos_S6.Migrations
                             Name = "Ricciardo",
                             ShortName = "RIC",
                             Team_id = 6,
-                            isActive = true
+                            isActive = true,
+                            steamName = ""
                         },
                         new
                         {
@@ -199,7 +216,8 @@ namespace F1Pontszamitos_S6.Migrations
                             Name = "Hulkenberg",
                             ShortName = "HUL",
                             Team_id = 7,
-                            isActive = true
+                            isActive = true,
+                            steamName = ""
                         },
                         new
                         {
@@ -209,7 +227,8 @@ namespace F1Pontszamitos_S6.Migrations
                             Name = "Magnussen",
                             ShortName = "MAG",
                             Team_id = 7,
-                            isActive = true
+                            isActive = true,
+                            steamName = ""
                         },
                         new
                         {
@@ -219,7 +238,8 @@ namespace F1Pontszamitos_S6.Migrations
                             Name = "Norris",
                             ShortName = "NOR",
                             Team_id = 8,
-                            isActive = true
+                            isActive = true,
+                            steamName = ""
                         },
                         new
                         {
@@ -229,7 +249,8 @@ namespace F1Pontszamitos_S6.Migrations
                             Name = "Piastri",
                             ShortName = "PIA",
                             Team_id = 8,
-                            isActive = true
+                            isActive = true,
+                            steamName = ""
                         },
                         new
                         {
@@ -239,7 +260,8 @@ namespace F1Pontszamitos_S6.Migrations
                             Name = "Zhou",
                             ShortName = "ZHO",
                             Team_id = 9,
-                            isActive = true
+                            isActive = true,
+                            steamName = ""
                         },
                         new
                         {
@@ -249,37 +271,8 @@ namespace F1Pontszamitos_S6.Migrations
                             Name = "Bottas",
                             ShortName = "BOT",
                             Team_id = 9,
-                            isActive = true
-                        },
-                        new
-                        {
-                            Id = 170,
-                            FastestLapList = "[]",
-                            FinishingPositions = "[]",
-                            Name = "Szarka",
-                            ShortName = "SZA",
-                            Team_id = 2,
-                            isActive = true
-                        },
-                        new
-                        {
-                            Id = 171,
-                            FastestLapList = "[]",
-                            FinishingPositions = "[]",
-                            Name = "Bagosi",
-                            ShortName = "BAG",
-                            Team_id = 1,
-                            isActive = true
-                        },
-                        new
-                        {
-                            Id = 172,
-                            FastestLapList = "[]",
-                            FinishingPositions = "[]",
-                            Name = "Berner",
-                            ShortName = "BER",
-                            Team_id = 4,
-                            isActive = true
+                            isActive = true,
+                            steamName = ""
                         });
                 });
 
@@ -304,145 +297,145 @@ namespace F1Pontszamitos_S6.Migrations
                     b.HasData(
                         new
                         {
-                            Id = 1,
-                            Name = "The Australian GP",
-                            ShortName = "AUS"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            Name = "The Japanese GP",
-                            ShortName = "JPN"
-                        },
-                        new
-                        {
-                            Id = 3,
-                            Name = "The Chinese GP",
-                            ShortName = "CHN"
-                        },
-                        new
-                        {
-                            Id = 4,
-                            Name = "The Qatar GP",
-                            ShortName = "QTR"
-                        },
-                        new
-                        {
-                            Id = 5,
+                            Id = 25,
                             Name = "The Bahrain GP",
                             ShortName = "BHR"
                         },
                         new
                         {
-                            Id = 6,
+                            Id = 26,
+                            Name = "The Australian GP",
+                            ShortName = "AUS"
+                        },
+                        new
+                        {
+                            Id = 27,
+                            Name = "The Japanese GP",
+                            ShortName = "JPN"
+                        },
+                        new
+                        {
+                            Id = 28,
+                            Name = "The Chinese GP",
+                            ShortName = "CHN"
+                        },
+                        new
+                        {
+                            Id = 29,
+                            Name = "The Qatar GP",
+                            ShortName = "QTR"
+                        },
+                        new
+                        {
+                            Id = 30,
                             Name = "The Saud Arabian GP",
                             ShortName = "SAU"
                         },
                         new
                         {
-                            Id = 7,
+                            Id = 31,
                             Name = "The Miami GP",
                             ShortName = "MMI"
                         },
                         new
                         {
-                            Id = 8,
+                            Id = 32,
                             Name = "The Canadian GP",
                             ShortName = "CDN"
                         },
                         new
                         {
-                            Id = 9,
+                            Id = 33,
                             Name = "The Emilia Romagna GP",
                             ShortName = "IML"
                         },
                         new
                         {
-                            Id = 10,
+                            Id = 34,
                             Name = "The Spanish GP",
                             ShortName = "SPN"
                         },
                         new
                         {
-                            Id = 11,
+                            Id = 35,
                             Name = "The Austrian GP",
                             ShortName = "AUT"
                         },
                         new
                         {
-                            Id = 12,
+                            Id = 36,
                             Name = "The Silverstone GP",
                             ShortName = "GBR"
                         },
                         new
                         {
-                            Id = 13,
+                            Id = 37,
                             Name = "The Hungarian GP",
                             ShortName = "HUN"
                         },
                         new
                         {
-                            Id = 14,
+                            Id = 38,
                             Name = "The Belgian GP",
                             ShortName = "SPA"
                         },
                         new
                         {
-                            Id = 15,
+                            Id = 39,
                             Name = "The Dutch GP",
                             ShortName = "NED"
                         },
                         new
                         {
-                            Id = 16,
+                            Id = 40,
                             Name = "The Italian GP",
                             ShortName = "MZA"
                         },
                         new
                         {
-                            Id = 17,
+                            Id = 41,
                             Name = "The Portuguese GP",
                             ShortName = "POR"
                         },
                         new
                         {
-                            Id = 18,
+                            Id = 42,
                             Name = "The Azerbajain GP",
                             ShortName = "AZE"
                         },
                         new
                         {
-                            Id = 19,
+                            Id = 43,
                             Name = "Marina Bay GP",
                             ShortName = "SGP"
                         },
                         new
                         {
-                            Id = 20,
+                            Id = 44,
                             Name = "Texas GP",
                             ShortName = "TXS"
                         },
                         new
                         {
-                            Id = 21,
+                            Id = 45,
                             Name = "Mexican GP",
                             ShortName = "MEX"
                         },
                         new
                         {
-                            Id = 22,
+                            Id = 46,
                             Name = "Sao Paulo GP",
                             ShortName = "BRA"
                         },
                         new
                         {
-                            Id = 23,
+                            Id = 47,
                             Name = "Abu Dabhi GP",
                             ShortName = "ABU"
                         },
                         new
                         {
-                            Id = 24,
+                            Id = 48,
                             Name = "The Las Vegas GP",
                             ShortName = "VGS"
                         });
@@ -483,14 +476,14 @@ namespace F1Pontszamitos_S6.Migrations
                         {
                             Id = 1,
                             BgColor = "#fe0d0d",
-                            Driver_ids = "[58,1,121]",
+                            Driver_ids = "[58,1]",
                             Name = "Ferrari"
                         },
                         new
                         {
                             Id = 2,
                             BgColor = "#021652",
-                            Driver_ids = "[9,14,120]",
+                            Driver_ids = "[9,14]",
                             Name = "Red Bull"
                         },
                         new
@@ -504,7 +497,7 @@ namespace F1Pontszamitos_S6.Migrations
                         {
                             Id = 4,
                             BgColor = "#00533a",
-                            Driver_ids = "[3,19,122]",
+                            Driver_ids = "[3,19]",
                             Name = "Aston"
                         },
                         new

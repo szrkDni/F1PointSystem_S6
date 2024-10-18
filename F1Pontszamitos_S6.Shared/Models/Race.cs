@@ -8,9 +8,18 @@ namespace F1Pontszamitos_S6.Shared.Models
 {
     public class Race
     {
-        public int Id { get; set; }
+        private static int ID = 0;
+
+        public int Id { get; private set; }
         public string Name { get; set; }
         public string ShortName { get; set; }
 
+        public Race(string name, string shortName)
+        {
+            ID++;
+            Id = ID;
+            Name = name;
+            ShortName = shortName;
+        }
     }
 }

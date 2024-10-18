@@ -171,12 +171,14 @@ namespace F1Pontszamitos_S6.Controllers
 
 
         /*Még tesztelni mindenképp*/
-        [HttpPut("addCustom/{d_name}/{d_shortname}/{d_teamId:int}")]
-        public async Task<ActionResult<Driver>> AddNewCustomDriver(string d_name, string d_shortname, int d_teamId)
+        [HttpPut("addCustom/{d_name}/{d_shortname}/{d_steamName}/{d_teamId:int}")]
+        public async Task<ActionResult<Driver>> AddNewCustomDriver(string d_name, string d_shortname, string d_steamName, int d_teamId)
         {
             var maxId = _dbContext.DriversTable.Max(x => x.Id);
+            maxId = maxId < 170 ? maxId = 170 : maxId;
 
-            Driver driver = new Driver { Name = d_name, Id = maxId+1 , ShortName = d_shortname, FastestLapList = new(), FinishingPositions = new(), isActive = true, Team_id = d_teamId};
+
+            Driver driver = new Driver { Name = d_name, Id =  ++maxId, ShortName = d_shortname, FastestLapList = new(), FinishingPositions = new(), isActive = true, Team_id = d_teamId, steamName = d_steamName};
 
             var itsTeam = _dbContext.TeamsTable.Find(driver.Team_id);
             itsTeam.Driver_ids.Add(driver.Id);

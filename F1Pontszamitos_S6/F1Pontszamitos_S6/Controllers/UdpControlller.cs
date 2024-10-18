@@ -14,6 +14,7 @@ namespace F1Pontszamitos_S6.Controllers
         private static UdpListener _udpListener;
         private static CancellationTokenSource _cancellationTokenSource;
         public uint fastest;
+        public bool running = false;
 
         private readonly DriversDbContext _dbContext;
 
@@ -25,7 +26,9 @@ namespace F1Pontszamitos_S6.Controllers
         [HttpGet("start")]
         public async Task<ActionResult<List<Individual>>> StartUdpListener()
         {
+            if (running) return Ok("Already Running");
 
+            running = true;
             _cancellationTokenSource = new CancellationTokenSource();
             _udpListener = new UdpListener(20777); // UDP port
 
@@ -46,6 +49,7 @@ namespace F1Pontszamitos_S6.Controllers
                     {
                         driver.FinishingPositions.Add(item.FinishedPosition);
                         driver.lapsByRaces.Add(item.listOfLaps);
+                        
                         ManageFastestLap(item, driver);
                     }
                     else if (item.Id == 0) //Sainz
@@ -59,22 +63,26 @@ namespace F1Pontszamitos_S6.Controllers
                     else if(item.Id == 255)
                     {
                         string name = item.Name.Replace("\0", "");
+                        var player = _dbContext.DriversTable.FirstOrDefault(x => x.steamName == name);
 
-                        switch (name)
-                        {
-                            case "D":
-                                AddToDatabase(item, "Szarka");
-                                break;
-                            case "BMark2002":
-                                AddToDatabase(item, "Bagosi");
-                                break;
-                            case "BernerCs":
-                                AddToDatabase(item, "Berner");
-                                break;
-                            default:
-                                Console.Error.WriteLine("Player not found in database!");
-                                break;
-                        }
+                        AddToDatabase(item, player.steamName);
+                        
+
+                        //switch (name)
+                        //{
+                        //    case "D":
+                        //        AddToDatabase(item, "Dani");
+                        //        break;
+                        //    case "BMark2002":
+                        //        AddToDatabase(item, "Bagossy");
+                        //        break;
+                        //    case "BernerCs":
+                        //        AddToDatabase(item, "Berner");
+                        //        break;
+                        //    default:
+                        //        Console.Error.WriteLine("Player not found in database!");
+                        //        break;
+                        //}
                     }
                 }
             }
@@ -110,17 +118,31 @@ namespace F1Pontszamitos_S6.Controllers
         public IActionResult StopUdpListener()
         {
             // Leállítjuk az UDP szervert
-            _udpListener.StopListening();
-            _cancellationTokenSource.Cancel();
-            _udpListener = null;
-            _cancellationTokenSource = null;
+            Console.Clear();
 
+            if(running)
+            {
+                _udpListener.StopListening();
+                _cancellationTokenSource.Cancel();
+                _udpListener = null;
+                _cancellationTokenSource = null;
+                Console.WriteLine("UDP listener stopped.");
+            }
+            
             return Ok("UDP listener stopped.");
+        }
+
+        [HttpGet("dispose")]
+        public void StopByDispose()
+        {
+            _ = StopUdpListener();
+
+            //return Ok("UDP listener stopped.");
         }
 
         private void AddToDatabase(Individual item, string tableName)
         {
-            var driver = _dbContext.DriversTable.FirstOrDefault(x => string.Equals(x.Name, tableName));
+            var driver = _dbContext.DriversTable.FirstOrDefault(x => string.Equals(x.steamName, tableName));
 
             if (driver.isActive)
             {
