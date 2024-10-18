@@ -23,7 +23,7 @@ namespace F1Pontszamitos_S6.Shared.Utils
             _endPoint = new IPEndPoint(IPAddress.Any, port);
         }
 
-        public async Task<List<Individual>> StartListeningAsync(CancellationToken stoppingToken) //Threadsek miatt async function kell
+        public async Task<List<Individual>> StartListeningAsync(CancellationToken stoppingToken)
         {
 
             int exceptionCounter = 0;
@@ -152,6 +152,7 @@ namespace F1Pontszamitos_S6.Shared.Utils
                     if (exceptionCounter >= 5)
                     {
                         StopListening();
+                        return null;
                     }
                 }
             }
@@ -162,7 +163,7 @@ namespace F1Pontszamitos_S6.Shared.Utils
 
         public void StopListening()
         {
-
+            if (!_isListening) return;
             _isListening = false;
             _udpClient.Close(); // Zárjuk le a kapcsolatot, ha végeztünk
             Console.WriteLine("UDP Listener is Closed.");

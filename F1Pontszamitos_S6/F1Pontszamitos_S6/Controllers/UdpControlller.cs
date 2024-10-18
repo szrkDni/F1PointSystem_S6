@@ -14,7 +14,7 @@ namespace F1Pontszamitos_S6.Controllers
         private static UdpListener _udpListener;
         private static CancellationTokenSource _cancellationTokenSource;
         public uint fastest;
-        public bool running = false;
+        private static bool running = false;
 
         private readonly DriversDbContext _dbContext;
 
@@ -34,7 +34,7 @@ namespace F1Pontszamitos_S6.Controllers
 
             //Await function lett a StartListening function a threadsek miatt
             List<Individual> individuals = await _udpListener.StartListeningAsync(_cancellationTokenSource.Token);
-
+            if (individuals is null) { running = false; return NotFound("nemjo"); }
             //Minimum time
             fastest = individuals.Where(x => x.bestLaptime != 0).Min(i => i.bestLaptime);
 
@@ -66,23 +66,6 @@ namespace F1Pontszamitos_S6.Controllers
                         var player = _dbContext.DriversTable.FirstOrDefault(x => x.steamName == name);
 
                         AddToDatabase(item, player.steamName);
-                        
-
-                        //switch (name)
-                        //{
-                        //    case "D":
-                        //        AddToDatabase(item, "Dani");
-                        //        break;
-                        //    case "BMark2002":
-                        //        AddToDatabase(item, "Bagossy");
-                        //        break;
-                        //    case "BernerCs":
-                        //        AddToDatabase(item, "Berner");
-                        //        break;
-                        //    default:
-                        //        Console.Error.WriteLine("Player not found in database!");
-                        //        break;
-                        //}
                     }
                 }
             }
@@ -107,9 +90,7 @@ namespace F1Pontszamitos_S6.Controllers
 
             //Individual with the minimum time
             //Individual individualWithLowestTime = individuals.FirstOrDefault(i => i.bestLaptime == minTime);
-
             _dbContext.SaveChangesAsync();
-
             _ = StopUdpListener();
             return Ok(individuals);
         }
@@ -121,7 +102,8 @@ namespace F1Pontszamitos_S6.Controllers
             Console.Clear();
 
             if(running)
-            {
+            { 
+                running = false;
                 _udpListener.StopListening();
                 _cancellationTokenSource.Cancel();
                 _udpListener = null;
@@ -136,6 +118,10 @@ namespace F1Pontszamitos_S6.Controllers
         public void StopByDispose()
         {
             _ = StopUdpListener();
+            //if (!running) return;
+            //running = false;
+            //_cancellationTokenSource.Cancel();
+
 
             //return Ok("UDP listener stopped.");
         }

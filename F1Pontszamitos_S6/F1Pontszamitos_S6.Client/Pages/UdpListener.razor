@@ -6,7 +6,7 @@
 @using System.Runtime.InteropServices;
 @using System.Collections;
 @using F1Pontszamitos_S6.Shared.Utils;
-@using F1Pontszamitos_S6.Client.Componenets
+@using F1Pontszamitos_S6.Client.Componenets;
 @implements IDisposable
 @inject HttpClient Http;
 @rendermode @( new InteractiveWebAssemblyRenderMode(prerender: false))
@@ -26,23 +26,26 @@
 <h2>We are listening your port...</h2>
 
 @code {
-
-    public List<Individual> raceOrder { get; set; } = new();
     bool correct = false;
+
+    // protected override async Task OnInitializedAsync()
+    // {
+    //     await Http.GetFromJsonAsync<List<Individual>>("api/udp/start");
+    // }
 
     private async Task FetchRaceOrder()
     {
-        raceOrder = await Http.GetFromJsonAsync<List<Individual>>("api/udp/start");
-        StateHasChanged(); // Refresh the UI to display the new data
+        await Http.GetFromJsonAsync<List<Individual>>("api/udp/start");
+        StateHasChanged(); // Refresh the UI to display the new datak
     }
 
     // This method gets triggered when the password is confirmed
-    private async void HandlePasswordConfirmation(bool isCorrect)
+    private void HandlePasswordConfirmation(bool isCorrect)
     {
         correct = isCorrect;
         if (correct)
         {
-            await FetchRaceOrder(); // Fetch race order after password is confirmed
+            FetchRaceOrder(); // Fetch race order after password is confirmed
         }
     }
 
