@@ -15,23 +15,12 @@
 
 <PasswordForm OnPasswordConfirmed="HandlePasswordConfirmation"></PasswordForm>
 
-@* @if (raceOrder is not null && raceOrder.Count != 0)
-{
-    @foreach (var item in raceOrder)
-    {
-        <p>@String.Format($"{item.Name} - {item.FinishedPosition}")</p>
-    }
-} *@
-
 <h2>We are listening your port...</h2>
 
 @code {
     bool correct = false;
 
-    // protected override async Task OnInitializedAsync()
-    // {
-    //     await Http.GetFromJsonAsync<List<Individual>>("api/udp/start");
-    // }
+    
 
     private async Task FetchRaceOrder()
     {
