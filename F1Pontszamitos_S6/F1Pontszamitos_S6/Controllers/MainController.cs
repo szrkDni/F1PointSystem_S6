@@ -40,7 +40,7 @@ namespace F1Pontszamitos_S6.Controllers
         [HttpGet("nextRace")]
         public async Task<ActionResult<string>> GetNextRace()
         {
-            var nextRaceId = _dbContext.DriversTable.First().FinishingPositions.Count + 1;
+            var nextRaceId = _dbContext.DriversTable.First().FinishingPositions.Count + 25;
             var nextRace = await _dbContext.RacesTable.FindAsync(nextRaceId);
 
             if(nextRace is not null)

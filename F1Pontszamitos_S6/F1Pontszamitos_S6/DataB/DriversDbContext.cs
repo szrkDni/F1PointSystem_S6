@@ -71,7 +71,7 @@ namespace F1Pontszamitos_S6.DataB
 
 
             modelBuilder.Entity<Race>().HasData(
-                new Race("The Bahrain GP",          "BHR"),
+                new Race ("The Bahrain GP",          "BHR"),
                 new Race ("The Australian GP",      "AUS" ),
                 new Race ("The Japanese GP",        "JPN" ),
                 new Race ("The Chinese GP",         "CHN" ),
