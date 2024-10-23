@@ -1,0 +1,32 @@
+﻿@page "/statistics"
+@using F1Pontszamitos_S6.Client.Componenets
+@inject HttpClient Http
+@rendermode @( new InteractiveWebAssemblyRenderMode(prerender: false))
+
+<PageTitle>Standings</PageTitle>
+<link href="css/stats.css" rel="stylesheet" />
+
+@if (false@* driverList.Count == 0 *@)
+{
+    <Loader/>
+    
+}
+else
+{
+    <div class="stat-card-container">
+        <div class="stat-card">
+            <img class="stat-driverImg" src="../Images/FACES/VERSTAPPEN.png" />
+            <span class="stat-name">VER</span>
+        </div>
+
+    </div>
+}
+
+@code {
+
+    protected override async Task OnInitializedAsync()
+    {
+        //team color, név,  
+
+    }
+}

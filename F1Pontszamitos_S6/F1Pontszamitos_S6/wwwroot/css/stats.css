@@ -1,0 +1,52 @@
+﻿.stat-card-container{
+    display: flex;
+    justify-content: center;
+    height: 100vh;
+    width: 100vw;
+}
+
+.stat-card {
+    --s: 2vw; /* control the size*/
+    --c1: #021652;
+    --c2: #02193c;
+    background: linear-gradient(atan(-.5),var(--c1) 33%,var(--c2) 33.5% 66.5%,var(--c1) 67%) 0/var(--s) var(--s);
+    width: 8vw;
+    height: 12vw;
+    border-radius: 1vw;
+    -webkit-box-shadow: 9px 9px 23px -7px rgba(0,0,0,0.75);
+    -moz-box-shadow: 9px 9px 23px -7px rgba(0,0,0,0.75);
+    box-shadow: 9px 9px 23px -7px rgba(0,0,0,0.75);
+    border: solid 0.2vw #02193c;
+    cursor: pointer;
+    animation: fadeIn 0.5s ease-out forwards;
+    transition: ease var(--animation-length);
+    display: grid;
+    padding-top: 1vw;
+}
+
+.stat-driverImg {
+    width: 7vw;
+    height: auto;
+    margin: 0 auto;
+}
+
+.stat-name {
+    font-size: .9vw;
+    color: aliceblue;
+    letter-spacing: .1vw;
+    margin: 0 auto;
+}
+
+
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+        
+    }
+}
+
