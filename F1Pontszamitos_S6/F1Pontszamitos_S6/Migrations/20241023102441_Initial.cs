@@ -16,15 +16,14 @@ namespace F1Pontszamitos_S6.Migrations
                 name: "DriversTable",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "INTEGER", nullable: false)
-                        .Annotation("Sqlite:Autoincrement", true),
-                    Name = table.Column<string>(type: "TEXT", nullable: false),
-                    steamName = table.Column<string>(type: "TEXT", nullable: true),
-                    ShortName = table.Column<string>(type: "TEXT", nullable: false),
-                    Team_id = table.Column<int>(type: "INTEGER", nullable: true),
-                    FinishingPositions = table.Column<string>(type: "TEXT", nullable: true),
-                    FastestLapList = table.Column<string>(type: "TEXT", nullable: true),
-                    isActive = table.Column<bool>(type: "INTEGER", nullable: false)
+                    Id = table.Column<int>(type: "int", nullable: false),
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    steamName = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    ShortName = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Team_id = table.Column<int>(type: "int", nullable: true),
+                    FinishingPositions = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    FastestLapList = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    isActive = table.Column<bool>(type: "bit", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -35,10 +34,10 @@ namespace F1Pontszamitos_S6.Migrations
                 name: "RacesTable",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "INTEGER", nullable: false)
-                        .Annotation("Sqlite:Autoincrement", true),
-                    Name = table.Column<string>(type: "TEXT", nullable: false),
-                    ShortName = table.Column<string>(type: "TEXT", nullable: false)
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    ShortName = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -49,11 +48,11 @@ namespace F1Pontszamitos_S6.Migrations
                 name: "TeamsTable",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "INTEGER", nullable: false)
-                        .Annotation("Sqlite:Autoincrement", true),
-                    Name = table.Column<string>(type: "TEXT", maxLength: 10, nullable: false),
-                    Driver_ids = table.Column<string>(type: "TEXT", nullable: false),
-                    BgColor = table.Column<string>(type: "TEXT", nullable: false)
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Name = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false),
+                    Driver_ids = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    BgColor = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -92,30 +91,30 @@ namespace F1Pontszamitos_S6.Migrations
                 columns: new[] { "Id", "Name", "ShortName" },
                 values: new object[,]
                 {
-                    { 25, "The Bahrain GP", "BHR" },
-                    { 26, "The Australian GP", "AUS" },
-                    { 27, "The Japanese GP", "JPN" },
-                    { 28, "The Chinese GP", "CHN" },
-                    { 29, "The Qatar GP", "QTR" },
-                    { 30, "The Saud Arabian GP", "SAU" },
-                    { 31, "The Miami GP", "MMI" },
-                    { 32, "The Canadian GP", "CDN" },
-                    { 33, "The Emilia Romagna GP", "IML" },
-                    { 34, "The Spanish GP", "SPN" },
-                    { 35, "The Austrian GP", "AUT" },
-                    { 36, "The Silverstone GP", "GBR" },
-                    { 37, "The Hungarian GP", "HUN" },
-                    { 38, "The Belgian GP", "SPA" },
-                    { 39, "The Dutch GP", "NED" },
-                    { 40, "The Italian GP", "MZA" },
-                    { 41, "The Portuguese GP", "POR" },
-                    { 42, "The Azerbajain GP", "AZE" },
-                    { 43, "Marina Bay GP", "SGP" },
-                    { 44, "Texas GP", "TXS" },
-                    { 45, "Mexican GP", "MEX" },
-                    { 46, "Sao Paulo GP", "BRA" },
-                    { 47, "Abu Dabhi GP", "ABU" },
-                    { 48, "The Las Vegas GP", "VGS" }
+                    { 1, "The Bahrain GP", "BHR" },
+                    { 2, "The Australian GP", "AUS" },
+                    { 3, "The Japanese GP", "JPN" },
+                    { 4, "The Chinese GP", "CHN" },
+                    { 5, "The Qatar GP", "QTR" },
+                    { 6, "The Saud Arabian GP", "SAU" },
+                    { 7, "The Miami GP", "MMI" },
+                    { 8, "The Canadian GP", "CDN" },
+                    { 9, "The Emilia Romagna GP", "IML" },
+                    { 10, "The Spanish GP", "SPN" },
+                    { 11, "The Austrian GP", "AUT" },
+                    { 12, "The Silverstone GP", "GBR" },
+                    { 13, "The Hungarian GP", "HUN" },
+                    { 14, "The Belgian GP", "SPA" },
+                    { 15, "The Dutch GP", "NED" },
+                    { 16, "The Italian GP", "MZA" },
+                    { 17, "The Portuguese GP", "POR" },
+                    { 18, "The Azerbajain GP", "AZE" },
+                    { 19, "Marina Bay GP", "SGP" },
+                    { 20, "Texas GP", "TXS" },
+                    { 21, "Mexican GP", "MEX" },
+                    { 22, "Sao Paulo GP", "BRA" },
+                    { 23, "Abu Dabhi GP", "ABU" },
+                    { 24, "The Las Vegas GP", "VGS" }
                 });
 
             migrationBuilder.InsertData(

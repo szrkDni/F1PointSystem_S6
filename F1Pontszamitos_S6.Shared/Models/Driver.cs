@@ -9,6 +9,7 @@ namespace F1Pontszamitos_S6.Shared.Models
     {
         [Required]
         [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int Id { get; set; }
         
         [Required]

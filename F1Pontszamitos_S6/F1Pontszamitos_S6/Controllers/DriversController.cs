@@ -174,20 +174,32 @@ namespace F1Pontszamitos_S6.Controllers
         [HttpPut("addCustom/{d_name}/{d_shortname}/{d_steamName}/{d_teamId:int}")]
         public async Task<ActionResult<Driver>> AddNewCustomDriver(string d_name, string d_shortname, string d_steamName, int d_teamId)
         {
-            var maxId = _dbContext.DriversTable.Max(x => x.Id);
-            maxId = maxId < 170 ? maxId = 170 : maxId;
+            var maxId = await _dbContext.DriversTable.MaxAsync(x => x.Id);
+            maxId = maxId < 170 ? 170 : maxId + 1;
 
+            // Új Driver létrehozása
+            Driver driver = new Driver
+            {
+                Id = maxId,
+                Name = d_name,
+                ShortName = d_shortname,
+                FastestLapList = new List<int>(), // Feltételezve, hogy van ilyen lista
+                FinishingPositions = new List<int>(), // Feltételezve, hogy itt is lista van
+                isActive = true,
+                Team_id = d_teamId,
+                steamName = d_steamName
+            };
 
-            Driver driver = new Driver { Name = d_name, Id =  ++maxId, ShortName = d_shortname, FastestLapList = new(), FinishingPositions = new(), isActive = true, Team_id = d_teamId, steamName = d_steamName};
-
-            var itsTeam = _dbContext.TeamsTable.Find(driver.Team_id);
+            // Ellenőrizzük, hogy a csapat létezik-e
+            var itsTeam = await _dbContext.TeamsTable.FindAsync(driver.Team_id);
             itsTeam.Driver_ids.Add(driver.Id);
-            
 
+            // Versenyző hozzáadása a DbContext-hez
             _dbContext.DriversTable.Add(driver);
             await _dbContext.SaveChangesAsync();
 
             return Ok("Custom driver added successfully");
+            
         }
 
         [HttpPut("modifyIsActive/{id:int}")]

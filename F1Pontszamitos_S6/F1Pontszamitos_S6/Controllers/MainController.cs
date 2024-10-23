@@ -57,8 +57,7 @@ namespace F1Pontszamitos_S6.Controllers
         [HttpGet("currentRace")]
         public async Task<ActionResult<string>> GetCurrentRace()
         {
-            //we add 25, because the index of the first race is 25
-            var currentRaceId = _dbContext.DriversTable.First().FinishingPositions.Count + 24;  
+            var currentRaceId = _dbContext.DriversTable.First().FinishingPositions.Count;  
             var currentRace = await _dbContext.RacesTable.FindAsync(currentRaceId);
 
             if (currentRace is not null)
