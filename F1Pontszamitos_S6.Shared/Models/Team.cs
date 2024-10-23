@@ -16,7 +16,7 @@ namespace F1Pontszamitos_S6.Shared.Models
         public int Id { get; set; }
 
         [Required]
-        [MaxLength(10)]
+        [MaxLength(20)]
         public string Name { get; set; }
 
         public List<int> Driver_ids { get; set; }
